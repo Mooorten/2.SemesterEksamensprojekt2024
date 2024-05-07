@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Member</title>
+</head>
+<body>
+<h1>Edit Member</h1>
+<!--/*@thymesVar id="member" type="com.example2semestereksamensprojekt2024.model.member"*/-->
+<form action="#" th:action="@{/saveMember/{id}(id=${member.memberid})}" th:object="${member}" method="post">
+    <input type="hidden" th:field="*{memberid}" />
+    <label for="email">Email:</label>
+    <input type="text" id="email" th:field="*{email}" />
+    <label for="password">Password:</label>
+    <input type="password" id="password" th:field="*{password}" />
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package model;
+package com.example2semestereksamensprojekt2024.model;
 
 public class member extends person {
     private Long memberid;
@@ -16,6 +16,9 @@ public class member extends person {
     private String goals;
 
     private String activitylevel;
+
+    public member() {
+    }
 
     public member(Long memberid, String phone, String weight, String height, String age, String gender, String goals, String activitylevel) {
         this.memberid = memberid;

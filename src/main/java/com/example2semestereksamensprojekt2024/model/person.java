@@ -1,4 +1,4 @@
-package model;
+package com.example2semestereksamensprojekt2024.model;
 
 public class person {
     private String name;
