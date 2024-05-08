@@ -9,42 +9,74 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #213026; /* Mørkegrøn baggrund */
+            color: #fff; /* Hvid tekst */
         }
         .container {
+            display: flex;
+            flex-direction: column;
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #213026; /* Mørkegrøn tekst */
         }
         h1 {
             text-align: center;
+            color: #213026; /* Mørkegrøn overskrift */
         }
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
+            padding: 12px 24px; /* Øget padding for større knapper */
+            margin-bottom: 20px; /* Mere plads mellem knapper */
+            background-color: #4CAF50; /* Grøn knap */
+            color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            cursor: pointer;
         }
         .button:hover {
-            background-color: #0056b3;
+            background-color: #45a049; /* Mørkere grøn ved hover */
         }
         .logout {
             float: right;
+        }
+        .user-info-container {
+            display: flex;
+            flex-direction: row; /* Ændret til at strække sig nedad */
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ccc; /* Grå baggrund */
+            border-radius: 8px;
+            flex-grow: 1; /* For at strække sig nedad */
+        }
+        .edit-info-button {
+            margin-top: auto; /* Placerer knappen i bunden af rektanglet */
+            align-self: flex-end; /* Justerer placeringen til bunden */
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Welcome to the site!</h1>
-    <a href="/indexMember" class="button">See Members</a>
-    <a href="/editMember" class="button">Edit member</a>
-    <a href="/logout" class="button logout">Log Out</a>
+    <h1>Velkommen!</h1>
+    <a href="/editMember" class="button">Ændre medlem</a>
+    <form action="/deleteMember" method="post">
+        <input type="hidden" name="memberid" value="${member.memberid}">
+        <input type="submit" value="Slet" class="button"> <!-- Tilføjelse af .button-klassen her -->
+    </form>
+    <a href="/logout" class="button logout">Log ud</a>
+
+    <div class="user-info-container">
+        <div>
+            <h2>Dine oplysninger:</h2>
+            <p>Navn: ${loggedInMember.isPresent() ? loggedInMember.get().getName() : "N/A"}</p>
+            <p>Email: ${loggedInMember.isPresent() ? loggedInMember.get().getEmail() : "N/A"}</p>
+            <p>Telefonnummer: ${loggedInMember.isPresent() ? loggedInMember.get().getPhone() : "N/A"}</p>
+        </div>
+    </div>
 </div>
 </body>
 </html>

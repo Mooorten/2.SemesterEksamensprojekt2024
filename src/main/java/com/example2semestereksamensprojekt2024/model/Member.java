@@ -1,6 +1,6 @@
 package com.example2semestereksamensprojekt2024.model;
 
-public class member extends person {
+public class Member extends Person {
     private Long memberid;
 
     private String phone;
@@ -17,10 +17,10 @@ public class member extends person {
 
     private String activitylevel;
 
-    public member() {
+    public Member() {
     }
 
-    public member(Long memberid, String phone, String weight, String height, String age, String gender, String goals, String activitylevel) {
+    public Member(Long memberid, String phone, String weight, String height, String age, String gender, String goals, String activitylevel) {
         this.memberid = memberid;
         this.phone = phone;
         this.weight = weight;
@@ -31,7 +31,7 @@ public class member extends person {
         this.activitylevel = activitylevel;
     }
 
-    public member(String name, String surname, String email, String password, Long memberid, String phone, String weight, String height, String age, String gender, String goals, String activitylevel) {
+    public Member(String name, String surname, String email, String password, Long memberid, String phone, String weight, String height, String age, String gender, String goals, String activitylevel) {
         super(name, surname, email, password);
         this.memberid = memberid;
         this.phone = phone;
@@ -109,7 +109,7 @@ public class member extends person {
 
     @Override
     public String toString() {
-        return "member{" +
+        return "Member{" +
                 "memberid=" + memberid +
                 ", phone='" + phone + '\'' +
                 ", weight='" + weight + '\'' +

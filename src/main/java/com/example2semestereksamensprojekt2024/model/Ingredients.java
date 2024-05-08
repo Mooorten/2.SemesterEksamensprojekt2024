@@ -1,14 +1,14 @@
 package com.example2semestereksamensprojekt2024.model;
 
-public class ingredients {
+public class Ingredients {
     private Long ingredientid;
     private String name;
     private String unit;
 
-    public ingredients() {
+    public Ingredients() {
     }
 
-    public ingredients(Long ingredientid, String name, String unit) {
+    public Ingredients(Long ingredientid, String name, String unit) {
         this.ingredientid = ingredientid;
         this.name = name;
         this.unit = unit;
@@ -40,7 +40,7 @@ public class ingredients {
 
     @Override
     public String toString() {
-        return "ingredients{" +
+        return "Ingredients{" +
                 "ingredientid=" + ingredientid +
                 ", name='" + name + '\'' +
                 ", unit='" + unit + '\'' +

@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
+            background-color: #213026; /* Mørkegrøn baggrund */
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,34 +17,44 @@
         }
         .container {
             background-color: #fff;
-            padding: 20px;
+            padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            max-width: 80%;
         }
         h2 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            color: #213026; /* Mørkegrøn overskrift */
         }
         input[type="text"], input[type="password"], input[type="submit"] {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 12px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
         }
         input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #4CAF50; /* Grøn submit knap */
+            color: white;
             border: none;
             cursor: pointer;
         }
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #45a049; /* Mørkere grøn ved hover */
         }
         .register-link {
             text-align: center;
+            color: #213026; /* Mørkegrøn tekst */
+        }
+        .register-link a {
+            color: #4CAF50; /* Grøn registreringslink */
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -56,12 +66,12 @@
             <input type="text" name="email" placeholder="Email" required>
         </label>
         <label>
-            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="password" placeholder="Kodeord" required>
         </label>
         <input type="submit" value="Login">
     </form>
     <div class="register-link">
-        <p>Don't have an account? <a href="/saveMember">Register here</a></p>
+        <p>Har du ikke en konto? <a href="/saveMember">Opret konto her</a></p>
     </div>
 </div>
 </body>

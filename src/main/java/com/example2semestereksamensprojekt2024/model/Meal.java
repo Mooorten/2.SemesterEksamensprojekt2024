@@ -1,6 +1,6 @@
 package com.example2semestereksamensprojekt2024.model;
 
-public class meal {
+public class Meal {
     private Long mealid;
 
     private String name;
@@ -15,10 +15,10 @@ public class meal {
     
     private String categories;
 
-    public meal() {
+    public Meal() {
     }
 
-    public meal(Long mealid, String name, String recipe, String procedure, String duration, String difficulty, String categories) {
+    public Meal(Long mealid, String name, String recipe, String procedure, String duration, String difficulty, String categories) {
         this.mealid = mealid;
         this.name = name;
         this.recipe = recipe;
@@ -86,7 +86,7 @@ public class meal {
 
     @Override
     public String toString() {
-        return "meal{" +
+        return "Meal{" +
                 "mealid=" + mealid +
                 ", name='" + name + '\'' +
                 ", recipe='" + recipe + '\'' +

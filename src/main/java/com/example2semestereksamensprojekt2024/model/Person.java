@@ -1,6 +1,6 @@
 package com.example2semestereksamensprojekt2024.model;
 
-public class person {
+public class Person {
     private String name;
 
     private String surname;
@@ -9,10 +9,10 @@ public class person {
 
     private String password;
 
-    public person() {
+    public Person() {
     }
 
-    public person(String name, String surname, String email, String password) {
+    public Person(String name, String surname, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.email = email;

@@ -1,19 +1,105 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Member</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rediger medlem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #213026; /* Mørkegrøn baggrund */
+            margin: 20px 0; /* Tilføjet margin øverst og nederst */
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff; /* Hvid tekst */
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            color: #213026; /* Mørkegrøn tekst */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"], input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type="submit"], button[type="button"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h1>Edit Member</h1>
-<!--/*@thymesVar id="member" type="com.example2semestereksamensprojekt2024.model.member"*/-->
-<form action="#" th:action="@{/saveMember/{id}(id=${member.memberid})}" th:object="${member}" method="post">
-    <input type="hidden" th:field="*{memberid}" />
-    <label for="email">Email:</label>
-    <input type="text" id="email" th:field="*{email}" />
-    <label for="password">Password:</label>
-    <input type="password" id="password" th:field="*{password}" />
-    <button type="submit">Save</button>
-</form>
+<div class="container">
+    <h1>Rediger medlem</h1>
+    <form action="#" method="post">
+        <input type="hidden" name="memberid" value="ID"> <!-- Indsæt ID for medlemmet -->
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Email" required>
+        <label for="password">Kodeord:</label>
+        <input type="password" id="password" name="password" placeholder="Kodeord" required>
+        <label for="lastname">Efternavn:</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Efternavn" required>
+        <label for="phone">Telefon:</label>
+        <input type="text" id="phone" name="phone" placeholder="Telefon" required>
+        <label for="age">Alder:</label>
+        <input type="number" id="age" name="age" placeholder="Alder" required>
+        <label for="weight">Vægt (kg):</label>
+        <input type="number" id="weight" name="weight" placeholder="Vægt" required>
+        <label for="height">Højde (cm):</label>
+        <input type="number" id="height" name="height" placeholder="Højde" required>
+        <label for="gender">Køn:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected hidden>Vælg køn</option>
+            <option value="male">Mand</option>
+            <option value="female">Kvinde</option>
+        </select>
+        <label for="goals">Mål:</label>
+        <select id="goals" name="goals" required>
+            <option value="" disabled selected hidden>Vælg mål</option>
+            <option value="lose_weight">Tabe vægt</option>
+            <option value="build_muscle">Opbygge muskler</option>
+            <option value="improve_fitness">Forbedre fitness</option>
+            <option value="maintain_weight">Opretholde vægt</option>
+        </select>
+        <label for="activitylevel">Aktivitetsniveau:</label>
+        <select id="activitylevel" name="activitylevel" required>
+            <option value="" disabled selected hidden>Vælg aktivitetsniveau</option>
+            <option value="sedentary">Stillesiddende (næsten ingen træning)</option>
+            <option value="lightly_active">Let aktiv (træner 1-3 gange om ugen)</option>
+            <option value="moderately_active">Moderat aktiv (træner 3-5 dage om ugen)</option>
+            <option value="very_active">Meget aktiv (træner 6-7 dage om ugen)</option>
+        </select>
+        <button type="submit">Gem</button>
+        <button type="button" onclick="history.back()">Annuller</button> <!-- Knappen for at annullere redigeringen og gå tilbage -->
+    </form>
+</div>
 </body>
 </html>
+
+

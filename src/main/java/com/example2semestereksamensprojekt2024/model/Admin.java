@@ -1,16 +1,16 @@
 package com.example2semestereksamensprojekt2024.model;
 
-public class admin extends person {
+public class Admin extends Person {
     private Long adminid;
 
     private String role;
 
-    public admin(Long adminid, String role) {
+    public Admin(Long adminid, String role) {
         this.adminid = adminid;
         this.role = role;
     }
 
-    public admin(String name, String surname, String email, String password, Long adminid, String role) {
+    public Admin(String name, String surname, String email, String password, Long adminid, String role) {
         super(name, surname, email, password);
         this.adminid = adminid;
         this.role = role;
@@ -34,7 +34,7 @@ public class admin extends person {
 
     @Override
     public String toString() {
-        return "admin{" +
+        return "Admin{" +
                 "adminid=" + adminid +
                 ", role='" + role + '\'' +
                 '}';
