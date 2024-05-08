@@ -14,24 +14,32 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #e17910;
+            background-color: rgb(225, 169, 80);
         }
         .logo-container {
             width: 100px;
         }
         .logo {
-            width: 30px;
+            width: 140px;
             height: auto;
         }
         .login {
             padding: 10px 20px;
-            background-color: #efa92e;
+            background-color: #5aa54c;
             color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
         }
         .login:hover {
             background-color: #5aa54c;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        .contact-info span {
+            margin-right: 10px;
         }
         .description-container {
             display: flex;
@@ -49,12 +57,83 @@
             width: 100%;
             height: auto;
         }
+        .customer-reviews-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .customer-reviews {
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            width: 100%;
+        }
+        .reviews-title {
+            font-size: 36px;
+            font-family: 'Times New Roman', serif;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        .review-box {
+            width: calc(50% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #e17910;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: white; /* Change font color to white */
+        }
+        .review-box h3 {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .review-box p {
+            margin-bottom: 10px;
+        }
+        .cursive {
+            font-style: italic;
+        }
+        .footer {
+            background-color: rgba(175, 161, 161, 0.76);
+            padding: 20px; /* Add padding for spacing */
+            text-align: center; /* Align content to center */
+        }
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-logo {
+            margin-right: 20px; /* Add spacing between logo and text */
+        }
+        .footer-logo img {
+            width: 50px; /* Set logo width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .footer-text {
+            color: #333; /* Dark text color */
+            font-size: 14px; /* Adjust font size */
+            font-family: Arial, sans-serif; /* Use Arial font */
+        }
+        .footer-link {
+            color: #333; /* Dark text color for link */
+            text-decoration: none; /* Remove underline from link */
+            margin-left: 10px; /* Add spacing between elements */
+        }
+        .footer-link:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
     </style>
 </head>
 <body>
 <header>
     <div class="logo">
         <img src="/images/logo_minkostplan.jpg" alt="Logo" width="140" height="120"/>
+    </div>
+    <div class="contact-info">
+        <span><img src="/images/location_icon.png" alt="Location Icon" width="30" height="20">Farimagsvej 45, 4700 Næstved</span>
+        <span><img src="/images/mail_icon.png" alt="Mail Icon" width="30" height="20">kontakt@minkostplan.com</span>
     </div>
     <div>
         <a href="/login" class="login">Login</a>
@@ -66,11 +145,41 @@
     <div class="description">
         <h2>Velkommen til din personlige, skræddersyede og billige kostplan</h2>
         <p>Som medlem hos os vil du hver uge modtage 21 skræddersyede kostplaner, der dækker dine personlige sundhedsbehov, så du kan komme i dit livs form uden stress og uden at tømme pungen. Hver uge får du 7 morgenmads opskrifter, 7 frokost opskrifter og 7 aftensmads opskrifter, som alle er lavet specifikt til dig, dine mål og behov.</p>
-
     </div>
     <div>
         <img src="/images/forside_billede1.jpg" alt="Image">
     </div>
 </div>
+
+<div class="customer-reviews-container">
+    <div class="reviews-title">
+        Det siger vores kunder
+    </div>
+    <div class="customer-reviews">
+        <div class="review-box">
+            <h3 style="font-weight: bold;">Billigt, lækkert og målrettet</h3>
+            <p>Jeg startede på minkostplan.com fordi jeg så en annonce med 7 dages gratis prøveperiode, og tænkte at det kunne jeg godt lige prøve. Men jeg er her stadig 2 måneder senere. Det er enormt billigt, lækre opskrifter og virkelig fedt at jeg samtidig ved at jeg spiser efter min krop og mine mål!
+                Jeg er virkelig glad for minkostplan.com, god service - det spiller bare.</p>
+            <p class="cursive">Skrevet af: Jacob Britze, 09. januar 2023 på Trustpilot.com</p>
+        </div>
+        <div class="review-box">
+            <h3 style="font-weight: bold;">SÅ BILLIGT I FORHOLD TIL ALLE ANDRE!</h3>
+            <p>Jeg har legit fået en mindst ligeså god kostplan som jeg har fået hos en personlig træner til en langt billigere pris. Hos en personlig træner betalte jeg 2000 her betaler jeg 49 kr om ugen...... Og jeg vil nærmest påstå at Minkostplan er bedre.......</p>
+            <p class="cursive">Skrevet af: Julie Spuhr, 13. september 2023 på Trustpilot.com</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="/"><img src="/images/logo_minkostplan.jpg" alt="Logo"></a>
+        </div>
+        <div class="footer-text">
+            Farimagsvej 45, 4700 Næstved | Kontakt: kontakt@minkostplan.com | <a href="https://www.instagram.com/minkostplan/" class="footer-link">Besøg os på Instagram</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

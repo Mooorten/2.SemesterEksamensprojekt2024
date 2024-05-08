@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betalingsinfo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        p {
+            margin: 10px 0;
+            color: #666;
+        }
+        input[type="text"] {
+            width: calc(50% - 10px); /* Ændret */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .expiry-date {
+            display: flex;
+        }
+        .expiry-date input {
+            margin-right: 10px; /* Tilføjet */
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #5aa54c;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5aa54c;
+        }
+    </style>
+</head>
+<body>
+<a href="/menu" class="logo-link logo-container">
+    <img src="/images/logo_minkostplan.jpg" alt="Logo" width="100" height="100">
+</a>
+
+<div class="container">
+    <h2>Betalingsinfo</h2>
+    <p>DKK 49,-</p>
+    <form action="menu">
+        <input id="cardNumber" type="text" placeholder="Kortnummer" pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" title="Indtast et gyldigt kortnummer" maxlength="19" required>
+        <div class="expiry-date">
+            <input type="text" placeholder="MM" pattern="\d{2}" title="Indtast måned (MM)" maxlength="2" required>
+            <input type="text" placeholder="YY" pattern="\d{2}" title="Indtast år (YY)" maxlength="2" required>
+        </div>
+        <input type="text" placeholder="Kontrolcifre" pattern="\d{3}" title="Indtast gyldige kontrolcifre" maxlength="3" required>
+        <button type="submit">Gennemfør betaling</button>
+    </form>
+</div>
+
+<script>
+    const cardNumberInput = document.getElementById('cardNumber');
+
+    cardNumberInput.addEventListener('input', function() {
+        let value = this.value.replace(/\s+/g, '').replace(/(\d{4})/g, '$1 ').trim();
+        this.value = value;
+    });
+</script>
+</body>
+</html>

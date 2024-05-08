@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startpage</title>
+    <title>Startside</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #213026; /* Mørkegrøn baggrund */
+            background-color: #5aa54c; /* Mørkegrøn baggrund */
             color: #fff; /* Hvid tekst */
         }
         .container {
             display: flex;
-            flex-direction: column;
-            max-width: 800px;
+            flex-direction: row; /* Ændret til at være på linje */
+            justify-content: space-between; /* Justerer til at fordele indholdet jævnt langs den vandrette akse */
+            max-width: 600px; /* Mindre bredde */
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: #213026; /* Mørkegrøn tekst */
+            color: #5aa54c; /* Mørkegrøn tekst */
         }
         h1 {
             text-align: center;
-            color: #213026; /* Mørkegrøn overskrift */
+            color: #5aa54c; /* Mørkegrøn overskrift */
         }
         .button {
             display: inline-block;
@@ -45,13 +46,9 @@
             float: right;
         }
         .user-info-container {
-            display: flex;
-            flex-direction: row; /* Ændret til at strække sig nedad */
-            margin-top: 20px;
             padding: 20px;
             background-color: #ccc; /* Grå baggrund */
             border-radius: 8px;
-            flex-grow: 1; /* For at strække sig nedad */
         }
         .edit-info-button {
             margin-top: auto; /* Placerer knappen i bunden af rektanglet */
@@ -61,21 +58,25 @@
 </head>
 <body>
 <div class="container">
-    <h1>Velkommen!</h1>
-    <a href="/editMember" class="button">Ændre medlem</a>
-    <form action="/deleteMember" method="post">
-        <input type="hidden" name="memberid" value="${member.memberid}">
-        <input type="submit" value="Slet" class="button"> <!-- Tilføjelse af .button-klassen her -->
-    </form>
-    <a href="/logout" class="button logout">Log ud</a>
-
     <div class="user-info-container">
         <div>
             <h2>Dine oplysninger:</h2>
-            <p>Navn: ${loggedInMember.isPresent() ? loggedInMember.get().getName() : "N/A"}</p>
-            <p>Email: ${loggedInMember.isPresent() ? loggedInMember.get().getEmail() : "N/A"}</p>
-            <p>Telefonnummer: ${loggedInMember.isPresent() ? loggedInMember.get().getPhone() : "N/A"}</p>
+            <p>Navn: <span th:text="${loggedInMember.getName()} + ' ' + ${loggedInMember.surname}"></span></p>
+            <p>Email: <span th:text="${loggedInMember.email}"></span></p>
+            <!-- Tilføj resten af brugerens oplysninger efter behov -->
         </div>
+    </div>
+    <div>
+        <h1>Velkommen!</h1>
+        <a href="/editMember" class="button">Ændre medlem</a>
+        <form action="/deleteMember" method="post">
+            <input type="hidden" name="memberid" value="${member.memberid}">
+            <input type="submit" value="Slet" class="button"> <!-- Tilføjelse af .button-klassen her -->
+        </form>
+        <a href="/payment" class="button">Abonner her</a>
+        <a href="/logout" class="button logout">Log ud</a>
+        <a href="/thisweek" class="button">Denne uges kostplan</a>
+        <a href="/previousweeks" class="button">Tidligere kostplaner</a>
     </div>
 </div>
 </body>

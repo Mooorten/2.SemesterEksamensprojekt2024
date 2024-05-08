@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denne uges kostplan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 30px;
+            margin-top: 20px;
+        }
+        .day-column {
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .day-column h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .meal {
+            margin-bottom: 30px;
+            position: relative; /* Gør positionen relativ, så vi kan positionere opskriftsdetaljerne */
+        }
+        .meal h3 {
+            margin-bottom: 20px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .meal-details {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px); /* Juster lodret placering af opskriften */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        .meal:hover .meal-details {
+            display: block;
+        }
+        .meal img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .meal-details ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .meal-details ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Denne uges kostplan</h1>
+
+    <div class="grid-container">
+        <div class="day-column">
+            <h2>Mandag</h2>
+            <div class="meal">
+                <h3>Morgenmad</h3>
+                <div class="meal-details">
+                    <img src="/images/2Q.png" alt="Morgenmad" />
+                    <ul>
+                        <li> Scrambled eggs </li>
+                        <li> - 2x æg</li>
+                        <li> - 2 spsk mælk</li>
+                        <li> - 1 tsk smør</li>
+                        <li> - 3 spsk purløg</li>
+                        <li> - 0,25 tsk flagesalt</li>
+                        <li> - sort peber</li>
+                        <li> - </li>
+                        <li> - </li>
+                        <li> - 5 minutter</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="meal">
+                <h3>Frokost</h3>
+                <div class="meal-details">
+                    <img src="/images/frokost.jpg" alt="Frokost" />
+                    <ul>
+                        <li> Sandwich </li>
+                        <li> - Brød</li>
+                        <li> - Skinke</li>
+                        <li> - Salat</li>
+                        <li> - Tomat</li>
+                        <li> - Agurk</li>
+                        <li> - Mayonnaise</li>
+                        <li> - Sennep</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="meal">
+                <h3>Aftensmad</h3>
+                <div class="meal-details">
+                    <img src="/images/aftensmad.jpg" alt="Aftensmad" />
+                    <ul>
+                        <li> Lasagne </li>
+                        <li> - Pasta</li>
+                        <li> - Oksekød</li>
+                        <li> - Tomatsauce</li>
+                        <li> - Ost</li>
+                        <li> - Basilikum</li>
+                        <li> - Oregano</li>
+                        <li> - Salt og peber</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

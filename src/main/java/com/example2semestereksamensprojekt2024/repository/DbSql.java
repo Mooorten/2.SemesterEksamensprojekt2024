@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class dbsql {
+public class DbSql {
     private JdbcTemplate jdbcTemplate;
 
-    public dbsql(JdbcTemplate jdbcTemplate) {
+    public DbSql(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -77,17 +77,17 @@ public class dbsql {
         };
     }
 
-    public Optional<Member> findLogin(String email, String password) {
+    public Member findLogin(String email, String password) {
         try {
             String sql = "SELECT * FROM member WHERE email = ? AND password = ?";
-            List<Member> Members = jdbcTemplate.query(sql, new Object[]{email, password}, memberRowMapper());
-            if (Members.size() == 1) {
-                return Optional.of(Members.get(0));
+            List<Member> members = jdbcTemplate.query(sql, new Object[]{email, password}, memberRowMapper());
+            if (!members.isEmpty()) {
+                return members.get(0);
             } else {
-                return Optional.empty();
+                return null;
             }
         } catch (EmptyResultDataAccessException e) {
-            return Optional.empty();
+            return null;
         }
     }
 }

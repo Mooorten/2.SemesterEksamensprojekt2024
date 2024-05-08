@@ -5,12 +5,12 @@ import java.util.Optional;
 import com.example2semestereksamensprojekt2024.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example2semestereksamensprojekt2024.repository.dbsql;
+import com.example2semestereksamensprojekt2024.repository.DbSql;
 
 @Service
-public class usecase {
+public class Usecase {
     @Autowired
-    private dbsql dbsql;
+    private DbSql dbsql;
 
     public void saveMember(Member member) {
         dbsql.saveMember(member);
@@ -20,8 +20,8 @@ public class usecase {
         dbsql.delete(id);
     }
 
-    public boolean findLogin(String email, String password) {
-        return dbsql.findLogin(email, password).isPresent();
+    public Member findLogin(String email, String password) {
+        return dbsql.findLogin(email, password);
     }
 
     public List<Member> findAllMembers() {

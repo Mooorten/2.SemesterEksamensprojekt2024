@@ -7,13 +7,18 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #213026; /* Mørkegrøn baggrund */
+            background-color: #efa92e; /* Mørkegrøn baggrund */
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Changed to column */
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Added */
+        }
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
         .container {
             background-color: #fff;
@@ -22,11 +27,18 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 350px;
             max-width: 80%;
+            margin: auto; /* Add this to center the container horizontally */
+            margin-top: auto; /* Add this to center the container vertically */
+            margin-bottom: auto; /* Add this to center the container vertically */
+            display: flex; /* Add this */
+            flex-direction: column; /* Add this */
+            justify-content: center; /* Add this */
+            align-items: center; /* Add this */
         }
         h2 {
             text-align: center;
             margin-bottom: 30px;
-            color: #213026; /* Mørkegrøn overskrift */
+            color: #5aa54c; /* Mørkegrøn overskrift */
         }
         input[type="text"], input[type="password"], input[type="submit"] {
             width: 100%;
@@ -47,7 +59,7 @@
         }
         .register-link {
             text-align: center;
-            color: #213026; /* Mørkegrøn tekst */
+            color: #efa92e; /* Mørkegrøn tekst */
         }
         .register-link a {
             color: #4CAF50; /* Grøn registreringslink */
@@ -59,6 +71,12 @@
     </style>
 </head>
 <body>
+<div class="logo-container"> <!-- Moved the logo container outside the form -->
+    <a href="/" class="logo-link logo-container">
+        <img src="/images/logo_minkostplan.jpg" alt="Logo" width="100" height="100">
+    </a>
+</div>
+
 <div class="container">
     <h2>Login</h2>
     <form action="/login" method="post">
