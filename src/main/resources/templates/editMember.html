@@ -58,6 +58,7 @@
     <h1>Rediger Medlem</h1>
     <form action="#" th:action="@{/updateMember}" th:object="${member}" method="post">
         <input type="hidden" th:field="*{memberid}" />
+        <!-- Tekstfelter -->
         <label for="name">Navn:</label>
         <input type="text" id="name" th:field="*{name}" />
         <label for="surname">Efternavn:</label>
@@ -74,27 +75,28 @@
         <input type="text" id="height" th:field="*{height}" />
         <label for="age">Alder:</label>
         <input type="text" id="age" th:field="*{age}" />
+        <!-- Dropdown-menuer -->
         <label for="gender">Køn:</label>
-        <select id="gender" name="gender" required>
+        <select id="gender" name="gender" th:field="*{gender}" required>
             <option value="" disabled selected hidden>Vælg køn</option>
-            <option value="male">Mand</option>
-            <option value="female">Kvinde</option>
+            <option value="Mand">Mand</option>
+            <option value="Kvinde">Kvinde</option>
         </select>
         <label for="goals">Mål:</label>
-        <select id="goals" name="goals" required>
+        <select id="goals" name="goals" th:field="*{goals}" required>
             <option value="" disabled selected hidden>Vælg mål</option>
-            <option value="lose_weight">Tabe vægt</option>
-            <option value="build_muscle">Opbygge muskler</option>
-            <option value="improve_fitness">Forbedre fitness</option>
-            <option value="maintain_weight">Opretholde vægt</option>
+            <option value="Tabe vægt">Tabe vægt</option>
+            <option value="Opbygge muskler">Opbygge muskler</option>
+            <option value="Forbedre fitness">Forbedre fitness</option>
+            <option value="Opretholde vægt">Opretholde vægt</option>
         </select>
         <label for="activitylevel">Aktivitetsniveau:</label>
-        <select id="activitylevel" name="activitylevel" required>
+        <select id="activitylevel" name="activitylevel" th:field="*{activitylevel}" required>
             <option value="" disabled selected hidden>Vælg aktivitetsniveau</option>
-            <option value="sedentary">Stillesiddende (næsten ingen træning)</option>
-            <option value="lightly_active">Let aktiv (træner 1-3 gange om ugen)</option>
-            <option value="moderately_active">Moderat aktiv (træner 3-5 dage om ugen)</option>
-            <option value="very_active">Meget aktiv (træner 6-7 dage om ugen)</option>
+            <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option>
+            <option value="Let aktiv">Let aktiv (træner 1-3 gange om ugen)</option>
+            <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option>
+            <option value="Meget aktiv">Meget aktiv (træner 6-7 dage om ugen)</option>
         </select>
         <button type="submit">Opdater</button>
     </form>
