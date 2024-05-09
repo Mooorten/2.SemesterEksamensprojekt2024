@@ -13,8 +13,12 @@ public class Usecase {
     @Autowired
     private DbSql dbsql;
 
-    public void saveMember(Member member) {
-        dbsql.saveMember(member);
+    public void createMember(Member member) {
+        dbsql.createMember(member);
+    }
+
+    public void updateMember(Member member) {
+        dbsql.updateMember(member);
     }
 
     public void delete(Long id) {

@@ -18,18 +18,21 @@ public class DbSql {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void saveMember(Member member) {
+    public void createMember(Member member) {
         try {
-            Long memberid = member.getMemberid();
-            if (memberid == null) {
-                String sql = "INSERT INTO member (email, password, name, surname, phone, weight, height, age, gender, goals, activitylevel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel());
-            } else {
-                String sql = "UPDATE member SET email = ?, password = ?, name = ?, surname = ?, phone = ?, weight = ?, height = ?, age = ?, gender = ?, goals = ?, activitylevel = ? WHERE memberid = ?";
-                jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel(), member.getMemberid());
-            }
+            String sql = "INSERT INTO member (email, password, name, surname, phone, weight, height, age, gender, goals, activitylevel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel());
         } catch (RuntimeException e) {
-            throw new RuntimeException("Error while creating an Member", e);
+            throw new RuntimeException("Fejl under oprettelse af medlem", e);
+        }
+    }
+
+    public void updateMember(Member member) {
+        try {
+            String sql = "UPDATE member SET email = ?, password = ?, name = ?, surname = ?, phone = ?, weight = ?, height = ?, age = ?, gender = ?, goals = ?, activitylevel = ? WHERE memberid = ?";
+            jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel(), member.getMemberid());
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Fejl under opdatering af medlem", e);
         }
     }
 

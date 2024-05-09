@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="da">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rediger medlem</title>
+    <title>Rediger Medlem</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,25 +55,25 @@
 </head>
 <body>
 <div class="container">
-    <h1>Rediger medlem</h1>
-    <form action="#" method="post">
-        <input type="hidden" name="memberid" value="ID"> <!-- Indsæt ID for medlemmet -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Name" required>
-        <label for="lastname">Efternavn:</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Efternavn" required>
+    <h1>Rediger Medlem</h1>
+    <form action="#" th:action="@{/updateMember}" th:object="${member}" method="post">
+        <input type="hidden" th:field="*{memberid}" />
+        <label for="name">Navn:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <label for="surname">Efternavn:</label>
+        <input type="text" id="surname" th:field="*{surname}" />
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" placeholder="Email" required>
+        <input type="text" id="email" th:field="*{email}" />
         <label for="password">Kodeord:</label>
-        <input type="password" id="password" name="password" placeholder="Kodeord" required>
+        <input type="text" id="password" th:field="*{password}" />
         <label for="phone">Telefon:</label>
-        <input type="text" id="phone" name="phone" placeholder="Telefon" required>
-        <label for="weight">Vægt (kg):</label>
-        <input type="number" id="weight" name="weight" placeholder="Vægt" required>
-        <label for="height">Højde (cm):</label>
-        <input type="number" id="height" name="height" placeholder="Højde" required>
+        <input type="text" id="phone" th:field="*{phone}" />
+        <label for="weight">Vægt:</label>
+        <input type="text" id="weight" th:field="*{weight}" />
+        <label for="height">Højde:</label>
+        <input type="text" id="height" th:field="*{height}" />
         <label for="age">Alder:</label>
-        <input type="number" id="age" name="age" placeholder="Alder" required>
+        <input type="text" id="age" th:field="*{age}" />
         <label for="gender">Køn:</label>
         <select id="gender" name="gender" required>
             <option value="" disabled selected hidden>Vælg køn</option>
@@ -97,11 +96,9 @@
             <option value="moderately_active">Moderat aktiv (træner 3-5 dage om ugen)</option>
             <option value="very_active">Meget aktiv (træner 6-7 dage om ugen)</option>
         </select>
-        <button type="submit">Gem</button>
-        <button type="button" onclick="history.back()">Annuller</button> <!-- Knappen for at annullere redigeringen og gå tilbage -->
+        <button type="submit">Opdater</button>
     </form>
+    <a href="/menu">Tilbage</a>
 </div>
 </body>
 </html>
-
-

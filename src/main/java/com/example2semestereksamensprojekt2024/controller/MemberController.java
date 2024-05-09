@@ -1,17 +1,12 @@
 package com.example2semestereksamensprojekt2024.controller;
 
 import com.example2semestereksamensprojekt2024.model.Member;
-import com.example2semestereksamensprojekt2024.repository.DbSql;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example2semestereksamensprojekt2024.service.Usecase;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-
-import java.util.List;
 
 @Controller
 public class MemberController {
@@ -28,6 +23,7 @@ public class MemberController {
         model.addAttribute("member", new Member());
         return "saveMember";
     }
+
 
     @GetMapping("/editMember")
     public String editMemberForm() {
@@ -49,16 +45,16 @@ public class MemberController {
         return "previousweeks";
     }
 
-    @PostMapping("/saveMember")
+    @PostMapping("/createMember")
     public String saveMember(@ModelAttribute Member member) {
-        usecase.saveMember(member);
+        usecase.createMember(member);
         return "login";
     }
 
-    @PostMapping("/saveMember1")
-    public String saveMember1(@ModelAttribute Member member) {
-        usecase.saveMember(member);
-        return "menu";
+    @PostMapping("/updateMember")
+    public String updateMember(@ModelAttribute Member member) {
+        usecase.updateMember(member);
+        return "redirect:/login";
     }
 
     @GetMapping("/member/delete/{id}")
@@ -70,7 +66,7 @@ public class MemberController {
     @GetMapping("/member/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         usecase.findUserByID(id).ifPresent(member -> model.addAttribute("member", member));
-        return "editmember1";
+        return "editMember";
     }
 
     @PostMapping("/login")

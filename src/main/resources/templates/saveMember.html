@@ -68,9 +68,13 @@
     </style>
 </head>
 <body>
+<div class="logo-container"> <!-- Moved the logo container outside the form -->
+    <a href="/" class="logo-link logo-container">
+        <img src="/images/logo_minkostplan.jpg" alt="Logo" width="100" height="100">
+    </a>
 <div class="container">
     <h2>Registrering</h2>
-    <form action="/saveMember" method="post">
+    <form action="/createMember" method="post">
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Kodeord" required>
         <input type="text" name="name" placeholder="Fornavn" required>

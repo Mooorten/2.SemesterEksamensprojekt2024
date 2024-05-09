@@ -75,6 +75,23 @@
         .logout {
             margin-top: auto; /* Placerer log ud knappen nederst */
         }
+        .edit-button,
+        .delete-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px; /* Justerer afstanden fra de andre knapper */
+            background-color: #4CAF50; /* Grøn knap */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        .edit-button:hover,
+        .delete-button:hover {
+            background-color: #45a049; /* Mørkere grøn ved hover */
+        }
     </style>
 </head>
 <body>
@@ -104,10 +121,8 @@
             <p>Aktiv:     <span th:text="${loggedInMember.activitylevel}"></span></p>
             <!-- Tilføj resten af brugerens oplysninger efter behov -->
         </div>
-        <a href="/editMember" class="button">Ændre medlem</a>
-        <!--input type="submit" value="Slet" class="button"-->
-        <a th:href="@{/member/edit/{id}(id=${loggedInMember.memberid})}">Rediger</a>
-        <a th:href="@{/member/delete/{id}(id=${loggedInMember.memberid})}" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
+        <a th:href="@{/member/edit/{id}(id=${loggedInMember.memberid})}" class="edit-button">Rediger</a>
+        <a th:href="@{/member/delete/{id}(id=${loggedInMember.memberid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
     </div>
 </div>
 </body>
