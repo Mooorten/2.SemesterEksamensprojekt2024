@@ -1,4 +1,5 @@
 package com.example2semestereksamensprojekt2024.service;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +29,7 @@ public class Usecase {
         return dbsql.findAllMembers();
     }
 
-    public Optional<Member> findMemberById(Long id) {
-        return dbsql.findMemberByid(id);
+    public Optional<Member> findUserByID(Long id){
+        return dbsql.findMemberByID(id);
     }
 }

@@ -38,15 +38,15 @@ public class DbSql {
         jdbcTemplate.update(sql, id);
     }
 
-    public Optional<Member> findMemberByid(Long id){
+    public Optional<Member> findMemberByID(Long userId){
         try {
             String sql = "SELECT * FROM member WHERE memberid = ?";
-            Member member = jdbcTemplate.queryForObject(sql, new Object[]{id}, memberRowMapper());
+            Member member = jdbcTemplate.queryForObject(sql, new Object[]{userId}, memberRowMapper());
             return Optional.ofNullable(member);
         } catch (EmptyResultDataAccessException e) {
-            return Optional.empty();
+            return Optional.empty(); // Return empty Optional if no user is found
         } catch(DataAccessException e){
-            throw new RuntimeException("Error accessing data while finding Member", e);
+            throw new RuntimeException("Error accessing data while finding user", e);
         }
     }
 
@@ -70,8 +70,9 @@ public class DbSql {
             member.setPhone(rs.getString("phone"));
             member.setWeight(rs.getString("weight"));
             member.setHeight(rs.getString("height"));
-            member.setAge(rs.getString("age"));
+            member.setAge(rs.getInt("age"));
             member.setGender(rs.getString("gender"));
+            member.setGoals(rs.getString("goals"));
             member.setActivitylevel(rs.getString("activitylevel"));
             return member;
         };

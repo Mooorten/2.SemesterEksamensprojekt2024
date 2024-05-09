@@ -33,377 +33,46 @@
             background-color: #f2f2f2;
             border-radius: 8px;
             padding: 20px;
+            cursor: pointer; /* Gør dagskolonnen til en knap */
+        }
+        .day-column:hover {
+            background-color: #e0e0e0; /* Ændrer farve ved hover */
         }
         .day-column h2 {
             text-align: center;
             margin-bottom: 15px;
         }
-        .meal {
-            margin-bottom: 30px;
-        }
-        .meal h3 {
-            margin-bottom: 20px;
-        }
-        .meal ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .meal ul li {
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
-<div class="logo-container"> <!-- Logo container -->
-    <a href="/menu" class="logo-link logo-container">
-        <img src="/images/logo_minkostplan.jpg" alt="Logo" width="100" height="100">
-    </a>
-</div>
+
 <div class="container">
 
-    <h1>Tidligere kostplaner</h1>
+    <h1>Se tidligere kostplan</h1>
 
     <div class="grid-container">
         <div class="day-column">
-            <h2>Mandag</h2>
-            <div class="meal">
-                <h3>Morgenmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Frokost</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Aftensmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-        </div>
-        <!-- Repeat for each day of the week -->
-        <div class="day-column">
-            <h2>Tirsdag</h2>
-            <div class="meal">
-                <h3>Morgenmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Frokost</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Aftensmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
+            <h2><a href="/Mandag/meals">Mandag</a></h2>
         </div>
         <div class="day-column">
-            <h2>Onsdag</h2>
-            <div class="meal">
-                <h3>Morgenmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Frokost</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Aftensmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
+            <h2><a href="/Tirsdag/meals">Tirsdag</a></h2>
         </div>
         <div class="day-column">
-            <h2>Torsdag</h2>
-            <div class="meal">
-                <h3>Morgenmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Frokost</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Aftensmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
+            <h2><a href="/Onsdag/meals">Onsdag</a></h2>
         </div>
         <div class="day-column">
-            <h2>Fredag</h2>
-            <div class="meal">
-                <h3>Morgenmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Frokost</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Aftensmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
+            <h2><a href="/Torsdag/meals">Torsdag</a></h2>
         </div>
         <div class="day-column">
-            <h2>Lørdag</h2>
-            <div class="meal">
-                <h3>Morgenmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Frokost</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Aftensmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
+            <h2><a href="/Fredag/meals">Fredag</a></h2>
         </div>
         <div class="day-column">
-            <h2>Søndag</h2>
-            <div class="meal">
-                <h3>Morgenmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Frokost</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h3>Aftensmad</h3>
-                <ul>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                    <li> - </li>
-                </ul>
-            </div>
+            <h2><a href="/Lørdag/meals">Lørdag</a></h2>
         </div>
-        <!-- Remember to fill in the ingredients -->
+        <div class="day-column">
+            <h2><a href="/Søndag/meals">Søndag</a></h2>
+        </div>
     </div>
-
 </div>
 
 </body>

@@ -2,11 +2,14 @@ package com.example2semestereksamensprojekt2024.controller;
 
 import com.example2semestereksamensprojekt2024.model.Member;
 import com.example2semestereksamensprojekt2024.repository.DbSql;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example2semestereksamensprojekt2024.service.Usecase;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import java.util.List;
 
@@ -14,8 +17,6 @@ import java.util.List;
 public class MemberController {
     @Autowired
     private Usecase usecase;
-    @Autowired
-    private DbSql dbSql;
 
     @GetMapping("/")
     public String loginForm() {
@@ -54,26 +55,33 @@ public class MemberController {
         return "login";
     }
 
-    @PostMapping("/")
-    public String deleteMember(@RequestParam("memberid") Long id) {
+    @PostMapping("/saveMember1")
+    public String saveMember1(@ModelAttribute Member member) {
+        usecase.saveMember(member);
+        return "menu";
+    }
+
+    @GetMapping("/member/delete/{id}")
+    public String deleteMember(@PathVariable Long id) {
         usecase.delete(id);
-        return "redirect:/login";
+        return "redirect:/";
+    }
+
+    @GetMapping("/member/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        usecase.findUserByID(id).ifPresent(member -> model.addAttribute("member", member));
+        return "editmember1";
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute Member member, Model model) {
+    public String login(@ModelAttribute Member member, Model model, HttpSession session) {
         Member authenticatedMember = usecase.findLogin(member.getEmail(), member.getPassword());
         if (authenticatedMember != null) {
-            // Tilføj den autentificerede bruger til modelen
-            model.addAttribute("loggedInMember", authenticatedMember);
-
-            // Send brugeren videre til menu-siden
+            // Tilføj den autentificerede bruger til sessionen
+            session.setAttribute("loggedInMember", authenticatedMember);
             return "redirect:/menu";
         } else {
-            // Hvis brugeren ikke kunne autentificeres, tilføj en fejlmeddelelse til modelen
-            model.addAttribute("error", "Unreachable email or password");
-
-            // Returner login-siden igen med fejlmeddelelsen
+            model.addAttribute("error", "Ugyldig email eller kodeord");
             return "login";
         }
     }
@@ -84,13 +92,20 @@ public class MemberController {
     }
 
     @GetMapping("/menu")
-    public String getMenuPage(Model model) {
-        model.addAttribute("loggedInMember", new Member());
-        return "menu";
+    public String getMenuPage(HttpSession session, Model model) {
+        Member loggedInMember = (Member) session.getAttribute("loggedInMember");
+        if (loggedInMember != null) {
+            model.addAttribute("loggedInMember", loggedInMember);
+            return "menu";
+        } else {
+            // til login-siden, hvis ingen autentificeret bruger findes
+            return "redirect:/login";
+        }
     }
 
     @GetMapping("/logout")
-    public String logout() {
+    public String logout(HttpSession session) {
+        session.invalidate();
         return "login";
     }
 }

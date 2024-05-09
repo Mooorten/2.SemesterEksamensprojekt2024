@@ -9,7 +9,7 @@ public class Member extends Person {
 
     private String height;
 
-    private String age;
+    private int age;
 
     private String gender;
 
@@ -20,7 +20,7 @@ public class Member extends Person {
     public Member() {
     }
 
-    public Member(Long memberid, String phone, String weight, String height, String age, String gender, String goals, String activitylevel) {
+    public Member(Long memberid, String phone, String weight, String height, int age, String gender, String goals, String activitylevel) {
         this.memberid = memberid;
         this.phone = phone;
         this.weight = weight;
@@ -31,7 +31,7 @@ public class Member extends Person {
         this.activitylevel = activitylevel;
     }
 
-    public Member(String name, String surname, String email, String password, Long memberid, String phone, String weight, String height, String age, String gender, String goals, String activitylevel) {
+    public Member(String name, String surname, String email, String password, Long memberid, String phone, String weight, String height, int age, String gender, String goals, String activitylevel) {
         super(name, surname, email, password);
         this.memberid = memberid;
         this.phone = phone;
@@ -75,11 +75,11 @@ public class Member extends Person {
         this.height = height;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
