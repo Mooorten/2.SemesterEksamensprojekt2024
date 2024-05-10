@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.example2semestereksamensprojekt2024.service.Usecase;
+import com.example2semestereksamensprojekt2024.service.MemberUsecase;
 
 @Controller
 public class MemberController {
     @Autowired
-    private Usecase usecase;
+    private MemberUsecase memberUsecase;
 
     @GetMapping("/")
     public String loginForm() {
@@ -23,7 +23,6 @@ public class MemberController {
         model.addAttribute("member", new Member());
         return "saveMember";
     }
-
 
     @GetMapping("/editMember")
     public String editMemberForm() {
@@ -46,32 +45,32 @@ public class MemberController {
     }
 
     @PostMapping("/createMember")
-    public String saveMember(@ModelAttribute Member member) {
-        usecase.createMember(member);
+    public String createMember(@ModelAttribute Member member) {
+        memberUsecase.createMember(member);
         return "login";
     }
 
     @PostMapping("/updateMember")
     public String updateMember(@ModelAttribute Member member) {
-        usecase.updateMember(member);
+        memberUsecase.updateMember(member);
         return "redirect:/login";
     }
 
     @GetMapping("/member/delete/{id}")
     public String deleteMember(@PathVariable Long id) {
-        usecase.delete(id);
+        memberUsecase.deleteMember(id);
         return "redirect:/";
     }
 
     @GetMapping("/member/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
-        usecase.findUserByID(id).ifPresent(member -> model.addAttribute("member", member));
+        memberUsecase.findUserByID(id).ifPresent(member -> model.addAttribute("member", member));
         return "editMember";
     }
 
     @PostMapping("/login")
     public String login(@ModelAttribute Member member, Model model, HttpSession session) {
-        Member authenticatedMember = usecase.findLogin(member.getEmail(), member.getPassword());
+        Member authenticatedMember = memberUsecase.findLogin(member.getEmail(), member.getPassword());
         if (authenticatedMember != null) {
             // Tilføj den autentificerede bruger til sessionen
             session.setAttribute("loggedInMember", authenticatedMember);

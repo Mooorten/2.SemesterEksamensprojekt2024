@@ -1,10 +1,25 @@
 package com.example2semestereksamensprojekt2024.controller;
 
+import com.example2semestereksamensprojekt2024.model.Meal;
+import com.example2semestereksamensprojekt2024.service.MealUsecase;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class  MealController {
+
+    @Autowired
+    private MealUsecase mealUsecase;
+
+    @PostMapping("/createMeal")
+    public String createMeal(@ModelAttribute Meal meal) {
+        mealUsecase.createMeal(meal);
+        return "adminmenu";
+    }
+
     @GetMapping("/Mandag/meals")
     public String mondayMeals() {
         return "Mandag/meals";
@@ -40,3 +55,4 @@ public class  MealController {
         return "Søndag/meals";
     }
 }
+

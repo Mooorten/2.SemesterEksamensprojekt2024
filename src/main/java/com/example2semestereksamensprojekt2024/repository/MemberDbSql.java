@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class DbSql {
+public class MemberDbSql {
     private JdbcTemplate jdbcTemplate;
 
-    public DbSql(JdbcTemplate jdbcTemplate) {
+    public MemberDbSql(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -36,20 +36,24 @@ public class DbSql {
         }
     }
 
-    public void delete(Long id) {
-        String sql = "DELETE FROM member WHERE memberid = ?";
-        jdbcTemplate.update(sql, id);
+    public void deleteMember(Long id) {
+        try {
+            String sql = "DELETE FROM member WHERE memberid = ?";
+            jdbcTemplate.update(sql, id);
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Fejl under sletning af medlem", e);
+        }
     }
 
-    public Optional<Member> findMemberByID(Long userId){
+    public Optional<Member> findMemberByID(Long userId) {
         try {
             String sql = "SELECT * FROM member WHERE memberid = ?";
             Member member = jdbcTemplate.queryForObject(sql, new Object[]{userId}, memberRowMapper());
             return Optional.ofNullable(member);
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty(); // Return empty Optional if no user is found
-        } catch(DataAccessException e){
-            throw new RuntimeException("Error accessing data while finding user", e);
+        } catch (DataAccessException e) {
+            throw new RuntimeException("Brugeren findes ikke", e);
         }
     }
 
@@ -58,7 +62,21 @@ public class DbSql {
             String sql = "SELECT * FROM member";
             return jdbcTemplate.query(sql, memberRowMapper());
         } catch (DataAccessException e) {
-            throw new RuntimeException("Error while searching all members", e);
+            throw new RuntimeException("Fejl under indlæsning af alle brugere", e);
+        }
+    }
+
+    public Member findLogin(String email, String password) {
+        try {
+            String sql = "SELECT * FROM member WHERE email = ? AND password = ?";
+            List<Member> members = jdbcTemplate.query(sql, new Object[]{email, password}, memberRowMapper());
+            if (!members.isEmpty()) {
+                return members.get(0);
+            } else {
+                return null;
+            }
+        } catch (EmptyResultDataAccessException e) {
+            return null;
         }
     }
 
@@ -79,19 +97,5 @@ public class DbSql {
             member.setActivitylevel(rs.getString("activitylevel"));
             return member;
         };
-    }
-
-    public Member findLogin(String email, String password) {
-        try {
-            String sql = "SELECT * FROM member WHERE email = ? AND password = ?";
-            List<Member> members = jdbcTemplate.query(sql, new Object[]{email, password}, memberRowMapper());
-            if (!members.isEmpty()) {
-                return members.get(0);
-            } else {
-                return null;
-            }
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
     }
 }

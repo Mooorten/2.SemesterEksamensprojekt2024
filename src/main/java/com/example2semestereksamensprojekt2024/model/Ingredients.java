@@ -1,25 +1,25 @@
 package com.example2semestereksamensprojekt2024.model;
 
 public class Ingredients {
-    private Long ingredientid;
+    private Long ingredientsid;
     private String name;
     private String unit;
 
     public Ingredients() {
     }
 
-    public Ingredients(Long ingredientid, String name, String unit) {
-        this.ingredientid = ingredientid;
+    public Ingredients(Long ingredientsid, String name, String unit) {
+        this.ingredientsid = ingredientsid;
         this.name = name;
         this.unit = unit;
     }
 
-    public Long getIngredientid() {
-        return ingredientid;
+    public Long getIngredientsid() {
+        return ingredientsid;
     }
 
-    public void setIngredientid(Long ingredientid) {
-        this.ingredientid = ingredientid;
+    public void setIngredientsid(Long ingredientsid) {
+        this.ingredientsid = ingredientsid;
     }
 
     public String getName() {
@@ -41,7 +41,7 @@ public class Ingredients {
     @Override
     public String toString() {
         return "Ingredients{" +
-                "ingredientid=" + ingredientid +
+                "ingredientid=" + ingredientsid +
                 ", name='" + name + '\'' +
                 ", unit='" + unit + '\'' +
                 '}';

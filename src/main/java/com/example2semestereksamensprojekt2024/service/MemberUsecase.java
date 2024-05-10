@@ -1,39 +1,38 @@
 package com.example2semestereksamensprojekt2024.service;
-import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
 import com.example2semestereksamensprojekt2024.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example2semestereksamensprojekt2024.repository.DbSql;
+import com.example2semestereksamensprojekt2024.repository.MemberDbSql;
 
 @Service
-public class Usecase {
+public class MemberUsecase {
     @Autowired
-    private DbSql dbsql;
+    private MemberDbSql memberDbSql;
 
     public void createMember(Member member) {
-        dbsql.createMember(member);
+        memberDbSql.createMember(member);
     }
 
     public void updateMember(Member member) {
-        dbsql.updateMember(member);
+        memberDbSql.updateMember(member);
     }
 
-    public void delete(Long id) {
-        dbsql.delete(id);
+    public void deleteMember(Long id) {
+        memberDbSql.deleteMember(id);
     }
 
     public Member findLogin(String email, String password) {
-        return dbsql.findLogin(email, password);
+        return memberDbSql.findLogin(email, password);
     }
 
     public List<Member> findAllMembers() {
-        return dbsql.findAllMembers();
+        return memberDbSql.findAllMembers();
     }
 
     public Optional<Member> findUserByID(Long id){
-        return dbsql.findMemberByID(id);
+        return memberDbSql.findMemberByID(id);
     }
 }
