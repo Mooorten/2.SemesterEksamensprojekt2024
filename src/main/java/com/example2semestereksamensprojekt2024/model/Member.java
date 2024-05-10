@@ -17,6 +17,7 @@ public class Member extends Person {
 
     private String activitylevel;
 
+
     public Member() {
     }
 
@@ -33,6 +34,18 @@ public class Member extends Person {
 
     public Member(String name, String surname, String email, String password, Long memberid, String phone, String weight, String height, int age, String gender, String goals, String activitylevel) {
         super(name, surname, email, password);
+        this.memberid = memberid;
+        this.phone = phone;
+        this.weight = weight;
+        this.height = height;
+        this.age = age;
+        this.gender = gender;
+        this.goals = goals;
+        this.activitylevel = activitylevel;
+    }
+
+    public Member(String name, String surname, String email, String password, String role, Long memberid, String phone, String weight, String height, int age, String gender, String goals, String activitylevel) {
+        super(name, surname, email, password, role);
         this.memberid = memberid;
         this.phone = phone;
         this.weight = weight;

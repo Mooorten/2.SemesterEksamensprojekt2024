@@ -74,7 +74,14 @@ public class MemberController {
         if (authenticatedMember != null) {
             // Tilføj den autentificerede bruger til sessionen
             session.setAttribute("loggedInMember", authenticatedMember);
-            return "redirect:/menu";
+            if (authenticatedMember.getRole().equals("admin")) {
+                return "redirect:/adminmenu";
+            } else if (authenticatedMember.getRole().equals("member")) {
+                return "redirect:/menu";
+            } else {
+                model.addAttribute("error", "Ugyldig brugerrolle");
+                return "login";
+            }
         } else {
             model.addAttribute("error", "Ugyldig email eller kodeord");
             return "login";
@@ -89,11 +96,23 @@ public class MemberController {
     @GetMapping("/menu")
     public String getMenuPage(HttpSession session, Model model) {
         Member loggedInMember = (Member) session.getAttribute("loggedInMember");
-        if (loggedInMember != null) {
+        if (loggedInMember != null && loggedInMember.getRole().equals("member")) {
             model.addAttribute("loggedInMember", loggedInMember);
             return "menu";
         } else {
-            // til login-siden, hvis ingen autentificeret bruger findes
+            // til login-siden, hvis ingen autentificeret bruger findes eller hvis brugeren ikke har medlemsrolle
+            return "redirect:/login";
+        }
+    }
+
+    @GetMapping("/adminmenu")
+    public String getAdminMenuPage(HttpSession session, Model model) {
+        Member loggedInMember = (Member) session.getAttribute("loggedInMember");
+        if (loggedInMember != null && loggedInMember.getRole().equals("admin")) {
+            model.addAttribute("loggedInMember", loggedInMember);
+            return "adminmenu";
+        } else {
+            // til login-siden, hvis ingen autentificeret bruger findes eller hvis brugeren ikke har adminrolle
             return "redirect:/login";
         }
     }

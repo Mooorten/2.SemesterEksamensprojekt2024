@@ -107,18 +107,12 @@
         <a href="/logout" class="button logout">Log ud</a>
     </div>
     <div class="user-info-container">
-        <h2>Dine oplysninger:</h2>
+        <h2>Dine oplysninger Admin:</h2>
         <div class="user-info">
             <p>Email:     <span th:text="${loggedInMember.email}"></span></p>
             <p>Navn:      <span th:text="${loggedInMember.name}"></span></p>
             <p>Efternavn: <span th:text="${loggedInMember.surname}"></span></p>
-            <p>Phone:     <span th:text="${loggedInMember.phone}"></span></p>
-            <p>Vægt:      <span th:text="${loggedInMember.weight}"></span></p>
-            <p>Højde:     <span th:text="${loggedInMember.height}"></span></p>
-            <p>Alder:     <span th:text="${loggedInMember.age}"></span></p>
-            <p>Køn:       <span th:text="${loggedInMember.gender}"></span></p>
-            <p>Mål:       <span th:text="${loggedInMember.goals}"></span></p>
-            <p>Aktiv:     <span th:text="${loggedInMember.activitylevel}"></span></p>
+            <p>Rolle:     <span th:text="${loggedInMember.role}"></span></p>
             <!-- Tilføj resten af brugerens oplysninger efter behov -->
         </div>
         <a th:href="@{/member/edit/{id}(id=${loggedInMember.memberid})}" class="edit-button">Rediger</a>

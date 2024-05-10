@@ -20,8 +20,8 @@ public class MemberDbSql {
 
     public void createMember(Member member) {
         try {
-            String sql = "INSERT INTO member (email, password, name, surname, phone, weight, height, age, gender, goals, activitylevel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel());
+            String sql = "INSERT INTO member (email, password, name, surname, phone, weight, height, age, gender, goals, activitylevel, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel(), "member");
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under oprettelse af medlem", e);
         }
@@ -29,8 +29,8 @@ public class MemberDbSql {
 
     public void updateMember(Member member) {
         try {
-            String sql = "UPDATE member SET email = ?, password = ?, name = ?, surname = ?, phone = ?, weight = ?, height = ?, age = ?, gender = ?, goals = ?, activitylevel = ? WHERE memberid = ?";
-            jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel(), member.getMemberid());
+            String sql = "UPDATE member SET email = ?, password = ?, name = ?, surname = ?, phone = ?, weight = ?, height = ?, age = ?, gender = ?, goals = ?, activitylevel = ?, role = ? WHERE memberid = ?";
+            jdbcTemplate.update(sql, member.getEmail(), member.getPassword(), member.getName(), member.getSurname(), member.getPhone(), member.getWeight(), member.getHeight(), member.getAge(), member.getGender(), member.getGoals(), member.getActivitylevel(), member.getRole(), member.getMemberid());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under opdatering af medlem", e);
         }
@@ -95,6 +95,7 @@ public class MemberDbSql {
             member.setGender(rs.getString("gender"));
             member.setGoals(rs.getString("goals"));
             member.setActivitylevel(rs.getString("activitylevel"));
+            member.setRole(rs.getString("role"));
             return member;
         };
     }

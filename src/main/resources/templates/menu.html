@@ -119,6 +119,7 @@
             <p>Køn:       <span th:text="${loggedInMember.gender}"></span></p>
             <p>Mål:       <span th:text="${loggedInMember.goals}"></span></p>
             <p>Aktiv:     <span th:text="${loggedInMember.activitylevel}"></span></p>
+            <p>Rolle:     <span th:text="${loggedInMember.role}"></span></p>
             <!-- Tilføj resten af brugerens oplysninger efter behov -->
         </div>
         <a th:href="@{/member/edit/{id}(id=${loggedInMember.memberid})}" class="edit-button">Rediger</a>
