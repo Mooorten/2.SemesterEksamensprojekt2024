@@ -1,7 +1,7 @@
 package com.example2semestereksamensprojekt2024;
 
-import com.example2semestereksamensprojekt2024.model.Member;
-import com.example2semestereksamensprojekt2024.repository.MemberDbSql;
+import com.example2semestereksamensprojekt2024.model.User;
+import com.example2semestereksamensprojekt2024.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,23 +10,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ApplicationTests {
 
     @Mock
-    MemberDbSql memberDbSql;
+    UserRepository userRepository;
 
     @Test
-    void createMember() {
-        Member m = new Member();
-        m.setMemberid(1L);
-        m.setName("test");
-        m.setSurname("test");
-        m.setEmail("test@test.com");
-        m.setPassword("1234");
-        m.setPhone("12345678");
-        m.setWeight("70");
-        m.setHeight("170");
-        m.setAge(22);
-        m.setGender("Male");
-        m.setGoals("Gain weight");
-        m.setActivitylevel("3 times a day");
-        memberDbSql.createMember(m);
+    void createUser() {
+        User u = new User();
+        u.setUserid(1L);
+        u.setName("test");
+        u.setSurname("test");
+        u.setEmail("test@test.com");
+        u.setPassword("1234");
+        u.setPhone("12345678");
+        u.setWeight("70");
+        u.setHeight("170");
+        u.setAge(22);
+        u.setGender("Male");
+        u.setGoals("Gain weight");
+        u.setActivitylevel("3 times a day");
+        userRepository.createUser(u);
     }
 }

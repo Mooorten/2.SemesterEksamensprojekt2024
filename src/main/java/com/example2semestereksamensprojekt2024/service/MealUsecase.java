@@ -16,7 +16,7 @@ public class MealUsecase {
         mealDbSql.createMeal(meal);
     }
 
-    public void updateMember(Meal meal) {
+    public void updateMeal(Meal meal) {
         mealDbSql.updateMeal(meal);
     }
 

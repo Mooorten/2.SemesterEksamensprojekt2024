@@ -98,8 +98,8 @@
 <div class="container">
     <div class="button-container">
         <h1>Velkommen!</h1>
-        <form action="/deleteMember" method="post">
-            <input type="hidden" name="memberid" value="${member.memberid}">
+        <form action="/deleteUser" method="post">
+            <input type="hidden" name="userid" value="${currentUser.userid}">
             <a href="/thisweek" class="button">Denne uges kostplan</a>
             <a href="/previousweeks" class="button">Tidligere kostplaner</a>
         </form>
@@ -109,21 +109,21 @@
     <div class="user-info-container">
         <h2>Dine oplysninger:</h2>
         <div class="user-info">
-            <p>Email:     <span th:text="${loggedInMember.email}"></span></p>
-            <p>Navn:      <span th:text="${loggedInMember.name}"></span></p>
-            <p>Efternavn: <span th:text="${loggedInMember.surname}"></span></p>
-            <p>Phone:     <span th:text="${loggedInMember.phone}"></span></p>
-            <p>Vægt:      <span th:text="${loggedInMember.weight}"></span></p>
-            <p>Højde:     <span th:text="${loggedInMember.height}"></span></p>
-            <p>Alder:     <span th:text="${loggedInMember.age}"></span></p>
-            <p>Køn:       <span th:text="${loggedInMember.gender}"></span></p>
-            <p>Mål:       <span th:text="${loggedInMember.goals}"></span></p>
-            <p>Aktiv:     <span th:text="${loggedInMember.activitylevel}"></span></p>
-            <p>Rolle:     <span th:text="${loggedInMember.role}"></span></p>
+            <p>Email:     <span th:text="${currentUser.email}"></span></p>
+            <p>Navn:      <span th:text="${currentUser.name}"></span></p>
+            <p>Efternavn: <span th:text="${currentUser.surname}"></span></p>
+            <p>Phone:     <span th:text="${currentUser.phone}"></span></p>
+            <p>Vægt:      <span th:text="${currentUser.weight}"></span></p>
+            <p>Højde:     <span th:text="${currentUser.height}"></span></p>
+            <p>Alder:     <span th:text="${currentUser.age}"></span></p>
+            <p>Køn:       <span th:text="${currentUser.gender}"></span></p>
+            <p>Mål:       <span th:text="${currentUser.goals}"></span></p>
+            <p>Aktiv:     <span th:text="${currentUser.activitylevel}"></span></p>
+            <p>Rolle:     <span th:text="${currentUser.role}"></span></p>
             <!-- Tilføj resten af brugerens oplysninger efter behov -->
         </div>
-        <a th:href="@{/member/edit/{id}(id=${loggedInMember.memberid})}" class="edit-button">Rediger</a>
-        <a th:href="@{/member/delete/{id}(id=${loggedInMember.memberid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
+        <a th:href="@{/user/edit/{id}(id=${currentUser.userid})}" class="edit-button">Rediger</a>
+        <a th:href="@{/user/delete/{id}(id=${currentUser.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
     </div>
 </div>
 </body>

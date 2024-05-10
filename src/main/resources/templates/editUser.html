@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rediger Medlem</title>
+    <title>Rediger Bruger</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,9 +55,9 @@
 </head>
 <body>
 <div class="container">
-    <h1>Rediger Medlem</h1>
-    <form action="#" th:action="@{/updateMember}" th:object="${member}" method="post">
-        <input type="hidden" th:field="*{memberid}" />
+    <h1>Rediger Bruger</h1>
+    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post">
+        <input type="hidden" th:field="*{userid}" />
         <!-- Tekstfelter -->
         <label for="name">Navn:</label>
         <input type="text" id="name" th:field="*{name}" />

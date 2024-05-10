@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rediger Bruger</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c3ec9a; /* Mørkegrøn baggrund */
+            margin: 20px 0; /* Tilføjet margin øverst og nederst */
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff; /* Hvid tekst */
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            color: #5aa54c; /* Mørkegrøn tekst */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"], input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type="submit"], button[type="button"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #5aa54c;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #e17910;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Rediger Bruger</h1>
+    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post">
+        <input type="hidden" th:field="*{userid}" />
+
+        <label for="name">Navn:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <label for="surname">Efternavn:</label>
+        <input type="text" id="surname" th:field="*{surname}" />
+        <label for="email">Email:</label>
+        <input type="text" id="email" th:field="*{email}" />
+        <label for="password">Kodeord:</label>
+        <input type="text" id="password" th:field="*{password}" />
+        <button type="submit">Opdater</button>
+    </form>
+    <a href="/adminmenu">Tilbage</a>
+</div>
+</body>
+</html>

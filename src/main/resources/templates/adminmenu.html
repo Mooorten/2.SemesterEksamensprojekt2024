@@ -97,26 +97,25 @@
 <body>
 <div class="container">
     <div class="button-container">
-        <h1>Velkommen!</h1>
-        <form action="/deleteMember" method="post">
-            <input type="hidden" name="memberid" value="${member.memberid}">
-            <a href="/thisweek" class="button">Denne uges kostplan</a>
-            <a href="/previousweeks" class="button">Tidligere kostplaner</a>
+        <h1>Velkommen Admin!</h1>
+        <form action="/deleteUser" method="post">
+            <input type="hidden" name="userid" value="${user.userid}">
+            <a href="/adminmenu" class="button">Tilføj ny kostplan</a>
+            <a href="/adminmenu" class="button">Tilføj ny ingrediens</a>
         </form>
-        <a href="/payment" class="button">Abonner her</a>
         <a href="/logout" class="button logout">Log ud</a>
     </div>
     <div class="user-info-container">
         <h2>Dine oplysninger Admin:</h2>
         <div class="user-info">
-            <p>Email:     <span th:text="${loggedInMember.email}"></span></p>
-            <p>Navn:      <span th:text="${loggedInMember.name}"></span></p>
-            <p>Efternavn: <span th:text="${loggedInMember.surname}"></span></p>
-            <p>Rolle:     <span th:text="${loggedInMember.role}"></span></p>
-            <!-- Tilføj resten af brugerens oplysninger efter behov -->
+            <p>Email:     <span th:text="${currentUser.email}"></span></p>
+            <p>Navn:      <span th:text="${currentUser.name}"></span></p>
+            <p>Efternavn: <span th:text="${currentUser.surname}"></span></p>
+            <p>Rolle:     <span th:text="${currentUser.role}"></span></p>
+
         </div>
-        <a th:href="@{/member/edit/{id}(id=${loggedInMember.memberid})}" class="edit-button">Rediger</a>
-        <a th:href="@{/member/delete/{id}(id=${loggedInMember.memberid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
+        <a th:href="@{/user/editAdmin/{id}(id=${currentUser.userid})}" class="edit-button">Rediger</a>
+        <a th:href="@{/user/delete/{id}(id=${currentUser.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
     </div>
 </div>
 </body>
