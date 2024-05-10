@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startside</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #5aa54c; /* Mørkegrøn baggrund */
+            color: #fff; /* Hvid tekst */
+        }
+        .container {
+            display: flex;
+            justify-content: space-between; /* Justerer til at fordele indholdet jævnt langs den vandrette akse */
+            max-width: 1000px; /* Ændret maksimal bredde */
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #5aa54c; /* Mørkegrøn tekst */
+        }
+        .user-info-container {
+            padding: 20px;
+            background-color: #ccc; /* Grå baggrund */
+            border-radius: 8px;
+            align-self: flex-start; /* Placerer elementet i starten (venstre) af sin container */
+            width: calc(30% - 2cm); /* Ændret bredden */
+        }
+        .user-info-container h2 {
+            text-align: left; /* Justerer til venstre */
+            margin-bottom: 10px; /* Lidt mindre plads under overskriften */
+        }
+        .user-info {
+            display: grid; /* Anvender grid layout til at justere oplysninger */
+            grid-template-columns: 1fr; /* En enkelt kolonne */
+            gap: 0; /* Fjerner plads mellem oplysningerne */
+        }
+        .user-info p {
+            text-align: left; /* Justerer til venstre */
+            margin-bottom: 5px; /* Lidt mindre plads mellem hver oplysning */
+        }
+        .user-info p span {
+            margin-left: 5px; /* Lidt plads til højre for kolonet */
+            font-weight: bold; /* Gør teksten fed */
+        }
+        h1 {
+            text-align: center;
+            color: #5aa54c; /* Mørkegrøn overskrift */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Justerer til venstre */
+            width: calc(50% - 2cm); /* Ændret bredden */
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px; /* Øget padding for større knapper */
+            margin-bottom: 20px; /* Mere plads mellem knapper */
+            background-color: #4CAF50; /* Grøn knap */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #45a049; /* Mørkere grøn ved hover */
+        }
+        .logout {
+            margin-top: auto; /* Placerer log ud knappen nederst */
+        }
+        .edit-button,
+        .delete-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px; /* Justerer afstanden fra de andre knapper */
+            background-color: #4CAF50; /* Grøn knap */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        .edit-button:hover,
+        .delete-button:hover {
+            background-color: #45a049; /* Mørkere grøn ved hover */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="button-container">
+        <h1>Velkommen!</h1>
+        <form action="/deleteMember" method="post">
+            <input type="hidden" name="memberid" value="${member.memberid}">
+            <a href="/thisweek" class="button">Denne uges kostplan</a>
+            <a href="/previousweeks" class="button">Tidligere kostplaner</a>
+        </form>
+        <a href="/payment" class="button">Abonner her</a>
+        <a href="/logout" class="button logout">Log ud</a>
+    </div>
+    <div class="user-info-container">
+        <h2>Dine oplysninger:</h2>
+        <div class="user-info">
+            <p>Email:     <span th:text="${loggedInMember.email}"></span></p>
+            <p>Navn:      <span th:text="${loggedInMember.name}"></span></p>
+            <p>Efternavn: <span th:text="${loggedInMember.surname}"></span></p>
+            <p>Phone:     <span th:text="${loggedInMember.phone}"></span></p>
+            <p>Vægt:      <span th:text="${loggedInMember.weight}"></span></p>
+            <p>Højde:     <span th:text="${loggedInMember.height}"></span></p>
+            <p>Alder:     <span th:text="${loggedInMember.age}"></span></p>
+            <p>Køn:       <span th:text="${loggedInMember.gender}"></span></p>
+            <p>Mål:       <span th:text="${loggedInMember.goals}"></span></p>
+            <p>Aktiv:     <span th:text="${loggedInMember.activitylevel}"></span></p>
+            <!-- Tilføj resten af brugerens oplysninger efter behov -->
+        </div>
+        <a th:href="@{/member/edit/{id}(id=${loggedInMember.memberid})}" class="edit-button">Rediger</a>
+        <a th:href="@{/member/delete/{id}(id=${loggedInMember.memberid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
+    </div>
+</div>
+</body>
+</html>
