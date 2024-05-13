@@ -19,11 +19,10 @@ public class MealDbSql {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    // Opretter et måltid i databasen
     public void createMeal(Meal meal) {
         try {
-            String sql = "INSERT INTO meal (name, recipe, procedure, duration, difficulty, categories) VALUES (?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql, meal.getName(), meal.getRecipe(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getDuration());
+            String sql = "INSERT INTO meal (name, ingredients, `procedure`, duration, difficulty, categories) VALUES (?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getCategories());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under oprettelse af måltid", e);
         }
@@ -33,7 +32,7 @@ public class MealDbSql {
     public void updateMeal(Meal meal) {
         try {
             String sql = "UPDATE meal SET name = ?, recipe = ?, procedure = ?, duration = ?, difficulty = ?, categories = ?";
-            jdbcTemplate.update(sql, meal.getName(), meal.getRecipe(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getDuration());
+            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getDuration());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under opdatering af måltid", e);
         }
@@ -78,7 +77,7 @@ public class MealDbSql {
             Meal meal = new Meal();
             meal.setMealid(rs.getLong("mealid"));
             meal.setName(rs.getString("name"));
-            meal.setRecipe(rs.getString("recipe"));
+            meal.setIngredients(rs.getString("recipe"));
             meal.setProcedure(rs.getString("procedure"));
             meal.setDuration(rs.getString("duration"));
             meal.setDifficulty(rs.getString("difficulty"));

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opret ret</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DCDCDC;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #FFF8DC;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .meal {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #FFF8DC;
+            border-radius: 8px;
+        }
+        .meal h2 {
+            color: #333;
+        }
+        .meal p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        form input[type="text"],
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        form input[type="text"]:focus,
+        form textarea:focus,
+        form select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        form textarea {
+            resize: vertical;
+        }
+        form select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 8px top 50%;
+            background-size: 14px;
+            padding-right: 30px;
+        }
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Opret ret</h1>
+
+    <form>
+        <label for="name">Navn på retten:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="ingredients">Ingredienser:</label><br>
+        <textarea id="ingredients" name="ingredients" rows="4" required></textarea><br>
+
+        <label for="procedure">Fremgangsmåde:</label><br>
+        <textarea id="procedure" name="procedure" rows="4" required></textarea><br>
+
+
+        <label for="duration">Varighed:</label>
+        <input type="text" id="duration" name="duration" required><br>
+
+        <label for="difficulty">Sværhedsgrad:</label>
+        <select id="difficulty" name="difficulty" required>
+            <option value="easy">Let</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Svær</option>
+        </select><br>
+
+        <label for="categories">Kategori:</label>
+        <input type="text" id="categories" name="categories" required><br>
+
+        <input type="submit" value="Tilføj ret">
+    </form>
+    <a href="/adminmenu">Tilbage</a>
+</div>
+</body>
+</html>

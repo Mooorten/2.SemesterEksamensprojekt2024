@@ -5,7 +5,7 @@ public class Meal {
 
     private String name;
 
-    private String recipe;
+    private String ingredients;
 
     private String procedure;
     
@@ -18,10 +18,10 @@ public class Meal {
     public Meal() {
     }
 
-    public Meal(Long mealid, String name, String recipe, String procedure, String duration, String difficulty, String categories) {
+    public Meal(Long mealid, String name, String ingredients, String procedure, String duration, String difficulty, String categories) {
         this.mealid = mealid;
         this.name = name;
-        this.recipe = recipe;
+        this.ingredients = ingredients;
         this.procedure = procedure;
         this.duration = duration;
         this.difficulty = difficulty;
@@ -44,12 +44,12 @@ public class Meal {
         this.name = name;
     }
 
-    public String getRecipe() {
-        return recipe;
+    public String getIngredients() {
+        return ingredients;
     }
 
-    public void setRecipe(String recipe) {
-        this.recipe = recipe;
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getProcedure() {
@@ -89,7 +89,7 @@ public class Meal {
         return "Meal{" +
                 "mealid=" + mealid +
                 ", name='" + name + '\'' +
-                ", recipe='" + recipe + '\'' +
+                ", recipe='" + ingredients + '\'' +
                 ", procedure='" + procedure + '\'' +
                 ", duration='" + duration + '\'' +
                 ", difficulty='" + difficulty + '\'' +

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -14,6 +13,11 @@ public class  MealController {
 
     @Autowired
     private MealUsecase mealUsecase;
+
+    @GetMapping("/createmealAdmin")
+    public String createMeals() {
+        return "createmealAdmin";
+    }
 
     @PostMapping("/createMeal")
     public String createMeal(@ModelAttribute Meal meal) {
