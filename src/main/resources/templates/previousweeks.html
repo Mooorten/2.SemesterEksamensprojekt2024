@@ -9,72 +9,78 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-color: #F0E68C; /* Mørkegrøn farve */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
+            max-width: 800px;
             padding: 20px;
-            background-color: #fff;
+            background-color: #FFFFE0;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 30px;
         }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-gap: 30px;
-            margin-top: 20px;
+        .day-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Tilføj lidt afstand mellem knapperne */
         }
-        .day-column {
-            background-color: #f2f2f2;
+        .day-button {
+            background-color: #87CEEB; /* Lysblå farve */
             border-radius: 8px;
             padding: 20px;
-            cursor: pointer; /* Gør dagskolonnen til en knap */
-        }
-        .day-column:hover {
-            background-color: #e0e0e0; /* Ændrer farve ved hover */
-        }
-        .day-column h2 {
             text-align: center;
-            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            min-width: 120px; /* Sæt en minimumsbredde for knapperne */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tilføj en let skygge for dybde */
+        }
+        .day-button:hover {
+            background-color: #6495ED; /* Mørkere blå farve ved hover */
+        }
+        .day-button a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold; /* Gør teksten fed for bedre synlighed */
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-
     <h1>Se tidligere kostplan</h1>
-
-    <div class="grid-container">
-        <div class="day-column">
-            <h2><a href="/Mandag/meals">Mandag</a></h2>
+    <div class="day-buttons">
+        <div class="day-button">
+            <a href="/Monday/Pmeals">Mandag</a>
         </div>
-        <div class="day-column">
-            <h2><a href="/Tirsdag/meals">Tirsdag</a></h2>
+        <div class="day-button">
+            <a href="/Tuesday/Pmeals">Tirsdag</a>
         </div>
-        <div class="day-column">
-            <h2><a href="/Onsdag/meals">Onsdag</a></h2>
+        <div class="day-button">
+            <a href="/Wednesday/Pmeals">Onsdag</a>
         </div>
-        <div class="day-column">
-            <h2><a href="/Torsdag/meals">Torsdag</a></h2>
+        <div class="day-button">
+            <a href="/Thursday/Pmeals">Torsdag</a>
         </div>
-        <div class="day-column">
-            <h2><a href="/Fredag/meals">Fredag</a></h2>
+        <div class="day-button">
+            <a href="/Friday/Pmeals">Fredag</a>
         </div>
-        <div class="day-column">
-            <h2><a href="/Lørdag/meals">Lørdag</a></h2>
+        <div class="day-button">
+            <a href="/Saturday/Pmeals">Lørdag</a>
         </div>
-        <div class="day-column">
-            <h2><a href="/Søndag/meals">Søndag</a></h2>
+        <div class="day-button">
+            <a href="/Sunday/Pmeals">Søndag</a>
         </div>
     </div>
+    <a href="/menu">Tilbage</a>
 </div>
-
 </body>
-<a href="/menu">Tilbage</a>
 </html>

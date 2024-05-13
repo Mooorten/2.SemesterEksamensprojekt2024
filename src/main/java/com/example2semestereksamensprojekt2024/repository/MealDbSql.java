@@ -19,6 +19,7 @@ public class MealDbSql {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // Opretter et måltid i databasen
     public void createMeal(Meal meal) {
         try {
             String sql = "INSERT INTO meal (name, recipe, procedure, duration, difficulty, categories) VALUES (?, ?, ?, ?, ?, ?)";
@@ -28,6 +29,7 @@ public class MealDbSql {
         }
     }
 
+    // Opdaterer et måltid i databasen
     public void updateMeal(Meal meal) {
         try {
             String sql = "UPDATE meal SET name = ?, recipe = ?, procedure = ?, duration = ?, difficulty = ?, categories = ?";
@@ -37,6 +39,7 @@ public class MealDbSql {
         }
     }
 
+    // Sletter et måltid fra databasen
     public void deleteMeal(Long id) {
         try {
             String sql = "DELETE FROM meal WHERE mealid = ?";
@@ -46,6 +49,7 @@ public class MealDbSql {
         }
     }
 
+    // Finder et måltid i databasen ud fra måltidets ID
     public Optional<Meal> findMealByID(Long mealID) {
         try {
             String sql = "SELECT * FROM meal WHERE mealid = ?";
@@ -58,6 +62,7 @@ public class MealDbSql {
         }
     }
 
+    // Finder alle måltider i databasen
     public List<Meal> findAllMeals() {
         try {
             String sql = "SELECT * FROM meal";
@@ -67,6 +72,7 @@ public class MealDbSql {
         }
     }
 
+    // Mapper rækker fra databasen til Meal-objekter
     public RowMapper<Meal> mealRowMapper() {
         return (rs, rowNum) -> {
             Meal meal = new Meal();

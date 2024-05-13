@@ -19,6 +19,7 @@ public class IngredientsDbSql {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // Opretter en ingrediens i databasen
     public void createIngredient(Ingredients ingredients) {
         try {
             String sql = "INSERT INTO ingredients (name, unit) VALUES (?, ?)";
@@ -28,6 +29,7 @@ public class IngredientsDbSql {
         }
     }
 
+    // Opdaterer en ingrediens i databasen
     public void updateIngredient(Ingredients ingredients) {
         try {
             String sql = "UPDATE meal SET name = ?, unit = ?";
@@ -37,6 +39,7 @@ public class IngredientsDbSql {
         }
     }
 
+    // Sletter en ingrediens fra databasen
     public void deleteIngredient(Long id) {
         try {
             String sql = "DELETE FROM ingredients WHERE ingredientsid = ?";
@@ -46,6 +49,7 @@ public class IngredientsDbSql {
         }
     }
 
+    // Finder en ingrediens i databasen ud fra ingrediensens ID
     public Optional<Ingredients> findIngredientByID(Long ingredientsID) {
         try {
             String sql = "SELECT * FROM ingredients WHERE ingredientsid = ?";
@@ -58,6 +62,7 @@ public class IngredientsDbSql {
         }
     }
 
+    // Finder alle ingredienser i databasen
     public List<Ingredients> findAllIngredients() {
         try {
             String sql = "SELECT * FROM ingredients";
@@ -67,6 +72,7 @@ public class IngredientsDbSql {
         }
     }
 
+    // Mapper rækker fra databasen til Ingredients-objekter
     public RowMapper<Ingredients> ingredientsRowMapper() {
         return (rs, rowNum) -> {
             Ingredients ingredients = new Ingredients();

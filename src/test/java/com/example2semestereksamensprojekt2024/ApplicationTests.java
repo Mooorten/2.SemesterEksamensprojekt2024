@@ -1,7 +1,7 @@
 package com.example2semestereksamensprojekt2024;
 
 import com.example2semestereksamensprojekt2024.model.User;
-import com.example2semestereksamensprojekt2024.repository.UserRepository;
+import com.example2semestereksamensprojekt2024.repository.UserDbSql;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ApplicationTests {
 
     @Mock
-    UserRepository userRepository;
+    UserDbSql userDbSql;
 
     @Test
     void createUser() {
@@ -27,6 +27,6 @@ class ApplicationTests {
         u.setGender("Male");
         u.setGoals("Gain weight");
         u.setActivitylevel("3 times a day");
-        userRepository.createUser(u);
+        userDbSql.createUser(u);
     }
 }

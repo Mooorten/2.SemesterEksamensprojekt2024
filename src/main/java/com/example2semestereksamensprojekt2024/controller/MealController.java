@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -20,39 +21,80 @@ public class  MealController {
         return "adminmenu";
     }
 
-    @GetMapping("/Mandag/meals")
+
+   @GetMapping("/Monday/meals")
     public String mondayMeals() {
-        return "Mandag/meals";
+        return "Monday/meals";
     }
 
-    @GetMapping("/Tirsdag/meals")
+    @GetMapping("/Tuesday/meals")
     public String tuesdayMeals() {
-        return "Tirsdag/meals";
+        return "Tuesday/meals";
     }
 
-    @GetMapping("/Onsdag/meals")
+    @GetMapping("/Wednesday/meals")
     public String wednesdayMeals() {
-        return "Onsdag/meals";
+        return "Wednesday/meals";
     }
 
-    @GetMapping("/Torsdag/meals")
+    @GetMapping("/Thursday/meals")
     public String ThursdayMeals() {
-        return "Torsdag/meals";
+        return "Thursday/meals";
     }
 
-    @GetMapping("/Fredag/meals")
+    @GetMapping("/Friday/meals")
     public String FridayMeals() {
-        return "Fredag/meals";
+        return "Friday/meals";
     }
 
-    @GetMapping("/Lørdag/meals")
+    @GetMapping("/Saturday/meals")
     public String SaturdayMeals() {
-        return "Lørdag/meals";
+        return "Saturday/meals";
     }
 
-    @GetMapping("/Søndag/meals")
+    @GetMapping("/Sunday/meals")
     public String SundayMeals() {
-        return "Søndag/meals";
+        return "Sunday/meals";
+    }
+
+    @GetMapping("/Monday/Pmeals")
+    public String previousMondayMeals() {
+        return "Monday/Pmeals";
+    }
+
+    @GetMapping("/Tuesday/Pmeals")
+    public String previousTuesdayMeals() {
+        return "Tuesday/Pmeals";
+    }
+
+    @GetMapping("/Wednesday/Pmeals")
+    public String previousWednesdayMeals() {
+        return "Wednesday/Pmeals";
+    }
+
+    @GetMapping("/Thursday/Pmeals")
+    public String previousThursdayMeals() {
+        return "Thursday/Pmeals";
+    }
+
+    @GetMapping("/Friday/Pmeals")
+    public String previousFridayMeals() {
+        return "Friday/Pmeals";
+    }
+
+    @GetMapping("/Saturday/Pmeals")
+    public String previousSaturdayMeals() {
+        return "Saturday/Pmeals";
+    }
+
+    @GetMapping("/Sunday/Pmeals")
+    public String previousSundayMeals() {
+        return "Sunday/Pmeals";
     }
 }
 
+
+    /*@GetMapping("/{day}/meals")
+    public String dayMeals(@PathVariable String day) {
+        return day + "meals";
+    }*/

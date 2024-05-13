@@ -11,13 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepository {
+public class UserDbSql {
     private JdbcTemplate jdbcTemplate;
 
-    public UserRepository(JdbcTemplate jdbcTemplate) {
+    public UserDbSql(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // Opretter en bruger i databasen
     public void createUser(User user) {
         try {
             String sql = "INSERT INTO user (email, password, name, surname, phone, weight, height, age, gender, goals, activitylevel, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -27,6 +28,7 @@ public class UserRepository {
         }
     }
 
+    // Opdaterer en bruger i databasen
     public void updateUser(User userToUpdate, User currentUser) {
         if ("admin".equals(currentUser.getRole())) {
             if (currentUser.getUserid().equals(userToUpdate.getUserid())) {
@@ -49,6 +51,7 @@ public class UserRepository {
         }
     }
 
+    // Sletter en bruger fra databasen
     public void deleteUser(Long id) {
         try {
             String sql = "DELETE FROM user WHERE userid = ?";
@@ -58,6 +61,7 @@ public class UserRepository {
         }
     }
 
+    // Finder en bruger i databasen ud fra brugerens ID
     public Optional<User> findUserByID(Long userId) {
         try {
             String sql = "SELECT * FROM user WHERE userid = ?";
@@ -70,6 +74,7 @@ public class UserRepository {
         }
     }
 
+    // Finder alle brugere i databasen
     public List<User> findAllUsers() {
         try {
             String sql = "SELECT * FROM user";
@@ -79,6 +84,7 @@ public class UserRepository {
         }
     }
 
+    // Finder en bruger i databasen baseret på email og adgangskode til login
     public User findLogin(String email, String password) {
         try {
             String sql = "SELECT * FROM user WHERE email = ? AND password = ?";
@@ -93,6 +99,7 @@ public class UserRepository {
         }
     }
 
+    // Mapper rækker fra databasen til User-objekter
     public RowMapper<User> userRowMapper() {
         return (rs, rowNum) -> {
             User user = new User();
