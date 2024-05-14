@@ -6,7 +6,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +27,6 @@ public class UserDbSql {
         }
     }
 
-    // Opdaterer en bruger i databasen
     public void updateUser(User userToUpdate, User currentUser) {
         if ("admin".equals(currentUser.getRole())) {
             if (currentUser.getUserid().equals(userToUpdate.getUserid())) {
@@ -88,7 +86,7 @@ public class UserDbSql {
     public User findLogin(String email, String password) {
         try {
             String sql = "SELECT * FROM user WHERE email = ? AND password = ?";
-            List<User> users = jdbcTemplate.query(sql, new Object[]{email, password}, userRowMapper());
+            List<User> users = jdbcTemplate.query(sql, new String[]{email, password}, userRowMapper());
             if (!users.isEmpty()) {
                 return users.get(0);
             } else {

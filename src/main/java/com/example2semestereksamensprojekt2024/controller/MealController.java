@@ -26,7 +26,7 @@ public class  MealController {
     }
 
 
-   @GetMapping("/Monday/meals")
+    @GetMapping("/Monday/meals")
     public String mondayMeals() {
         return "Monday/meals";
     }
