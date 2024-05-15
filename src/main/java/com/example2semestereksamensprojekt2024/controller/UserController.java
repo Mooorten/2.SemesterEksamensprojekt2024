@@ -125,6 +125,12 @@ public class UserController {
             if (authenticatedUser.getRole().equals("admin")) {
                 return "redirect:/adminmenu"; // Redirecter til adminmenuen, hvis brugeren er en admin
             } else if (authenticatedUser.getRole().equals("user")) {
+                // Beregn og opdater BMR-værdien, hvis brugeren er en "user"
+                double bmr = userUsecase.calculateBMR(authenticatedUser.getUserid());
+                authenticatedUser.setBmr(bmr);
+                // Opdater brugeren i databasen med den nye BMR-værdi
+                authenticatedUser.setBmr(bmr);
+                userUsecase.updateUser(authenticatedUser, authenticatedUser);
                 return "redirect:/menu"; // Redirecter til brugermenuen, hvis brugeren er en almindelig bruger
             } else {
                 model.addAttribute("error", "Ugyldig brugerrolle"); // Tilføjer en fejlmeddelelse, hvis brugerrollen er ugyldig
