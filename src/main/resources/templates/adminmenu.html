@@ -1,121 +1,120 @@
-<!DOCTYPE html>
-<html lang="da">
+<!DOCTYPE html> <!-- Angiver dokumenttypen -->
+<html lang="en"> <!-- Angiver sproget på siden (engelsk) -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startside</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #5aa54c; /* Mørkegrøn baggrund */
-            color: #fff; /* Hvid tekst */
-        }
-        .container {
-            display: flex;
-            justify-content: space-between; /* Justerer til at fordele indholdet jævnt langs den vandrette akse */
-            max-width: 1000px; /* Ændret maksimal bredde */
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: #5aa54c; /* Mørkegrøn tekst */
-        }
-        .user-info-container {
-            padding: 20px;
-            background-color: #ccc; /* Grå baggrund */
-            border-radius: 8px;
-            align-self: flex-start; /* Placerer elementet i starten (venstre) af sin container */
-            width: calc(30% - 2cm); /* Ændret bredden */
-        }
-        .user-info-container h2 {
-            text-align: left; /* Justerer til venstre */
-            margin-bottom: 10px; /* Lidt mindre plads under overskriften */
-        }
-        .user-info {
-            display: grid; /* Anvender grid layout til at justere oplysninger */
-            grid-template-columns: 1fr; /* En enkelt kolonne */
-            gap: 0; /* Fjerner plads mellem oplysningerne */
-        }
-        .user-info p {
-            text-align: left; /* Justerer til venstre */
-            margin-bottom: 5px; /* Lidt mindre plads mellem hver oplysning */
-        }
-        .user-info p span {
-            margin-left: 5px; /* Lidt plads til højre for kolonet */
-            font-weight: bold; /* Gør teksten fed */
-        }
-        h1 {
-            text-align: center;
-            color: #5aa54c; /* Mørkegrøn overskrift */
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Justerer til venstre */
-            width: calc(50% - 2cm); /* Ændret bredden */
-        }
-        .button {
-            display: inline-block;
-            padding: 12px 24px; /* Øget padding for større knapper */
-            margin-bottom: 20px; /* Mere plads mellem knapper */
-            background-color: #4CAF50; /* Grøn knap */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #45a049; /* Mørkere grøn ved hover */
-        }
-        .logout {
-            margin-top: auto; /* Placerer log ud knappen nederst */
-        }
-        .edit-button,
-        .delete-button {
-            display: inline-block;
-            padding: 12px 24px;
-            margin-top: 20px; /* Justerer afstanden fra de andre knapper */
-            background-color: #4CAF50; /* Grøn knap */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-        .edit-button:hover,
-        .delete-button:hover {
-            background-color: #45a049; /* Mørkere grøn ved hover */
-        }
+    <meta charset="UTF-8"> <!-- Definerer tegnsættet til UTF-8 (Unicode) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Angiver visningsområdet for forskellige enheder -->
+    <title>Startside</title> <!-- Titlen på siden, vises i browserens fane -->
+    <style> <!-- Indleder CSS-styling -->
+    body {
+        font-family: Arial, sans-serif; <!-- Angiver skrifttypen til Arial eller en generisk sans-serif skrifttype -->
+        margin: 0; <!-- Fjerner marginen omkring kroppen af dokumentet -->
+        padding: 0; <!-- Fjerner padding omkring kroppen af dokumentet -->
+        background-color: #5aa54c; <!-- Baggrundsfarven for kroppen -->
+        color: #fff; <!-- Tekstfarven for kroppen -->
+    }
+    .container {
+        display: flex; <!-- Angiver, at containeren bruger fleksibel layout -->
+        justify-content: space-between; <!-- Justerer afstanden mellem indholdet jævnt langs den vandrette akse -->
+        max-width: 1000px; <!-- Sætter den maksimale bredde af containeren -->
+        margin: 50px auto; <!-- Angiver ydre margin og automatisk centerjustering af containeren -->
+        padding: 20px; <!-- Indvendig padding for containeren -->
+        background-color: #fff; <!-- Baggrundsfarven for containeren -->
+        border-radius: 8px; <!-- Afrunder hjørnerne på containeren -->
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); <!-- Tilføjer en skyggeeffekt til containeren -->
+        color: #5aa54c; <!-- Tekstfarven inden i containeren -->
+    }
+    .user-info-container {
+        padding: 20px; <!-- Indvendig padding for brugerinfo-containeren -->
+        background-color: #ccc; <!-- Baggrundsfarven for brugerinfo-containeren -->
+        border-radius: 8px; <!-- Afrunder hjørnerne på brugerinfo-containeren -->
+        align-self: flex-start; <!-- Justerer positionen af elementet inden i containeren -->
+        width: calc(30% - 2cm); <!-- Sætter bredden af brugerinfo-containeren -->
+    }
+    .user-info-container h2 {
+        text-align: left; <!-- Venstrejusterer overskriften -->
+        margin-bottom: 10px; <!-- Tilføjer en margen under overskriften -->
+    }
+    .user-info {
+        display: grid; <!-- Angiver, at brugerinfo skal bruge grid layout -->
+        grid-template-columns: 1fr; <!-- Definerer en enkelt kolonne -->
+        gap: 0; <!-- Angiver, at der ikke skal være mellemrum mellem rækker og kolonner -->
+    }
+    .user-info p {
+        text-align: left; <!-- Venstrejusterer teksten -->
+        margin-bottom: 5px; <!-- Tilføjer en margen under hver paragraf -->
+    }
+    .user-info p span {
+        margin-left: 5px; <!-- Tilføjer en margen til venstre for kolonet -->
+        font-weight: bold; <!-- Gør teksten fed -->
+    }
+    h1 {
+        text-align: center; <!-- Centrerer overskriften -->
+        color: #5aa54c; <!-- Overskriftens tekstfarve -->
+    }
+    .button-container {
+        display: flex; <!-- Angiver, at knapcontaineren bruger fleksibel layout -->
+        flex-direction: column; <!-- Angiver, at knapperne skal være i en lodret kolonne -->
+        align-items: flex-start; <!-- Venstrejusterer knapperne inden i containeren -->
+        width: calc(50% - 2cm); <!-- Sætter bredden af knapcontaineren -->
+    }
+    .button {
+        display: inline-block; <!-- Angiver, at knapperne skal vises som en blok ved siden af hinanden -->
+        padding: 12px 24px; <!-- Indvendig polstring for knapperne -->
+        margin-bottom: 20px; <!-- Tilføjer en margen mellem knapperne -->
+        background-color: #4CAF50; <!-- Baggrundsfarven for knapperne -->
+        color: white; <!-- Tekstfarven for knapperne -->
+        text-decoration: none; <!-- Fjerner understregning fra knappeteksten -->
+        border-radius: 5px; <!-- Afrunder hjørnerne på knapperne -->
+        transition: background-color 0.3s ease; <!-- Tilføjer en overgangseffekt til baggrundsfarven af knappen -->
+        cursor: pointer; <!-- Ændrer musemarkøren til en hånd når man hovrer over knappen -->
+        text-align: center; <!-- Centrerer knappeteksten -->
+    }
+    .button:hover {
+        background-color: #45a049; <!-- Baggrundsfarven for knappen ved hover -->
+    }
+    .logout {
+        margin-top: auto; <!-- Placerer logud-knappen nederst -->
+    }
+    .edit-button,
+    .delete-button {
+        display: inline-block; <!-- Angiver, at knapperne skal vises som en blok ved siden af hinanden -->
+        padding: 12px 24px; <!-- Indvendig polstring for knapperne -->
+        margin-top: 20px; <!-- Tilføjer en margen over knapperne -->
+        background-color: #4CAF50; <!-- Baggrundsfarven for knapperne -->
+        color: white; <!-- Tekstfarven for knapperne -->
+        text-decoration: none; <!-- Fjerner understregning fra knappeteksten -->
+        border-radius: 5px; <!-- Afrunder hjørnerne på knapperne -->
+        transition: background-color 0.3s ease; <!-- Tilføjer en overgangseffekt til baggrundsfarven af knappen -->
+        cursor: pointer; <!-- Ændrer musemarkøren til en hånd når man hovrer over knappen -->
+        text-align: center; <!-- Centrerer knappeteksten -->
+    }
+    .edit-button:hover,
+    .delete-button:hover {
+        background-color: #45a049; <!-- Baggrundsfarven for knappen ved hover -->
+    }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="button-container">
-        <h1>Velkommen Admin!</h1>
-        <form action="/deleteUser" method="post">
-            <input type="hidden" name="userid" value="${user.userid}">
-            <a href="/createmealAdmin" class="button">Tilføj ny ret</a>
-            <a href="/adminmenu" class="button">Tilføj ny ingrediens</a>
+<div class="container"> <!-- Containeren, der indeholder alt indholdet på siden -->
+    <div class="button-container"> <!-- Container til knapperne -->
+        <h1>Velkommen Admin!</h1> <!-- Overskrift for admin-beskeden -->
+        <form action="/deleteUser" method="post"> <!-- Form til sletning af bruger -->
+            <input type="hidden" name="userid" value="${user.userid}"> <!-- Skjult inputfelt til brugerens id -->
+            <a href="/createmealAdmin" class="button">Tilføj ny ret</a> <!-- Link til at tilføje ny ret -->
+            <a href="/adminmenu" class="button">Tilføj ny ingrediens</a> <!-- Link til at tilføje ny ingrediens -->
         </form>
-        <a href="/logout" class="button logout">Log ud</a>
+        <a href="/logout" class="button logout">Log ud</a> <!-- Log ud-knap -->
     </div>
-    <div class="user-info-container">
-        <h2>Dine oplysninger Admin:</h2>
-        <div class="user-info">
-            <p>Email:     <span th:text="${currentUser.email}"></span></p>
-            <p>Navn:      <span th:text="${currentUser.name}"></span></p>
-            <p>Efternavn: <span th:text="${currentUser.surname}"></span></p>
-            <p>Rolle:     <span th:text="${currentUser.role}"></span></p>
-
+    <div class="user-info-container"> <!-- Container til brugeroplysninger -->
+        <h2>Dine oplysninger Admin:</h2> <!-- Overskrift til brugeroplysninger -->
+        <div class="user-info"> <!-- Container til brugeroplysninger -->
+            <p>Email:     <span th:text="${currentUser.email}"></span></p> <!-- Brugerens email -->
+            <p>Navn:      <span th:text="${currentUser.name}"></span></p> <!-- Brugerens navn -->
+            <p>Efternavn: <span th:text="${currentUser.surname}"></span></p> <!-- Brugerens efternavn -->
+            <p>Rolle:     <span th:text="${currentUser.role}"></span></p> <!-- Brugerens rolle -->
         </div>
-        <a th:href="@{/user/editAdmin/{id}(id=${currentUser.userid})}" class="edit-button">Rediger</a>
-        <a th:href="@{/user/delete/{id}(id=${currentUser.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
+        <a th:href="@{/user/editAdmin/{id}(id=${currentUser.userid})}" class="edit-button">Rediger</a> <!-- Link til redigering af bruger -->
+        <a th:href="@{/user/delete/{id}(id=${currentUser.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a> <!-- Link til sletning af bruger -->
     </div>
 </div>
 </body>

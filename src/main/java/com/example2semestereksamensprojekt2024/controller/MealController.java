@@ -1,31 +1,31 @@
 package com.example2semestereksamensprojekt2024.controller;
 
-import com.example2semestereksamensprojekt2024.model.Meal;
-import com.example2semestereksamensprojekt2024.service.MealUsecase;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import com.example2semestereksamensprojekt2024.model.Meal; // Importerer Meal-modelklassen
+import com.example2semestereksamensprojekt2024.service.MealUsecase; // Importerer MealUsecase-serviceklassen
+import org.springframework.beans.factory.annotation.Autowired; // Importerer Autowired-annotationen
+import org.springframework.stereotype.Controller; // Importerer Controller-annotationen
+import org.springframework.web.bind.annotation.GetMapping; // Importerer GetMapping-annotationen
+import org.springframework.web.bind.annotation.ModelAttribute; // Importerer ModelAttribute-annotationen
+import org.springframework.web.bind.annotation.PostMapping; // Importerer PostMapping-annotationen
 
-@Controller
-public class  MealController {
+@Controller // Fortæller Spring, at dette er en controller-klasse
+public class MealController {
 
-    @Autowired
+    @Autowired // Indsprøjter en instans af MealUsecase
     private MealUsecase mealUsecase;
 
-    @GetMapping("/createmealAdmin")
+    @GetMapping("/createmealAdmin") // Mapping for at hente siden til oprettelse af måltider for admin
     public String createMeals() {
-        return "createmealAdmin";
+        return "createmealAdmin"; // Returnerer navnet på HTML-siden
     }
 
-    @PostMapping("/createMeal")
+    @PostMapping("/createMeal") // Mapping for at oprette et måltid
     public String createMeal(@ModelAttribute Meal meal) {
-        mealUsecase.createMeal(meal);
-        return "adminmenu";
+        mealUsecase.createMeal(meal); // Kalder metoden createMeal i MealUsecase og sender måltidet som parameter
+        return "adminmenu"; // Returnerer navnet på HTML-siden for adminmenuen
     }
 
-
+    // Mappings for at vise måltider for hver dag i ugen
     @GetMapping("/Monday/meals")
     public String mondayMeals() {
         return "Monday/meals";
@@ -61,6 +61,7 @@ public class  MealController {
         return "Sunday/meals";
     }
 
+    // Mappings for at vise tidligere uges måltider for hver dag i ugen
     @GetMapping("/Monday/Pmeals")
     public String previousMondayMeals() {
         return "Monday/Pmeals";
@@ -96,9 +97,3 @@ public class  MealController {
         return "Sunday/Pmeals";
     }
 }
-
-
-    /*@GetMapping("/{day}/meals")
-    public String dayMeals(@PathVariable String day) {
-        return day + "meals";
-    }*/

@@ -1,88 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Angiver dokumenttypen som HTML5 -->
+<html lang="en"> <!-- Angiver sprog for siden (engelsk) -->
 <head>
-    <meta charset="UTF-8">
-    <title>Opret ret</title>
+    <meta charset="UTF-8"> <!-- Definerer tegnsættet til UTF-8 (Unicode) -->
+    <title>Opret ret</title> <!-- Titlen på siden, vises i browserens fane -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #DCDCDC;
+            font-family: Arial, sans-serif; /* Sætter skrifttypen til Arial eller sans-serif */
+            margin: 0; /* Nulstiller margen */
+            padding: 0; /* Nulstiller polstring */
+            background-color: #DCDCDC; /* Baggrundsfarve for hele siden */
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #FFF8DC;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 800px; /* Sætter den maksimale bredde til 800px */
+            margin: 20px auto; /* Centrerer containeren med 20px margen over og under */
+            padding: 20px; /* Polstring inden i containeren */
+            background-color: #FFF8DC; /* Baggrundsfarve for containeren */
+            border-radius: 8px; /* Afrunder kanterne på containeren */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Skyggeeffekt */
         }
         h1 {
-            text-align: center;
-            color: #333;
+            text-align: center; /* Centrerer overskriften */
+            color: #333; /* Tekstfarve */
         }
         .meal {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #FFF8DC;
-            border-radius: 8px;
+            margin-bottom: 30px; /* Afstand nedenfor hvert måltid */
+            padding: 20px; /* Polstring omkring hvert måltid */
+            background-color: #FFF8DC; /* Baggrundsfarve for hvert måltid */
+            border-radius: 8px; /* Afrunder kanterne på hvert måltid */
         }
         .meal h2 {
-            color: #333;
+            color: #333; /* Overskriftfarve */
         }
         .meal p {
-            color: #666;
-            margin-bottom: 10px;
+            color: #666; /* Tekstfarve */
+            margin-bottom: 10px; /* Afstand nedenfor hver paragraf */
         }
         form {
-            margin-top: 20px;
+            margin-top: 20px; /* Afstand øverst på formularen */
         }
         form label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
+            display: block; /* Viser etiketten som en blok */
+            font-weight: bold; /* Gør teksten fed */
+            margin-bottom: 5px; /* Afstand nedenfor hver etiket */
         }
         form input[type="text"],
         form textarea,
         form select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease;
+            width: 100%; /* Fylder hele bredden af deres container */
+            padding: 10px; /* Polstring indeni inputfelter */
+            margin-bottom: 10px; /* Afstand nedenfor hvert inputfelt */
+            border: 1px solid #ccc; /* Kantfarve */
+            border-radius: 4px; /* Afrunder kanterne på inputfelter */
+            box-sizing: border-box; /* Inkluderer padding og kant i den samlede bredde */
+            transition: border-color 0.3s ease; /* Overgangseffekt for kantfarve */
         }
         form input[type="text"]:focus,
         form textarea:focus,
         form select:focus {
-            outline: none;
-            border-color: #4CAF50;
+            outline: none; /* Fjerner fokusrammen */
+            border-color: #4CAF50; /* Ændrer kantfarven ved fokus */
         }
         form textarea {
-            resize: vertical;
+            resize: vertical; /* Tillader lodret ændring af størrelsen på tekstområdet */
         }
         form select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 8px top 50%;
-            background-size: 14px;
-            padding-right: 30px;
+            appearance: none; /* Fjerner standardudseendet */
+            -webkit-appearance: none; /* Fjerner standardudseendet i WebKit-browsere */
+            -moz-appearance: none; /* Fjerner standardudseendet i Mozilla-browsere */
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>'); /* Tilføjer et pil-ikon */
+            background-repeat: no-repeat; /* Forhindrer gentagelse af baggrundsbilledet */
+            background-position: right 8px top 50%; /* Positionerer pil-ikonet til højre */
+            background-size: 14px; /* Størrelse af baggrundsbillede */
+            padding-right: 30px; /* Plads til pil-ikon */
         }
         form input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            background-color: #4CAF50; /* Baggrundsfarve for indsendelsesknap */
+            color: white; /* Tekstfarve for indsendelsesknap */
+            padding: 10px 20px; /* Polstring omkring indsendelsesknap */
+            border: none; /* Ingen kant */
+            border-radius: 4px; /* Afrunder kanterne på indsendelsesknap */
+            cursor: pointer; /* Ændrer musemarkøren til en hånd, når du flytter over knappen */
         }
         form input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #45a049; /* Ændrer baggrundsfarven ved hover */
         }
     </style>
 </head>
@@ -90,34 +90,33 @@
 
 <div class="container">
 
-    <h1>Opret ret</h1>
-    <form action="/createUser" method="post">
-        <label for="name">Navn på retten:</label>
-        <input type="text" id="name" name="name" required><br>
+    <h1>Opret ret</h1> <!-- Overskrift for opret ret-formularen -->
+    <form action="/createUser" method="post"> <!-- Form til oprettelse af ret -->
+        <label for="name">Navn på retten:</label> <!-- Etiket for navnet på retten -->
+        <input type="text" id="name" name="name" required><br> <!-- Inputfelt til navn på retten -->
 
-        <label for="ingredients">Ingredienser:</label><br>
-        <textarea id="ingredients" name="ingredients" rows="4" required></textarea><br>
+        <label for="ingredients">Ingredienser:</label><br> <!-- Etiket for ingredienser -->
+        <textarea id="ingredients" name="ingredients" rows="4" required></textarea><br> <!-- Tekstområde til ingredienser -->
 
-        <label for="procedure">Fremgangsmåde:</label><br>
-        <textarea id="procedure" name="procedure" rows="4" required></textarea><br>
+        <label for="procedure">Fremgangsmåde:</label><br> <!-- Etiket for fremgangsmåde -->
+        <textarea id="procedure" name="procedure" rows="4" required></textarea><br> <!-- Tekstområde til fremgangsmåde -->
 
+        <label for="duration">Varighed:</label> <!-- Etiket for varighed -->
+        <input type="text" id="duration" name="duration" required><br> <!-- Inputfelt til varighed -->
 
-        <label for="duration">Varighed:</label>
-        <input type="text" id="duration" name="duration" required><br>
-
-        <label for="difficulty">Sværhedsgrad:</label>
-        <select id="difficulty" name="difficulty" required>
-            <option value="easy">Let</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Svær</option>
+        <label for="difficulty">Sværhedsgrad:</label> <!-- Etiket for sværhedsgrad -->
+        <select id="difficulty" name="difficulty" required> <!-- Dropdown-menu til sværhedsgrad -->
+            <option value="easy">Let</option> <!-- Valgmulighed for let -->
+            <option value="medium">Medium</option> <!-- Valgmulighed for medium -->
+            <option value="hard">Svær</option> <!-- Valgmulighed for svær -->
         </select><br>
 
-        <label for="categories">Kategori:</label>
-        <input type="text" id="categories" name="categories" required><br>
+        <label for="categories">Kategori:</label> <!-- Etiket for kategori -->
+        <input type="text" id="categories" name="categories" required><br> <!-- Inputfelt til kategori -->
 
-        <input type="submit" value="Tilføj ret">
+        <input type="submit" value="Tilføj ret"> <!-- Indsend knap til at tilføje ret -->
     </form>
-    <a href="/adminmenu">Tilbage</a>
+    <a href="/adminmenu">Tilbage</a> <!-- Link tilbage til adminmenu -->
 </div>
 </body>
 </html>

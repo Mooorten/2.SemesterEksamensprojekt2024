@@ -123,7 +123,7 @@
             <p>Mål:       <span th:text="${currentUser.goals}"></span></p>
             <p>Aktiv:     <span th:text="${currentUser.activitylevel}"></span></p>
             <p>Rolle:     <span th:text="${currentUser.role}"></span></p>
-            <!-- Tilføj resten af brugerens oplysninger efter behov -->
+
         </div>
         <a th:href="@{/user/edit/{id}(id=${currentUser.userid})}" class="edit-button">Rediger</a>
         <a th:href="@{/user/delete/{id}(id=${currentUser.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>

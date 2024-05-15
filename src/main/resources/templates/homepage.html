@@ -1,171 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Angiver dokumenttypen som HTML5 -->
+<html lang="en"> <!-- Indstiller sproget til engelsk -->
 <head>
-    <meta charset="UTF-8">
-    <title>Minkostplan.com</title>
+    <meta charset="UTF-8"> <!-- Definerer tegnsættet som UTF-8 -->
+    <title>Minkostplan.com</title> <!-- Titlen på siden -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif; /* Skrifttype og backup skrifttype */
+            margin: 0; /* Nulstiller margener */
+            padding: 0; /* Nulstiller polstring */
         }
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: rgb(225, 169, 80);
+            display: flex; /* Anvender flexbox layout */
+            justify-content: space-between; /* Fordeler elementer jævnt vandret */
+            align-items: center; /* Centrerer elementer lodret */
+            padding: 10px 20px; /* Polstring for header */
+            background-color: rgb(225, 169, 80); /* Baggrundsfarve for header */
         }
         .logo-container {
-            width: 100px;
+            width: 100px; /* Bredde af logo-container */
         }
         .logo {
-            width: 140px;
-            height: auto;
+            width: 140px; /* Bredde af logo */
+            height: auto; /* Automatisk højde for at bevare proportioner */
         }
         .login {
-            padding: 10px 20px;
-            background-color: #5aa54c;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
+            padding: 10px 20px; /* Polstring for login-link */
+            background-color: #5aa54c; /* Baggrundsfarve for login-link */
+            color: #ffffff; /* Tekstfarve for login-link */
+            text-decoration: none; /* Fjerner understregning fra link */
+            border-radius: 5px; /* Afrunder hjørnerne af linket */
         }
         .login:hover {
-            background-color: #5aa54c;
+            background-color: #5aa54c; /* Baggrundsfarve ved hover */
         }
         .contact-info {
-            display: flex;
-            align-items: center;
-            color: white;
+            display: flex; /* Anvender flexbox layout */
+            align-items: center; /* Centrerer elementer lodret */
+            color: white; /* Tekstfarve for kontaktinformation */
         }
         .contact-info span {
-            margin-right: 10px;
+            margin-right: 10px; /* Afstand til højre for span elementer */
         }
         .description-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
+            display: flex; /* Anvender flexbox layout */
+            justify-content: center; /* Centrerer elementer vandret */
+            align-items: center; /* Centrerer elementer lodret */
+            margin-top: 50px; /* Afstand øverst */
         }
         .description {
-            max-width: 50%;
-            padding: 20px;
-            font-family: 'Times New Roman', serif;
-            color: #000000;
+            max-width: 50%; /* Maksimal bredde af beskrivelsescontainer */
+            padding: 20px; /* Polstring for beskrivelse */
+            font-family: 'Times New Roman', serif; /* Skrifttype for beskrivelse */
+            color: #000000; /* Tekstfarve for beskrivelse */
         }
         .description img {
-            width: 100%;
-            height: auto;
+            width: 100%; /* Fylder hele bredden af billedet */
+            height: auto; /* Automatisk højde for at bevare proportioner */
         }
         .customer-reviews-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+            display: flex; /* Anvender flexbox layout */
+            flex-direction: column; /* Stabler elementer lodret */
+            align-items: center; /* Centrerer elementer lodret */
+            margin-top: 20px; /* Afstand øverst */
         }
         .customer-reviews {
-            display: flex;
-            justify-content: space-between;
-            max-width: 900px;
-            width: 100%;
+            display: flex; /* Anvender flexbox layout */
+            justify-content: space-between; /* Fordeler elementer jævnt */
+            max-width: 900px; /* Maksimal bredde af kundeanmeldelser */
+            width: 100%; /* Fylder hele bredden */
         }
         .reviews-title {
-            font-size: 36px;
-            font-family: 'Times New Roman', serif;
-            color: #000000;
-            margin-bottom: 20px;
+            font-size: 36px; /* Skriftstørrelse for titel */
+            font-family: 'Times New Roman', serif; /* Skrifttype for titel */
+            color: #000000; /* Tekstfarve for titel */
+            margin-bottom: 20px; /* Afstand nederst */
         }
         .review-box {
-            width: calc(50% - 20px);
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #e17910;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            color: white; /* Change font color to white */
+            width: calc(50% - 20px); /* Bredde af anmeldelsesboks */
+            margin-bottom: 20px; /* Afstand nederst */
+            padding: 20px; /* Polstring for anmeldelsesboks */
+            background-color: #e17910; /* Baggrundsfarve for anmeldelsesboks */
+            border-radius: 5px; /* Afrunder hjørnerne af anmeldelsesboks */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Skyggeeffekt */
+            color: white; /* Tekstfarve for anmeldelse */
         }
         .review-box h3 {
-            margin-bottom: 10px;
-            font-weight: bold;
+            margin-bottom: 10px; /* Afstand nederst for overskrift */
+            font-weight: bold; /* Fed skriftstil for overskrift */
         }
         .review-box p {
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Afstand nederst for tekst */
         }
         .cursive {
-            font-style: italic;
+            font-style: italic; /* Kursiv skriftstil */
         }
         .footer {
-            background-color: rgba(175, 161, 161, 0.76);
-            padding: 20px; /* Add padding for spacing */
-            text-align: center; /* Align content to center */
+            background-color: rgba(175, 161, 161, 0.76); /* Baggrundsfarve for footer */
+            padding: 20px; /* Polstring for footer */
+            text-align: center; /* Tekstjustering til center */
         }
         .footer-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; /* Anvender flexbox layout */
+            align-items: center; /* Centrerer elementer lodret */
+            justify-content: center; /* Centrerer elementer vandret */
         }
         .footer-logo {
-            margin-right: 20px; /* Add spacing between logo and text */
+            margin-right: 20px; /* Afstand til højre for logo */
         }
         .footer-logo img {
-            width: 50px; /* Set logo width */
-            height: auto; /* Maintain aspect ratio */
+            width: 50px; /* Bredde af logo */
+            height: auto; /* Automatisk højde for at bevare proportioner */
         }
         .footer-text {
-            color: #333; /* Dark text color */
-            font-size: 14px; /* Adjust font size */
-            font-family: Arial, sans-serif; /* Use Arial font */
+            color: #333; /* Tekstfarve for footer tekst */
+            font-size: 14px; /* Skriftstørrelse for footer tekst */
+            font-family: Arial, sans-serif; /* Skrifttype for footer tekst */
         }
         .footer-link {
-            color: #333; /* Dark text color for link */
-            text-decoration: none; /* Remove underline from link */
-            margin-left: 10px; /* Add spacing between elements */
+            color: #333; /* Tekstfarve for link i footer */
+            text-decoration: none; /* Fjerner understregning fra link */
+            margin-left: 10px; /* Afstand til venstre for link */
         }
         .footer-link:hover {
-            text-decoration: underline; /* Add underline on hover */
+            text-decoration: underline; /* Understreger link ved hover */
         }
     </style>
 </head>
 <body>
 <header>
     <div class="logo">
-        <img src="/images/minkostplan-logo.png" alt="Logo" width="120" height="120"/>
+        <img src="/images/minkostplan-logo.png" alt="Logo" width="120" height="120"/> <!-- Logo billede -->
     </div>
     <div class="contact-info">
-        <span><img src="/images/icons8-location-50.png" alt="Location Icon" width="30" height="30">Farimagsvej 45, 4700 Næstved</span>
-        <span><img src="/images/icons8-letter-30.png" alt="Mail Icon" width="30" height="30">kontakt@minkostplan.com</span>
+        <span><img src="/images/icons8-location-50.png" alt="Location Icon" width="30" height="30">Farimagsvej 45, 4700 Næstved</span> <!-- Kontaktinformation: Adresse -->
+        <span><img src="/images/icons8-letter-30.png" alt="Mail Icon" width="30" height="30">kontakt@minkostplan.com</span> <!-- Kontaktinformation: E-mail -->
     </div>
     <div>
-        <a href="/login" class="login">Login</a>
-        <a href="/saveUser" class="login">Opret ny bruger</a>
+        <a href="/login" class="login">Login</a> <!-- Login link -->
+        <a href="/saveUser" class="login">Opret ny bruger</a> <!-- Link til oprettelse af ny bruger -->
     </div>
 </header>
 
 <div class="description-container">
     <div class="description">
-        <h2>Velkommen til din personlige, skræddersyede og billige kostplan</h2>
-        <p>Som medlem hos os vil du hver uge modtage 21 skræddersyede kostplaner, der dækker dine personlige sundhedsbehov, så du kan komme i dit livs form uden stress og uden at tømme pungen. Hver uge får du 7 morgenmads opskrifter, 7 frokost opskrifter og 7 aftensmads opskrifter, som alle er lavet specifikt til dig, dine mål og behov.</p>
+        <h2>Velkommen til din personlige, skræddersyede og billige kostplan</h2> <!-- Overskrift for beskrivelse -->
+        <p>Som medlem hos os vil du hver uge modtage 21 skræddersyede kostplaner, der dækker dine personlige sundhedsbehov, så du kan komme i dit livs form uden stress og uden at tømme pungen. Hver uge får du 7 morgenmads opskrifter, 7 frokost opskrifter og 7 aftensmads opskrifter, som alle er lavet specifikt til dig, dine mål og behov.</p> <!-- Beskrivelse af tjenesten -->
     </div>
     <div>
-        <img src="/images/forside_billede1.jpg" alt="Image">
+        <img src="/images/forside_billede1.jpg" alt="Image"> <!-- Billede -->
     </div>
 </div>
 
 <div class="customer-reviews-container">
     <div class="reviews-title">
-        Det siger vores kunder
+        Det siger vores kunder <!-- Titel for kundeanmeldelser -->
     </div>
     <div class="customer-reviews">
         <div class="review-box">
-            <h3 style="font-weight: bold;">Billigt, lækkert og målrettet</h3>
+            <h3 style="font-weight: bold;">Billigt, lækkert og målrettet</h3> <!-- Overskrift for anmeldelse -->
             <p>Jeg startede på minkostplan.com fordi jeg så en annonce med 7 dages gratis prøveperiode, og tænkte at det kunne jeg godt lige prøve. Men jeg er her stadig 2 måneder senere. Det er enormt billigt, lækre opskrifter og virkelig fedt at jeg samtidig ved at jeg spiser efter min krop og mine mål!
-                Jeg er virkelig glad for minkostplan.com, god service - det spiller bare.</p>
-            <p class="cursive">Skrevet af: Jacob Britze, 09. januar 2023 på Trustpilot.com</p>
+                Jeg er virkelig glad for minkostplan.com, god service - det spiller bare.</p> <!-- Anmeldelsestekst -->
+            <p class="cursive">Skrevet af: Jacob Britze, 09. januar 2023 på Trustpilot.com</p> <!-- Oplysninger om forfatter og dato -->
         </div>
         <div class="review-box">
-            <h3 style="font-weight: bold;">SÅ BILLIGT I FORHOLD TIL ALLE ANDRE!</h3>
-            <p>Jeg har legit fået en mindst ligeså god kostplan som jeg har fået hos en personlig træner til en langt billigere pris. Hos en personlig træner betalte jeg 2000 her betaler jeg 49 kr om ugen...... Og jeg vil nærmest påstå at Minkostplan er bedre.......</p>
-            <p class="cursive">Skrevet af: Julie Spuhr, 13. september 2023 på Trustpilot.com</p>
+            <h3 style="font-weight: bold;">SÅ BILLIGT I FORHOLD TIL ALLE ANDRE!</h3> <!-- Overskrift for anmeldelse -->
+            <p>Jeg har legit fået en mindst ligeså god kostplan som jeg har fået hos en personlig træner til en langt billigere pris. Hos en personlig træner betalte jeg 2000 her betaler jeg 49 kr om ugen...... Og jeg vil nærmest påstå at Minkostplan er bedre.......</p> <!-- Anmeldelsestekst -->
+            <p class="cursive">Skrevet af: Julie Spuhr, 13. september 2023 på Trustpilot.com</p> <!-- Oplysninger om forfatter og dato -->
         </div>
     </div>
 </div>
@@ -173,10 +173,10 @@
 <div class="footer">
     <div class="footer-content">
         <div class="footer-logo">
-            <a href="/"><img src="/images/minkostplan-logo.png" alt="Logo"></a>
+            <a href="/"><img src="/images/minkostplan-logo.png" alt="Logo"></a> <!-- Footer logo -->
         </div>
         <div class="footer-text">
-            Farimagsvej 45, 4700 Næstved | Kontakt: kontakt@minkostplan.com | <a href="https://www.instagram.com/minkostplan/" class="footer-link">Besøg os på Instagram</a>
+            Farimagsvej 45, 4700 Næstved | Kontakt: kontakt@minkostplan.com | <a href="https://www.instagram.com/minkostplan/" class="footer-link">Besøg os på Instagram</a> <!-- Kontaktinformation og link til Instagram -->
         </div>
     </div>
 </div>

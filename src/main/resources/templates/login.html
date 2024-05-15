@@ -6,89 +6,89 @@
     <title>Login</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #efa92e; /* Mørkegrøn baggrund */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column; /* Changed to column */
-            align-items: center;
-            min-height: 100vh; /* Added */
+            font-family: Arial, sans-serif; /* Skrifttype og backup skrifttype */
+            background-color: #efa92e; /* Baggrundsfarve */
+            margin: 0; /* Nulstiller margener */
+            padding: 0; /* Nulstiller polstring */
+            display: flex; /* Anvender flexbox layout */
+            flex-direction: column; /* Stabler elementer lodret */
+            align-items: center; /* Centrerer elementer */
+            min-height: 100vh; /* Mindste højde af viewport */
         }
         .logo-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            position: absolute; /* Positioneret relativt til det nærmeste positionerede forælderselement */
+            top: 20px; /* Afstand fra toppen */
+            left: 20px; /* Afstand fra venstre */
         }
         .container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 350px;
-            max-width: 80%;
-            margin: auto; /* Add this to center the container horizontally */
-            margin-top: auto; /* Add this to center the container vertically */
-            margin-bottom: auto; /* Add this to center the container vertically */
-            display: flex; /* Add this */
-            flex-direction: column; /* Add this */
-            justify-content: center; /* Add this */
-            align-items: center; /* Add this */
+            background-color: #fff; /* Baggrundsfarve for container */
+            padding: 40px; /* Polstring */
+            border-radius: 8px; /* Afrunder hjørnerne */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Skyggeeffekt */
+            width: 350px; /* Bredde af container */
+            max-width: 80%; /* Maksimal bredde af container */
+            margin: auto; /* Automatisk margen til at centrere containeren vandret */
+            margin-top: auto; /* Automatisk margen til at centrere containeren lodret */
+            margin-bottom: auto; /* Automatisk margen til at centrere containeren lodret */
+            display: flex; /* Anvender flexbox layout */
+            flex-direction: column; /* Stabler elementer lodret */
+            justify-content: center; /* Centrerer elementer vandret */
+            align-items: center; /* Centrerer elementer lodret */
         }
         h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #5aa54c; /* Mørkegrøn overskrift */
+            text-align: center; /* Tekstjustering til center */
+            margin-bottom: 30px; /* Afstand nederst */
+            color: #5aa54c; /* Overskriftsfarve */
         }
         input[type="text"], input[type="password"], input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+            width: 100%; /* Fylder hele bredden */
+            padding: 12px; /* Polstring */
+            margin-bottom: 20px; /* Afstand nederst */
+            border: 1px solid #ccc; /* Ramme */
+            border-radius: 5px; /* Afrunder hjørnerne */
+            box-sizing: border-box; /* Sørger for at polstring og ramme er inkluderet i bredden */
         }
         input[type="submit"] {
-            background-color: #4CAF50; /* Grøn submit knap */
-            color: white;
-            border: none;
-            cursor: pointer;
+            background-color: #4CAF50; /* Baggrundsfarve for submit knap */
+            color: white; /* Tekstfarve for submit knap */
+            border: none; /* Ingen ramme */
+            cursor: pointer; /* Ændrer markøren til håndmarkøren ved hover */
         }
         input[type="submit"]:hover {
-            background-color: #45a049; /* Mørkere grøn ved hover */
+            background-color: #45a049; /* Baggrundsfarve for submit knap ved hover */
         }
         .register-link {
-            text-align: center;
-            color: #efa92e; /* Mørkegrøn tekst */
+            text-align: center; /* Tekstjustering til center */
+            color: #efa92e; /* Tekstfarve */
         }
         .register-link a {
-            color: #4CAF50; /* Grøn registreringslink */
-            text-decoration: none;
+            color: #4CAF50; /* Linkfarve */
+            text-decoration: none; /* Fjerner understregning fra link */
         }
         .register-link a:hover {
-            text-decoration: underline;
+            text-decoration: underline; /* Understreger link ved hover */
         }
     </style>
 </head>
 <body>
-<div class="logo-container"> <!-- Moved the logo container outside the form -->
+<div class="logo-container"> <!-- Logo container -->
     <a href="/" class="logo-link logo-container">
         <img src="/images/minkostplan-logo.png" alt="Logo" width="100" height="100">
     </a>
 </div>
 
 <div class="container">
-    <h2>Login</h2>
-    <form action="/login" method="post">
+    <h2>Login</h2> <!-- Overskrift -->
+    <form action="/login" method="post"> <!-- Login form -->
         <label>
-            <input type="text" name="email" placeholder="Email" required>
+            <input type="text" name="email" placeholder="Email" required> <!-- Input felt til email -->
         </label>
         <label>
-            <input type="password" name="password" placeholder="Kodeord" required>
+            <input type="password" name="password" placeholder="Kodeord" required> <!-- Input felt til kodeord -->
         </label>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login"> <!-- Submit knap -->
     </form>
-    <div class="register-link">
+    <div class="register-link"> <!-- Link til oprettelse af ny bruger -->
         <p>Har du ikke en konto? <a href="/saveUser">Opret konto her</a></p>
     </div>
 </div>

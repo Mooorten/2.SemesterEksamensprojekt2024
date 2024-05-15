@@ -1,23 +1,22 @@
 package com.example2semestereksamensprojekt2024.model;
 
+// Definition af Meal-klassen
 public class Meal {
-    private Long mealid;
 
-    private String name;
+    // Attributter for måltidet
+    private Long mealid; // Unik identifikator for måltidet
+    private String name; // Navn på måltidet
+    private String ingredients; // Ingredienser til måltidet
+    private String procedure; // Fremgangsmåde til tilberedning af måltidet
+    private String duration; // Varighed for tilberedning af måltidet
+    private String difficulty; // Sværhedsgrad for tilberedning af måltidet
+    private String categories; // Kategorier, som måltidet tilhører
 
-    private String ingredients;
-
-    private String procedure;
-    
-    private String duration;
-
-    private String difficulty;
-    
-    private String categories;
-
+    // Standardkonstruktør
     public Meal() {
     }
 
+    // Konstruktør med parametre
     public Meal(Long mealid, String name, String ingredients, String procedure, String duration, String difficulty, String categories) {
         this.mealid = mealid;
         this.name = name;
@@ -27,6 +26,8 @@ public class Meal {
         this.difficulty = difficulty;
         this.categories = categories;
     }
+
+    // Getter og setter metoder for attributterne
 
     public Long getMealid() {
         return mealid;
@@ -83,6 +84,8 @@ public class Meal {
     public void setCategories(String categories) {
         this.categories = categories;
     }
+
+    // toString metode for at konvertere objektet til en strengrepræsentation
 
     @Override
     public String toString() {

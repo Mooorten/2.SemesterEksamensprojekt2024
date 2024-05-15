@@ -1,78 +1,82 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html> <!-- Angiver dokumenttypen som HTML5 -->
+<html xmlns:th="http://www.thymeleaf.org"> <!-- Indsætter Thymeleaf XML-namespace -->
 <head>
-    <meta charset="UTF-8">
-    <title>Rediger Bruger</title>
-    <a href="/menu" class="logo-link logo-container">
-        <img src="/images/minkostplan-logo.png" alt="Logo" width="100" height="100">
+    <meta charset="UTF-8"> <!-- Definerer tegnsættet som UTF-8 -->
+    <title>Rediger Bruger</title> <!-- Titlen på siden -->
+    <a href="/menu" class="logo-link logo-container"> <!-- Link til menu med et logo -->
+        <img src="/images/minkostplan-logo.png" alt="Logo" width="100" height="100"> <!-- Logo-billede -->
     </a>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #c3ec9a;
-            margin: 20px 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: Arial, sans-serif; /* Sætter skrifttypen til Arial eller sans-serif */
+            background-color: #c3ec9a; /* Baggrundsfarve for hele siden */
+            margin: 20px 0; /* Margin øverst og nederst */
+            padding: 0; /* Nulstiller polstring */
+            display: flex; /* Bruger flexbox til layout */
+            justify-content: center; /* Centrerer indholdet vandret */
+            align-items: center; /* Centrerer indholdet lodret */
+            min-height: 100vh; /* Sørger for, at containeren fylder hele skærmen lodret */
             color: #fff; /* Hvid tekst */
         }
         .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            background-color: #fff; /* Baggrundsfarve for containeren */
+            padding: 20px; /* Polstring indeni containeren */
+            border-radius: 8px; /* Afrunder kanterne på containeren */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Skyggeeffekt */
+            width: 300px; /* Bredde af containeren */
             color: #5aa54c; /* Mørkegrøn tekst */
         }
         h1 {
-            text-align: center;
-            margin-bottom: 20px;
+            text-align: center; /* Centrerer overskriften */
+            margin-bottom: 20px; /* Afstand nedenfor overskriften */
         }
         label {
-            display: block;
-            margin-bottom: 10px;
+            display: block; /* Viser etiketten som en blok */
+            margin-bottom: 10px; /* Afstand nedenfor hver etiket */
         }
         input[type="text"], input[type="password"], input[type="number"], select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+            width: 100%; /* Fylder hele bredden af deres container */
+            padding: 12px; /* Polstring indeni inputfelter */
+            margin-bottom: 20px; /* Afstand nedenfor hvert inputfelt */
+            border: 1px solid #ccc; /* Kantfarve */
+            border-radius: 5px; /* Afrunder kanterne på inputfelter */
+            box-sizing: border-box; /* Inkluderer padding og kant i den samlede bredde */
         }
         button[type="submit"], button[type="button"] {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            background-color: #5aa54c;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
+            width: 100%; /* Fylder hele bredden af knappen */
+            padding: 12px; /* Polstring indeni knappen */
+            border: none; /* Ingen kant */
+            background-color: #5aa54c; /* Baggrundsfarve for knappen */
+            color: #fff; /* Tekstfarve for knappen */
+            border-radius: 5px; /* Afrunder kanterne på knappen */
+            cursor: pointer; /* Ændrer musemarkøren til en hånd, når du flytter over knappen */
         }
         button[type="submit"]:hover, button[type="button"]:hover {
-            background-color: #e17910;
+            background-color: #e17910; /* Ændrer baggrundsfarven ved hover */
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Rediger Bruger</h1>
-    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post">
-        <input type="hidden" th:field="*{userid}" />
+<div class="container"> <!-- Container til indholdet på siden -->
+    <h1>Rediger Bruger</h1> <!-- Overskrift for rediger bruger-formularen -->
+    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post"> <!-- Form til redigering af bruger -->
+        <input type="hidden" th:field="*{userid}" /> <!-- Skjult felt til brugerens id -->
 
-        <label for="name">Navn:</label>
-        <input type="text" id="name" th:field="*{name}" />
-        <label for="surname">Efternavn:</label>
-        <input type="text" id="surname" th:field="*{surname}" />
-        <label for="email">Email:</label>
-        <input type="text" id="email" th:field="*{email}" />
-        <label for="password">Kodeord:</label>
-        <input type="text" id="password" th:field="*{password}" />
-        <button type="submit">Opdater</button>
+        <label for="name">Navn:</label> <!-- Etiket for navnet -->
+        <input type="text" id="name" th:field="*{name}" /> <!-- Inputfelt til navnet -->
+
+        <label for="surname">Efternavn:</label> <!-- Etiket for efternavn -->
+        <input type="text" id="surname" th:field="*{surname}" /> <!-- Inputfelt til efternavn -->
+
+        <label for="email">Email:</label> <!-- Etiket for email -->
+        <input type="text" id="email" th:field="*{email}" /> <!-- Inputfelt til email -->
+
+        <label for="password">Kodeord:</label> <!-- Etiket for kodeord -->
+        <input type="text" id="password" th:field="*{password}" /> <!-- Inputfelt til kodeord -->
+
+        <button type="submit">Opdater</button> <!-- Knappen til at opdatere brugeren -->
     </form>
-    <a href="/adminmenu">Tilbage</a>
+    <a href="/adminmenu">Tilbage</a> <!-- Link tilbage til adminmenu -->
 </div>
 </body>
 </html>
