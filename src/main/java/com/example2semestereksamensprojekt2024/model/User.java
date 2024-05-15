@@ -4,11 +4,12 @@ public class User {
     private Long userid;
     private String email, password, name, surname, phone, weight, height, gender, goals, activitylevel, role;
     private int age;
+    private double bmr;
 
     public User() {
     }
 
-    public User(Long userid, String email, String password, String name, String surname, String phone, String weight, String height, String gender, String goals, String activitylevel, String role, int age) {
+    public User(Long userid, String email, String password, String name, String surname, String phone, String weight, String height, String gender, String goals, String activitylevel, String role, int age, double bmr) {
         this.userid = userid;
         this.email = email;
         this.password = password;
@@ -22,6 +23,7 @@ public class User {
         this.activitylevel = activitylevel;
         this.role = role;
         this.age = age;
+        this.bmr = bmr;
     }
 
     public Long getUserid() {
@@ -128,6 +130,14 @@ public class User {
         this.age = age;
     }
 
+    public double getBmr() {
+        return bmr;
+    }
+
+    public void setBmr(double bmr) {
+        this.bmr = bmr;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -144,6 +154,7 @@ public class User {
                 ", activitylevel='" + activitylevel + '\'' +
                 ", role='" + role + '\'' +
                 ", age=" + age +
+                ", bmr=" + bmr +
                 '}';
     }
 }

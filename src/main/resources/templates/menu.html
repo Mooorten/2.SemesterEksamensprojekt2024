@@ -123,6 +123,7 @@
             <p>Mål:       <span th:text="${currentUser.goals}"></span></p>
             <p>Aktiv:     <span th:text="${currentUser.activitylevel}"></span></p>
             <p>Rolle:     <span th:text="${currentUser.role}"></span></p>
+            <p>BMR:       <span th:text="${currentUser.bmr}"></span></p>
 
         </div>
         <a th:href="@{/user/edit/{id}(id=${currentUser.userid})}" class="edit-button">Rediger</a>

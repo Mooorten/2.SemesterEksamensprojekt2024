@@ -4,131 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrering</title>
-    <a href="/menu" class="logo-link logo-container"> <!-- Logo link -->
-        <img src="/images/minkostplan-logo.png" alt="Logo" width="100" height="100">
-    </a>
     <style>
+        /* Styling af body */
         body {
-            font-family: Arial, sans-serif; /* Skrifttype og backup skrifttype */
-            background-color: #5aa54c; /* Mørkegrøn baggrund */
-            margin: 20px 0; /* Tilføjet margin øverst og nederst */
-            padding: 0; /* Nulstiller polstring */
-            display: flex; /* Anvender flexbox layout */
-            justify-content: center; /* Centrerer indhold vandret */
-            align-items: center; /* Centrerer indhold lodret */
-            min-height: 100vh; /* Mindste højde af viewport */
-            color: #fff; /* Hvid tekst */
+            font-family: Arial, sans-serif;
+            background-color: #5aa54c;
+            margin: 20px 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
         }
+        /* Styling af container */
         .container {
-            background-color: #fff; /* Baggrundsfarve for container */
-            padding: 20px; /* Polstring */
-            border-radius: 8px; /* Afrunder hjørnerne */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Skyggeeffekt */
-            width: 300px; /* Bredde af container */
-            color: #c3ec9a; /* Mørkegrøn tekst */
-            display: flex; /* Anvender flexbox layout */
-            flex-direction: column; /* Stabler elementer lodret */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            color: #c3ec9a;
+            display: flex;
+            flex-direction: column;
         }
+        /* Styling af overskrift */
         h2 {
-            text-align: center; /* Tekstjustering til center */
-            margin-bottom: 20px; /* Afstand nederst */
+            text-align: center;
+            margin-bottom: 20px;
         }
+        /* Styling af inputfelter, select og submit-knap */
         input[type="email"], input[type="password"], input[type="text"], select, input[type="submit"] {
-            width: 100%; /* Fylder hele bredden */
-            padding: 12px; /* Polstring */
-            margin-bottom: 20px; /* Afstand nederst */
-            border: 1px solid #ccc; /* Ramme */
-            border-radius: 5px; /* Afrunder hjørnerne */
-            box-sizing: border-box; /* Sørger for at polstring og ramme er inkluderet i bredden */
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
+        /* Styling af select-dropdowns */
         select {
-            appearance: none; /* Fjerner standard dropdown pil */
-            -webkit-appearance: none; /* Fjerner standard dropdown pil for ældre versioner af Safari */
-            -moz-appearance: none; /* Fjerner standard dropdown pil for Firefox */
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%233f3f3f" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Tilføjer brugerdefineret pil-ikon */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%233f3f3f" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
             background-repeat: no-repeat;
             background-position: right 8px top 50%;
             background-size: 24px auto;
         }
+        /* Styling af submit-knap */
         input[type="submit"] {
-            background-color: #5aa54c; /* Baggrundsfarve for submit knap */
-            color: #fff; /* Tekstfarve for submit knap */
-            border: none; /* Ingen ramme */
-            cursor: pointer; /* Ændrer markøren til håndmarkøren */
+            background-color: #5aa54c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
         }
+        /* Ændrer baggrundsfarven på submit-knap ved hover */
         input[type="submit"]:hover {
-            background-color: #e17910; /* Baggrundsfarve for submit knap ved hover */
+            background-color: #e17910;
         }
+        /* Styling af login-link */
         .login-link {
-            text-align: center; /* Tekstjustering til center */
-            color: #5aa54c; /* Mørkegrøn tekst */
+            text-align: center;
+            color: #5aa54c;
         }
+        /* Styling af login-link a */
         .login-link a {
-            color: #4CAF50; /* Grønt link */
-            text-decoration: none; /* Fjerner understregning fra link */
+            color: #4CAF50;
+            text-decoration: none;
         }
+        /* Ændrer tekst-decoration på login-link a ved hover */
         .login-link a:hover {
-            text-decoration: underline; /* Understreger link ved hover */
+            text-decoration: underline;
         }
-        .Kolonne1{
-            display: flex; /* Anvender flexbox layout */
-            flex-direction: column; /* Stabler elementer lodret */
+        /* Styling af kolonner i formular */
+        .Kolonne1, .Kolonne2 {
+            display: flex;
+            flex-direction: column;
         }
-        .Kolonne2{
-            display: flex; /* Anvender flexbox layout */
-            flex-direction: column; /* Stabler elementer lodret */
-        }
-        .form1-2{
-            display: flex; /* Anvender flexbox layout */
-            flex-direction: row; /* Stabler elementer vandret */
+        /* Styling af formularindhold */
+        .form1-2 {
+            display: flex;
+            flex-direction: row;
             gap: 20px; /* Afstand mellem kolonner */
         }
     </style>
 </head>
 <body>
-<div class="logo-container"> <!-- Logo container (udeladt indhold) -->
+<div class="logo-container">
 </div>
 <div class="container">
-    <h2>Registrering</h2> <!-- Overskrift for registreringsformularen -->
-    <form action="/createUser" method="post"> <!-- Formularen, sender data til "/createUser" når den er udfyldt og indsendt -->
-        <div class="form1-2"> <!-- Flexbox layout til at opdele formularen i to kolonner -->
-            <div class="Kolonne1"> <!-- Første kolonne til inputfelter -->
-                <input type="email" name="email" placeholder="Email" required> <!-- Inputfelt til email -->
-                <input type="password" name="password" placeholder="Kodeord" required> <!-- Inputfelt til kodeord -->
-                <input type="text" name="name" placeholder="Fornavn" required> <!-- Inputfelt til fornavn -->
-                <input type="text" name="surname" placeholder="Efternavn" required> <!-- Inputfelt til efternavn -->
-                <input type="text" name="phone" placeholder="Telefon" required> <!-- Inputfelt til telefonnummer -->
+    <h2>Registrering</h2>
+    <!-- Formularen -->
+    <form action="/createUser" method="post" onsubmit="return validateForm()">
+        <!-- Opdeling af formular i to kolonner -->
+        <div class="form1-2">
+            <!-- Første kolonne til inputfelter -->
+            <div class="Kolonne1">
+                <!-- Inputfelter til email, kodeord, fornavn, efternavn og telefon -->
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Kodeord" required>
+                <input type="text" name="name" placeholder="Fornavn" required>
+                <input type="text" name="surname" placeholder="Efternavn" required>
+                <input type="text" name="phone" placeholder="Telefon" required>
             </div>
-            <div class="Kolonne2"> <!-- Anden kolonne til inputfelter -->
-                <input type="text" name="weight" placeholder="Vægt" required> <!-- Inputfelt til vægt -->
-                <input type="text" name="height" placeholder="Højde" required> <!-- Inputfelt til højde -->
-                <input type="text" name="age" placeholder="Alder" required> <!-- Inputfelt til alder -->
-                <select name="gender" required> <!-- Dropdown til køn -->
-                    <option value="" disabled selected hidden>Køn</option> <!-- Standardvalg (usynlig) -->
-                    <option value="Mand">Mand</option> <!-- Mulighed for at vælge mand -->
-                    <option value="Kvinde">Kvinde</option> <!-- Mulighed for at vælge kvinde -->
+            <!-- Anden kolonne til inputfelter -->
+            <div class="Kolonne2">
+                <!-- Inputfelter til vægt, højde, alder, køn og mål -->
+                <input type="text" name="weight" placeholder="Vægt" required>
+                <input type="text" name="height" placeholder="Højde" required>
+                <input type="text" name="age" placeholder="Alder" required>
+                <!-- Dropdown til køn og mål -->
+                <select name="gender" required>
+                    <option value="" disabled selected hidden>Køn</option>
+                    <option value="Mand">Mand</option>
+                    <option value="Kvinde">Kvinde</option>
                 </select>
-                <select name="goals" required> <!-- Dropdown til mål -->
-                    <option value="" disabled selected hidden>Mål</option> <!-- Standardvalg (usynlig) -->
-                    <option value="Tabe vægt">Tabe vægt</option> <!-- Mulighed for at vælge tabe vægt -->
-                    <option value="Opbygge muskler">Opbygge muskler</option> <!-- Mulighed for at vælge opbygge muskler -->
-                    <option value="Forbedre fitness">Forbedre fitness</option> <!-- Mulighed for at vælge forbedre fitness -->
-                    <option value="Opretholde vægt">Opretholde vægt</option> <!-- Mulighed for at vælge opretholde vægt -->
+                <select name="goals" required>
+                    <option value="" disabled selected hidden>Mål</option>
+                    <option value="Tabe vægt">Tabe vægt</option>
+                    <option value="Opbygge muskler">Opbygge muskler</option>
+                    <option value="Forbedre fitness">Forbedre fitness</option>
+                    <option value="Opretholde vægt">Opretholde vægt</option>
                 </select>
             </div>
         </div>
-        <select name="activitylevel" required> <!-- Dropdown til aktivitetsniveau -->
-            <option value="" disabled selected hidden>Aktivitetsniveau</option> <!-- Standardvalg (usynlig) -->
-            <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option> <!-- Mulighed for at vælge stillesiddende -->
-            <option value="Let aktiv">Let aktiv (træner 1-3 gange om ugen)</option> <!-- Mulighed for at vælge let aktiv -->
-            <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option> <!-- Mulighed for at vælge moderat aktiv -->
-            <option value="Meget aktiv">Meget aktiv (træner 6-7 dage om ugen)</option> <!-- Mulighed for at vælge meget aktiv -->
+        <!-- Dropdown til aktivitetsniveau -->
+        <select name="activitylevel" required>
+            <option value="" disabled selected hidden>Aktivitetsniveau</option>
+            <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option>
+            <option value="Let aktiv">Let aktiv (træner 1-3 gange om ugen)</option>
+            <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option>
+            <option value="Meget aktiv">Meget aktiv (træner 6-7 dage om ugen)</option>
         </select>
-        <input type="submit" value="Registrer"> <!-- Indsend knap til at sende formularen -->
+        <!-- Indsend knap til at sende formularen -->
+        <input type="submit" value="Registrer">
     </form>
+    <!-- Login link -->
     <div class="login-link">
-        <p>Allerede medlem? <a href="/login">Log ind</a></p> <!-- Link til login side -->
+        <p>Allerede medlem? <a href="/login">Log ind</a></p>
     </div>
 </div>
+
+<!-- JavaScript til validering af formularen -->
+<script>
+    function validateForm() {
+        // Validering af vægt
+        var weightInput = document.getElementsByName('weight')[0].value;
+        if (isNaN(weightInput)) {
+            alert("Vægt skal være et tal.");
+            return false;
+        }
+
+        // Validering af alder
+        var ageInput = document.getElementsByName('age')[0].value;
+        if (isNaN(ageInput)) {
+            alert("Alder skal være et tal.");
+            return false;
+        }
+
+        // Validering af højde
+        var heightInput = document.getElementsByName('height')[0].value;
+        if (isNaN(heightInput)) {
+            alert("Højde skal være et tal.");
+            return false;
+        }
+
+        // Validering af telefonnummer
+        var phoneInput = document.getElementsByName('phone')[0].value;
+        if (!(/^\d{8}$/.test(phoneInput))) {
+            alert("Telefonnummer skal være 8 cifre.");
+            return false;
+        }
+
+        // Validering af fornavn og efternavn
+        var nameRegex = /^[a-zA-ZæøåÆØÅ\s]+$/;
+        var nameInput = document.getElementsByName('name')[0].value;
+        var surnameInput = document.getElementsByName('surname')[0].value;
+        if (!nameRegex.test(nameInput) || !nameRegex.test(surnameInput)) {
+            alert("Fornavn og efternavn må kun indeholde bogstaver og mellemrum.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 </body>
 </html>

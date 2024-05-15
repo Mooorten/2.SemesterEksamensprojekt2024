@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8"> <!-- Definerer tegnsættet som UTF-8 -->
     <title>Rediger Bruger</title> <!-- Titlen på siden -->
-    <a href="/menu" class="logo-link logo-container"> <!-- Link til menu med et logo -->
-        <img src="/images/minkostplan-logo.png" alt="Logo" width="100" height="100"> <!-- Logo-billede -->
-    </a>
     <style>
         body {
             font-family: Arial, sans-serif; /* Sætter skrifttypen til Arial eller sans-serif */
@@ -59,7 +56,7 @@
 <body>
 <div class="container"> <!-- Container til indholdet på siden -->
     <h1>Rediger Bruger</h1> <!-- Overskrift for rediger bruger-formularen -->
-    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post"> <!-- Form til redigering af bruger -->
+    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post" onsubmit="return validateForm()"> <!-- Form til redigering af bruger -->
         <input type="hidden" th:field="*{userid}" /> <!-- Skjult felt til brugerens id -->
 
         <!-- Tekstfelter -->
@@ -117,5 +114,51 @@
     </form>
     <a href="/menu">Tilbage</a> <!-- Link tilbage til menu -->
 </div>
+
+<!-- JavaScript til validering af formularen -->
+<script>
+    function validateForm() {
+        // Validering af navn og efternavn
+        var nameInput = document.getElementById('name').value;
+        var surnameInput = document.getElementById('surname').value;
+        var nameRegex = /^[a-zA-ZæøåÆØÅ\s]+$/;
+        if (!nameRegex.test(nameInput) || !nameRegex.test(surnameInput)) {
+            alert("Navn og efternavn må kun indeholde bogstaver og mellemrum.");
+            return false;
+        }
+
+        // Validering af telefonnummer
+        var phoneInput = document.getElementById('phone').value;
+        if (!(/^\d{8}$/.test(phoneInput))) {
+            alert("Telefonnummer skal være 8 cifre.");
+            return false;
+        }
+
+        // Validering af alder
+        var ageInput = document.getElementById('age').value;
+        if (isNaN(ageInput)) {
+            alert("Alder skal være et tal.");
+            return false;
+        }
+
+        // Validering af vægt
+        var weightInput = document.getElementById('weight').value;
+        if (isNaN(weightInput)) {
+            alert("Vægt skal være et tal.");
+            return false;
+        }
+
+        // Validering af højde
+        var heightInput = document.getElementById('height').value;
+        if (isNaN(heightInput)) {
+            alert("Højde skal være et tal.");
+            return false;
+        }
+
+
+        return true; // Returnerer true hvis alle felter validerer korrekt
+    }
+</script>
+
 </body>
 </html>

@@ -44,4 +44,8 @@ public class UserUsecase {
     public Optional<User> findUserByID(Long id){
         return userDbSql.findUserByID(id);
     }
+
+    public double calculateBMR(Long userId) {
+        return userDbSql.calculateBMR(userId);
+    }
 }

@@ -20,8 +20,8 @@ public class UserDbSql {
     // Opretter en bruger i databasen
     public void createUser(User user) {
         try {
-            String sql = "INSERT INTO user (email, password, name, surname, phone, weight, height, age, gender, goals, activitylevel, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql, user.getEmail(), user.getPassword(), user.getName(), user.getSurname(), user.getPhone(), user.getWeight(), user.getHeight(), user.getAge(), user.getGender(), user.getGoals(), user.getActivitylevel(), "user");
+            String sql = "INSERT INTO user (email, password, name, surname, phone, weight, height, age, gender, goals, activitylevel, role, bmr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sql, user.getEmail(), user.getPassword(), user.getName(), user.getSurname(), user.getPhone(), user.getWeight(), user.getHeight(), user.getAge(), user.getGender(), user.getGoals(), user.getActivitylevel(), "user", user.getBmr());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under oprettelse af bruger", e);
         }
@@ -41,8 +41,8 @@ public class UserDbSql {
             }
         } else {
             try {
-                String sql = "UPDATE user SET name = ?, surname = ?, email = ?, password = ?, phone = ?, weight = ?, height = ?, age = ?, gender = ?, goals = ?, activitylevel = ? WHERE userid = ?";
-                jdbcTemplate.update(sql, userToUpdate.getName(), userToUpdate.getSurname(), userToUpdate.getEmail(), userToUpdate.getPassword(), userToUpdate.getPhone(), userToUpdate.getWeight(), userToUpdate.getHeight(), userToUpdate.getAge(), userToUpdate.getGender(), userToUpdate.getGoals(), userToUpdate.getActivitylevel(), userToUpdate.getUserid());
+                String sql = "UPDATE user SET name = ?, surname = ?, email = ?, password = ?, phone = ?, weight = ?, height = ?, age = ?, gender = ?, goals = ?, activitylevel = ?, bmr = ? WHERE userid = ?";
+                jdbcTemplate.update(sql, userToUpdate.getName(), userToUpdate.getSurname(), userToUpdate.getEmail(), userToUpdate.getPassword(), userToUpdate.getPhone(), userToUpdate.getWeight(), userToUpdate.getHeight(), userToUpdate.getAge(), userToUpdate.getGender(), userToUpdate.getGoals(), userToUpdate.getActivitylevel(), userToUpdate.getBmr(), userToUpdate.getUserid());
             } catch (RuntimeException e) {
                 throw new RuntimeException("Fejl under opdatering af bruger", e);
             }
@@ -114,7 +114,26 @@ public class UserDbSql {
             user.setGoals(rs.getString("goals"));
             user.setActivitylevel(rs.getString("activitylevel"));
             user.setRole(rs.getString("role"));
+            user.setBmr(rs.getDouble("bmr"));
             return user;
         };
+    }
+    public double calculateBMR(Long userId) {
+        Optional<User> optionalUser = findUserByID(userId);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            // Beregning af BMR baseret på Harris-Benedict formel
+            double bmr;
+            if ("Mand".equalsIgnoreCase(user.getGender())) {
+                bmr = 65.5 + (13.75 * Double.parseDouble(user.getWeight())) + (5.003 * Double.parseDouble(user.getHeight())) - (6.75 * user.getAge());
+            } else if ("Kvinde".equalsIgnoreCase(user.getGender())) {
+                bmr = 655.1 + (9.563 * Double.parseDouble(user.getWeight())) + (1.850 * Double.parseDouble(user.getHeight())) - (4.676 * user.getAge());
+            } else {
+                throw new IllegalArgumentException("Ugyldig køn");
+            }
+            return bmr;
+        } else {
+            throw new IllegalArgumentException("Brugeren med det angivne ID blev ikke fundet");
+        }
     }
 }

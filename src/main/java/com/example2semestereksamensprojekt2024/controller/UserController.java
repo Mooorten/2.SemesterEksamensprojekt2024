@@ -1,6 +1,7 @@
 package com.example2semestereksamensprojekt2024.controller;
 
 import com.example2semestereksamensprojekt2024.model.User; // Importerer User-modelklassen
+import com.example2semestereksamensprojekt2024.service.UserUsecase;
 import jakarta.servlet.http.HttpSession; // Importerer HttpSession fra Jakarta EE
 import org.springframework.beans.factory.annotation.Autowired; // Importerer Autowired-annotationen
 import org.springframework.stereotype.Controller; // Importerer Controller-annotationen
@@ -58,8 +59,19 @@ public class UserController {
 
     // Mapping for at oprette en ny bruger
     @PostMapping("/createUser")
-    public String createUser(@ModelAttribute User user) {
-        userUsecase.createUser(user); // Kalder metoden createUser i UserUsecase og sender brugeren som parameter
+    public String createUser(@ModelAttribute User user, HttpSession session) {
+        // Beregn BMR-værdien, hvis brugeren er en "user"
+        double bmr = 0.0; // Default-værdi
+        if ("user".equals(user.getRole())) {
+            bmr = userUsecase.calculateBMR(user.getUserid());
+        }
+
+        // Opdater brugerdataene, herunder BMR, i brugerobjektet
+        user.setBmr(bmr);
+
+        // Opret brugeren i databasen
+        userUsecase.createUser(user);
+
         return "login"; // Returnerer navnet på HTML-siden for login
     }
 
@@ -71,6 +83,15 @@ public class UserController {
             return "redirect:/login"; // Redirecter til login-siden, hvis ingen bruger er logget ind
         }
         userUsecase.updateUser(user, currentUser); // Opdaterer brugeroplysninger og sender nuværende bruger som parameter
+
+        // Opdater BMR-værdien, hvis brugeren er en "user" og har ændret sine oplysninger
+        if ("user".equals(currentUser.getRole())) {
+            double bmr = userUsecase.calculateBMR(currentUser.getUserid());
+            currentUser.setBmr(bmr);
+            // Opdater brugerdataene, herunder BMR, i databasen
+            userUsecase.updateUser(currentUser, currentUser);
+        }
+
         return "redirect:/login"; // Redirecter til login-siden
     }
 
@@ -85,7 +106,7 @@ public class UserController {
     @GetMapping("/user/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         userUsecase.findUserByID(id).ifPresent(user -> model.addAttribute("user", user)); // Finder brugeren med det angivne id og tilføjer den til modellen
-        return "editUser"; // Returnerer navnet på HTML-siden for redigering af brugeroplysninger
+            return "editUser"; // Returnerer navnet på HTML-siden for redigering af brugeroplysninger
     }
 
     // Mapping for at vise formularen til redigering af adminoplysninger baseret på id
