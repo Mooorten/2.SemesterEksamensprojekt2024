@@ -1,122 +1,244 @@
-<!DOCTYPE html> <!-- Angiver dokumenttypen som HTML5 -->
-<html lang="da"> <!-- Angiver sprog for siden (dansk) -->
+<!DOCTYPE html>
+
+<html lang="da">
+
 <head>
-    <meta charset="UTF-8"> <!-- Definerer tegnsættet til UTF-8 (Unicode) -->
+
+    <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startside</title> <!-- Titlen på siden, vises i browserens fane -->
+
+    <title>Startside</title>
+
     <style>
+
         body {
-            font-family: Arial, sans-serif; /* Sætter skrifttypen til Arial eller sans-serif */
-            margin: 0; /* Nulstiller margen */
-            padding: 0; /* Nulstiller polstring */
-            background-color: #5aa54c; /* Mørkegrøn baggrund */
-            color: #fff; /* Hvid tekst */
+
+            font-family: Arial, sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            background-color: #5aa54c;
+
+            color: #fff;
+
         }
+
         .container {
+
             display: flex;
-            justify-content: space-between; /* Justerer til at fordele indholdet jævnt langs den vandrette akse */
-            max-width: 1000px; /* Ændret maksimal bredde */
+
+            justify-content: space-between;
+
+            max-width: 1000px;
+
             margin: 50px auto;
+
             padding: 20px;
+
             background-color: #fff;
+
             border-radius: 8px;
+
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: #5aa54c; /* Mørkegrøn tekst */
+
+            color: #5aa54c;
+
         }
+
         .user-info-container {
+
             padding: 20px;
-            background-color: #ccc; /* Grå baggrund */
+
+            background-color: #ccc;
+
             border-radius: 8px;
-            align-self: flex-start; /* Placerer elementet i starten (venstre) af sin container */
-            width: calc(30% - 2cm); /* Ændret bredden */
+
+            align-self: flex-start;
+
+            width: calc(30% - 2cm);
+
         }
+
         .user-info-container h2 {
-            text-align: left; /* Justerer til venstre */
-            margin-bottom: 10px; /* Lidt mindre plads under overskriften */
+
+            text-align: left;
+
+            margin-bottom: 10px;
+
         }
+
         .user-info {
-            display: grid; /* Anvender grid layout til at justere oplysninger */
-            grid-template-columns: 1fr; /* En enkelt kolonne */
-            gap: 0; /* Fjerner plads mellem oplysningerne */
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 0;
+
         }
+
         .user-info p {
-            text-align: left; /* Justerer til venstre */
-            margin-bottom: 5px; /* Lidt mindre plads mellem hver oplysning */
+
+            text-align: left;
+
+            margin-bottom: 5px;
+
         }
+
         .user-info p span {
-            margin-left: 5px; /* Lidt plads til højre for kolonet */
-            font-weight: bold; /* Gør teksten fed */
+
+            margin-left: 5px;
+
+            font-weight: bold;
+
         }
+
         h1 {
+
             text-align: center;
-            color: #5aa54c; /* Mørkegrøn overskrift */
+
+            color: #5aa54c;
+
         }
+
         .button-container {
+
             display: flex;
+
             flex-direction: column;
-            align-items: flex-start; /* Justerer til venstre */
-            width: calc(50% - 2cm); /* Ændret bredden */
+
+            align-items: flex-start;
+
+            width: calc(50% - 2cm);
+
         }
+
         .button {
+
             display: inline-block;
-            padding: 12px 24px; /* Øget padding for større knapper */
-            margin-bottom: 20px; /* Mere plads mellem knapper */
-            background-color: #4CAF50; /* Grøn knap */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #45a049; /* Mørkere grøn ved hover */
-        }
-        .logout {
-            margin-top: auto; /* Placerer log ud knappen nederst */
-        }
-        .edit-button,
-        .delete-button {
-            display: inline-block;
+
             padding: 12px 24px;
-            margin-top: 20px; /* Justerer afstanden fra de andre knapper */
-            background-color: #4CAF50; /* Grøn knap */
+
+            margin-bottom: 20px;
+
+            background-color: #4CAF50;
+
             color: white;
+
             text-decoration: none;
+
             border-radius: 5px;
+
             transition: background-color 0.3s ease;
+
             cursor: pointer;
+
             text-align: center;
+
         }
+
+        .button:hover {
+
+            background-color: #45a049;
+
+        }
+
+        .logout {
+
+            margin-top: auto;
+
+        }
+
+        .edit-button,
+
+        .delete-button {
+
+            display: inline-block;
+
+            padding: 12px 24px;
+
+            margin-top: 20px;
+
+            background-color: #4CAF50;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+            transition: background-color 0.3s ease;
+
+            cursor: pointer;
+
+            text-align: center;
+
+        }
+
         .edit-button:hover,
+
         .delete-button:hover {
-            background-color: #45a049; /* Mørkere grøn ved hover */
+
+            background-color: #45a049;
+
         }
+
     </style>
+
 </head>
+
 <body>
+
 <div class="container">
 
+
+
     <div class="button-container">
-        <h1>Velkommen Admin!</h1> <!-- Overskrift for velkommen admin beskeden -->
-        <form action="/deleteUser" method="post"> <!-- Form til slet bruger -->
+
+        <h1>Velkommen Admin!</h1>
+
+        <form action="/deleteUser" method="post">
+
             <input type="hidden" name="userid" value="${user.userid}">
-            <a href="/createmealAdmin" class="button">Tilføj ny ret</a> <!-- Link til at tilføje ny ret -->
-            <a href="/adminmenu" class="button">Tilføj ny ingrediens</a> <!-- Link til at tilføje ny ingrediens -->
+
+            <a href="/createmealAdmin" class="button">Tilføj ny ret</a>
+
+            <a href="/adminmenu" class="button">Tilføj ny ingrediens</a>
+
         </form>
-        <a href="/logout" class="button logout">Log ud</a> <!-- Link til at logge ud -->
+
+        <a href="/logout" class="button logout">Log ud</a>
+
     </div>
+
     <div class="user-info-container">
-        <h2>Dine oplysninger Admin:</h2> <!-- Overskrift for admin oplysninger -->
+
+        <h2>Dine oplysninger Admin:</h2>
+
         <div class="user-info">
-            <p>Email:     <span th:text="${currentUser.email}"></span></p> <!-- Brugerens email -->
-            <p>Navn:      <span th:text="${currentUser.name}"></span></p> <!-- Brugerens navn -->
-            <p>Efternavn: <span th:text="${currentUser.surname}"></span></p> <!-- Brugerens efternavn -->
-            <p>Rolle:     <span th:text="${currentUser.role}"></span></p> <!-- Brugerens rolle -->
+
+            <p>Email:     <span th:text="${currentUser?.email}">Ingen email</span></p>
+
+            <p>Navn:      <span th:text="${currentUser?.name}">Intet navn</span></p>
+
+            <p>Efternavn: <span th:text="${currentUser?.surname}">Intet efternavn</span></p>
+
+            <p>Rolle:     <span th:text="${currentUser?.role}">Ingen rolle</span></p>
+
         </div>
-        <a th:href="@{/user/editAdmin/{id}(id=${currentUser.userid})}" class="edit-button">Rediger</a> <!-- Link til at redigere brugeroplysninger -->
-        <a th:href="@{/user/delete/{id}(id=${currentUser.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a> <!-- Link til at slette brugerprofil -->
+
+        <a th:href="@{/user/editAdmin/{id}(id=${currentUser?.userid})}" class="edit-button">Rediger</a>
+
+        <a th:href="@{/user/delete/{id}(id=${currentUser?.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
+
     </div>
+
 </div>
+
 </body>
+
 </html>
+

@@ -32,24 +32,23 @@ public class UserDbSql {
     }
 
     public void updateUser(User userToUpdate, User currentUser) {
-        if ("admin".equals(currentUser.getRole())) {
-            if (currentUser.getUserid().equals(userToUpdate.getUserid())) {
-                try {
-                    String sql = "UPDATE user SET name = ?, surname = ?, email = ?, password = ?, phone = NULL, weight = NULL, height = NULL, age = NULL, gender = NULL, goals = NULL, activitylevel = NULL WHERE userid = ?";
-                    jdbcTemplate.update(sql, userToUpdate.getName(), userToUpdate.getSurname(), userToUpdate.getEmail(), userToUpdate.getPassword(), userToUpdate.getUserid());
-                } catch (RuntimeException e) {
-                    throw new RuntimeException("Fejl under opdatering af bruger", e);
-                }
-            } else {
-                throw new RuntimeException("Administratorer kan kun opdatere deres egne oplysninger.");
-            }
-        } else {
+        if ("user".equals(currentUser.getRole())) {
             try {
                 String sql = "UPDATE user SET name = ?, surname = ?, email = ?, password = ?, phone = ?, weight = ?, height = ?, age = ?, gender = ?, goals = ?, activitylevel = ?, bmr = ? WHERE userid = ?";
-                jdbcTemplate.update(sql, userToUpdate.getName(), userToUpdate.getSurname(), userToUpdate.getEmail(), userToUpdate.getPassword(), userToUpdate.getPhone(), userToUpdate.getWeight(), userToUpdate.getHeight(), userToUpdate.getAge(), userToUpdate.getGender(), userToUpdate.getGoals(), userToUpdate.getActivitylevel(), userToUpdate.getBmr(), userToUpdate.getUserid());
+                double bmr = calculateBMR(userToUpdate.getUserid()); // Beregn BMR
+                jdbcTemplate.update(sql, userToUpdate.getName(), userToUpdate.getSurname(), userToUpdate.getEmail(), userToUpdate.getPassword(), userToUpdate.getPhone(), userToUpdate.getWeight(), userToUpdate.getHeight(), userToUpdate.getAge(), userToUpdate.getGender(), userToUpdate.getGoals(), userToUpdate.getActivitylevel(), bmr, userToUpdate.getUserid());
             } catch (RuntimeException e) {
                 throw new RuntimeException("Fejl under opdatering af bruger", e);
             }
+        } else if ("admin".equals(currentUser.getRole())) {
+            try {
+                String sql = "UPDATE user SET name = ?, surname = ?, email = ?, password = ? WHERE userid = ?";
+                jdbcTemplate.update(sql, userToUpdate.getName(), userToUpdate.getSurname(), userToUpdate.getEmail(), userToUpdate.getPassword(), userToUpdate.getUserid());
+            } catch (RuntimeException e) {
+                throw new RuntimeException("Fejl under opdatering af bruger", e);
+            }
+        } else {
+            throw new IllegalArgumentException("Ugyldig brugerrolle");
         }
     }
 
