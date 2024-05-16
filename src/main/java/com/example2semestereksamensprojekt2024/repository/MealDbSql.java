@@ -78,7 +78,7 @@ public class MealDbSql {
             Meal meal = new Meal();
             meal.setMealid(rs.getLong("mealid"));
             meal.setName(rs.getString("name"));
-            meal.setIngredients(rs.getString("recipe"));
+            meal.setIngredients(rs.getString("ingredients"));
             meal.setProcedure(rs.getString("procedure"));
             meal.setDuration(rs.getString("duration"));
             meal.setDifficulty(rs.getString("difficulty"));

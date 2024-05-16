@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            background-color: #f8eeaa;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>List of Meals</title>
+    <!-- Basic setup with meta tag and title -->
+</head>
+<body>
+
+<h1>Meals</h1>
+
+<!-- Link to add a new meal -->
+
+<!-- Start of the table to display meals -->
+<table>
+    <thead>
+    <tr>
+        <!-- Column headers for the table -->
+        <th>ID</th>
+        <th>Name</th>
+        <th>Ingredients</th>
+        <th>Procedure</th>
+        <th>Duration</th>
+        <th>Difficulty</th>
+        <th>Categories</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate through the list of meals and display each meal -->
+
+    <!--/*@thymesVar id="meal" type="com.example2semestereksamensprojekt2024.model.Meal"*/-->
+    <tr th:each="meal : ${meals}">
+        <!-- Display values for each meal from the list -->
+        <td th:text="${meal.mealid}">ID</td>
+        <td th:text="${meal.name}">Name</td>
+        <td th:text="${meal.ingredients}">Ingredients</td>
+        <td th:text="${meal.procedure}">Procedure</td>
+        <td th:text="${meal.duration}">Duration</td>
+        <td th:text="${meal.difficulty}">Difficulty</td>
+        <td th:text="${meal.categories}">Categories</td>
+        <td>
+            <!-- Link to edit a meal -->
+            <!--/*@thymesVar id="mealid" type="com.example2semestereksamensprojekt2024.model.Meal"*/-->
+            <a th:href="@{/meal/edit/{id}(id=${meal.mealid})}">Edit</a>
+            <!-- Link to delete a meal -->
+            <a th:href="@{/meal/delete/{id}(id=${meal.mealid})}" onclick="return confirm('Are you sure you want to delete this meal?');">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/adminmenu">Tilbage</a>
+</body>
+</html>

@@ -4,9 +4,12 @@ import com.example2semestereksamensprojekt2024.model.Meal; // Importerer Meal-mo
 import com.example2semestereksamensprojekt2024.service.MealUsecase; // Importerer MealUsecase-serviceklassen
 import org.springframework.beans.factory.annotation.Autowired; // Importerer Autowired-annotationen
 import org.springframework.stereotype.Controller; // Importerer Controller-annotationen
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping; // Importerer GetMapping-annotationen
 import org.springframework.web.bind.annotation.ModelAttribute; // Importerer ModelAttribute-annotationen
 import org.springframework.web.bind.annotation.PostMapping; // Importerer PostMapping-annotationen
+
+import java.util.List;
 
 @Controller // Fortæller Spring, at dette er en controller-klasse
 public class MealController {
@@ -23,6 +26,13 @@ public class MealController {
     public String createMeal(@ModelAttribute Meal meal) {
         mealUsecase.createMeal(meal); // Kalder metoden createMeal i MealUsecase og sender måltidet som parameter
         return "redirect:/adminmenu"; // Brug redirect her // Returnerer navnet på HTML-siden for adminmenuen
+    }
+
+    @GetMapping("/viewmeals")
+    public String showMeals(Model model) {
+        List<Meal> meals = mealUsecase.findAllMeals();
+        model.addAttribute("meals", meals);
+        return "viewmeals";
     }
 
     // Mappings for at vise måltider for hver dag i ugen
