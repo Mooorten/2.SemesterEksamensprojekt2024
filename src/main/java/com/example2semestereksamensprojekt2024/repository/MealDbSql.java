@@ -26,6 +26,7 @@ public class MealDbSql {
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under oprettelse af måltid", e);
         }
+
     }
 
     // Opdaterer et måltid i databasen

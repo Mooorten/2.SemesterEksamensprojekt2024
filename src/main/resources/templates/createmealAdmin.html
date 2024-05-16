@@ -22,19 +22,6 @@
             text-align: center; /* Centrerer overskriften */
             color: #333; /* Tekstfarve */
         }
-        .meal {
-            margin-bottom: 30px; /* Afstand nedenfor hvert måltid */
-            padding: 20px; /* Polstring omkring hvert måltid */
-            background-color: #FFF8DC; /* Baggrundsfarve for hvert måltid */
-            border-radius: 8px; /* Afrunder kanterne på hvert måltid */
-        }
-        .meal h2 {
-            color: #333; /* Overskriftfarve */
-        }
-        .meal p {
-            color: #666; /* Tekstfarve */
-            margin-bottom: 10px; /* Afstand nedenfor hver paragraf */
-        }
         form {
             margin-top: 20px; /* Afstand øverst på formularen */
         }
@@ -91,7 +78,7 @@
 <div class="container">
 
     <h1>Opret ret</h1> <!-- Overskrift for opret ret-formularen -->
-    <form action="/createMeal" method="post"> <!-- Form til oprettelse af ret -->
+    <form action="/createMeal" method="post" enctype="multipart/form-data"> <!-- Form til oprettelse af ret med multipart/form-data, der kræves for filupload -->
         <label for="name">Navn på retten:</label> <!-- Etiket for navnet på retten -->
         <input type="text" id="name" name="name" required><br> <!-- Inputfelt til navn på retten -->
 
@@ -113,6 +100,10 @@
 
         <label for="categories">Kategori:</label> <!-- Etiket for kategori -->
         <input type="text" id="categories" name="categories" required><br> <!-- Inputfelt til kategori -->
+
+<!--  NOTE TIL OS: Husk at håndtere billedet på serversiden, når formularen sendes, for at gemme det og relatere det til den ret, der oprettes.-->
+        <label for="image">Billede:</label> <!-- Etiket for billede -->
+        <input type="file" id="image" name="image" accept="image/*" required><br> <!-- Inputfelt til billedeupload -->
 
         <input type="submit" value="Tilføj ret"> <!-- Indsend knap til at tilføje ret -->
     </form>

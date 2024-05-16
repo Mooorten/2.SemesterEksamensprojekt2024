@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrering</title>
     <style>
+        /* CSS-styling starter her */
         body {
             font-family: Arial, sans-serif;
             background-color: #5aa54c;
@@ -76,6 +77,23 @@
             flex-direction: row;
             gap: 20px;
         }
+        .container label {
+            font-weight: bold;
+        }
+        /* Tilføjelse af op og ned pile */
+        .increment-decrement {
+            display: flex;
+            align-items: center;
+        }
+        .increment-decrement button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .increment-decrement button:hover {
+            color: #5aa54c;
+        }
     </style>
 </head>
 <body>
@@ -85,33 +103,65 @@
     <h2>Registrering</h2>
     <form action="/createUser" method="post" onsubmit="return validateForm()">
         <div class="form1-2">
+
             <div class="Kolonne1">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Kodeord" required>
-                <input type="text" name="name" placeholder="Fornavn" required>
-                <input type="text" name="surname" placeholder="Efternavn" required>
-                <input type="text" name="phone" placeholder="Telefon" required>
-            </div>
-            <div class="Kolonne2">
-                <input type="text" name="weight" placeholder="Vægt" required>
-                <input type="text" name="height" placeholder="Højde" required>
-                <input type="text" name="age" placeholder="Alder" required>
-                <select name="gender" required>
-                    <option value="" disabled selected hidden>Køn</option>
-                    <option value="Mand">Mand</option>
-                    <option value="Kvinde">Kvinde</option>
-                </select>
-                <select name="goals" required>
-                    <option value="" disabled selected hidden>Mål</option>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+
+                <label for="name">Fornavn:</label>
+                <input type="text" id="name" name="name" placeholder="Fornavn" required>
+
+                <label for="height">Højde:</label>
+                <div class="increment-decrement">
+                    <input type="text" id="height" name="height" placeholder="cm" required>
+                    <button type="button" onclick="incrementValue('height')">▲</button>
+                    <button type="button" onclick="decrementValue('height')">▼</button>
+                </div>
+
+                <label for="phone">Telefon:</label>
+                <input type="text" id="phone" name="phone" placeholder="Telefon" required>
+
+                <label for="goals">Mål:</label>
+                <select id="goals" name="goals" required>
+                    <option value="" disabled selected hidden>Vælg mål</option>
                     <option value="Tabe vægt">Tabe vægt</option>
                     <option value="Opbygge muskler">Opbygge muskler</option>
                     <option value="Forbedre fitness">Forbedre fitness</option>
                     <option value="Opretholde vægt">Opretholde vægt</option>
                 </select>
             </div>
+            <div class="Kolonne2">
+                <label for="password">Kodeord:</label>
+                <input type="password" id="password" name="password" placeholder="Kodeord" required>
+
+                <label for="surname">Efternavn:</label>
+                <input type="text" id="surname" name="surname" placeholder="Efternavn" required>
+
+                <label for="weight">Vægt:</label>
+                <div class="increment-decrement">
+                    <input type="text" id="weight" name="weight" placeholder="kg" required>
+                    <button type="button" onclick="incrementValue('weight')">▲</button>
+                    <button type="button" onclick="decrementValue('weight')">▼</button>
+                </div>
+
+                <label for="age">Alder:</label>
+                <div class="increment-decrement">
+                    <input type="text" id="age" name="age" placeholder="år" required>
+                    <button type="button" onclick="incrementValue('age')">▲</button>
+                    <button type="button" onclick="decrementValue('age')">▼</button>
+                </div>
+
+                <label for="gender">Køn:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected hidden>Vælg køn</option>
+                    <option value="Mand">Mand</option>
+                    <option value="Kvinde">Kvinde</option>
+                </select>
+            </div>
         </div>
-        <select name="activitylevel" required>
-            <option value="" disabled selected hidden>Aktivitetsniveau</option>
+        <label for="activitylevel">Aktivitetsniveau:</label>
+        <select id="activitylevel" name="activitylevel" required>
+            <option value="" disabled selected hidden>Vælg aktivitetsniveau</option>
             <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option>
             <option value="Let aktiv">Let aktiv (træner 1-3 gange om ugen)</option>
             <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option>
@@ -119,6 +169,7 @@
         </select>
         <input type="submit" value="Registrer">
     </form>
+
     <div class="login-link">
         <p>Allerede medlem? <a href="/login">Log ind</a></p>
     </div>
@@ -169,7 +220,24 @@
             alert("Email skal indeholde '@'.");
             return false;
         }
-        
+    }
+
+    // Funktion til at øge værdien
+    function incrementValue(inputId) {
+        var input = document.getElementById(inputId);
+        var value = parseInt(input.value, 10);
+        if (!isNaN(value)) {
+            input.value = value + 1;
+        }
+    }
+
+    // Funktion til at mindske værdien
+    function decrementValue(inputId) {
+        var input = document.getElementById(inputId);
+        var value = parseInt(input.value, 10);
+        if (!isNaN(value) && value > 0) {
+            input.value = value - 1;
+        }
     }
 </script>
 
