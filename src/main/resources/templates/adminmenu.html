@@ -1,244 +1,120 @@
 <!DOCTYPE html>
-
 <html lang="da">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Startside</title>
-
     <style>
-
         body {
-
             font-family: Arial, sans-serif;
-
             margin: 0;
-
             padding: 0;
-
             background-color: #5aa54c;
-
             color: #fff;
-
         }
-
         .container {
-
             display: flex;
-
             justify-content: space-between;
-
             max-width: 1000px;
-
             margin: 50px auto;
-
             padding: 20px;
-
             background-color: #fff;
-
             border-radius: 8px;
-
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
             color: #5aa54c;
-
         }
-
         .user-info-container {
-
             padding: 20px;
-
             background-color: #ccc;
-
             border-radius: 8px;
-
             align-self: flex-start;
-
             width: calc(30% - 2cm);
-
         }
-
         .user-info-container h2 {
-
             text-align: left;
-
             margin-bottom: 10px;
-
         }
-
         .user-info {
-
             display: grid;
-
             grid-template-columns: 1fr;
-
             gap: 0;
-
         }
-
         .user-info p {
-
             text-align: left;
-
             margin-bottom: 5px;
-
         }
-
         .user-info p span {
-
             margin-left: 5px;
-
             font-weight: bold;
-
         }
-
         h1 {
-
             text-align: center;
-
             color: #5aa54c;
-
         }
-
         .button-container {
-
             display: flex;
-
             flex-direction: column;
-
             align-items: flex-start;
-
             width: calc(50% - 2cm);
-
         }
-
         .button {
-
             display: inline-block;
-
             padding: 12px 24px;
-
             margin-bottom: 20px;
-
             background-color: #4CAF50;
-
             color: white;
-
             text-decoration: none;
-
             border-radius: 5px;
-
             transition: background-color 0.3s ease;
-
             cursor: pointer;
-
             text-align: center;
-
         }
-
         .button:hover {
-
             background-color: #45a049;
-
         }
-
         .logout {
-
             margin-top: auto;
-
         }
-
         .edit-button,
-
         .delete-button {
-
             display: inline-block;
-
             padding: 12px 24px;
-
             margin-top: 20px;
-
             background-color: #4CAF50;
-
             color: white;
-
             text-decoration: none;
-
             border-radius: 5px;
-
             transition: background-color 0.3s ease;
-
             cursor: pointer;
-
             text-align: center;
-
         }
-
         .edit-button:hover,
-
         .delete-button:hover {
-
             background-color: #45a049;
-
         }
-
     </style>
-
 </head>
-
 <body>
-
 <div class="container">
-
-
-
     <div class="button-container">
-
         <h1>Velkommen Admin!</h1>
-
         <form action="/deleteUser" method="post">
-
             <input type="hidden" name="userid" value="${user.userid}">
-
             <a href="/createmealAdmin" class="button">Tilføj ny ret</a>
-
-            <a href="/adminmenu" class="button">Tilføj ny ingrediens</a>
-
         </form>
-
         <a href="/logout" class="button logout">Log ud</a>
-
     </div>
-
     <div class="user-info-container">
-
         <h2>Dine oplysninger Admin:</h2>
-
         <div class="user-info">
-
             <p>Email:     <span th:text="${currentUser?.email}">Ingen email</span></p>
-
             <p>Navn:      <span th:text="${currentUser?.name}">Intet navn</span></p>
-
             <p>Efternavn: <span th:text="${currentUser?.surname}">Intet efternavn</span></p>
-
             <p>Rolle:     <span th:text="${currentUser?.role}">Ingen rolle</span></p>
-
         </div>
-
         <a th:href="@{/user/editAdmin/{id}(id=${currentUser?.userid})}" class="edit-button">Rediger</a>
-
         <a th:href="@{/user/delete/{id}(id=${currentUser?.userid})}" class="delete-button" onclick="return confirm('Er du sikker på, at du vil slette din profil?');">Slet</a>
-
     </div>
-
 </div>
-
 </body>
-
 </html>
-
