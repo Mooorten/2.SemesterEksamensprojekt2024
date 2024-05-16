@@ -1,19 +1,19 @@
-<!DOCTYPE html> <!-- Angiver dokumenttypen som HTML5 -->
-<html xmlns:th="http://www.thymeleaf.org"> <!-- Indsætter Thymeleaf XML-namespace -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"> <!-- Definerer tegnsættet som UTF-8 -->
-    <title>Rediger Bruger</title> <!-- Titlen på siden -->
+    <meta charset="UTF-8">
+    <title>Rediger Bruger</title>
     <style>
         body {
-            font-family: Arial, sans-serif; /* Sætter skrifttypen til Arial eller sans-serif */
-            background-color: #c3ec9a; /* Mørkegrøn baggrund */
-            margin: 20px 0; /* Tilføjet margin øverst og nederst */
-            padding: 0; /* Nulstiller polstring */
-            display: flex; /* Bruger flexbox til layout */
-            justify-content: center; /* Centrerer indholdet vandret */
-            align-items: center; /* Centrerer indholdet lodret */
+            font-family: Arial, sans-serif; /* Vælg skrifttypen */
+            background-color: #c3ec9a; /* Baggrundsfarve */
+            margin: 20px 0; /* Margen øverst og nederst */
+            padding: 0; /* Nulstil polstring */
+            display: flex; /* Brug flexbox */
+            justify-content: center; /* Centrer indholdet vandret */
+            align-items: center; /* Centrer indholdet lodret */
             min-height: 100vh; /* Sørger for, at containeren fylder hele skærmen lodret */
-            color: #fff; /* Hvid tekst */
+            color: #fff; /* Tekstfarve */
         }
         .container {
             background-color: #fff; /* Baggrundsfarve for containeren */
@@ -21,98 +21,98 @@
             border-radius: 8px; /* Afrunder kanterne på containeren */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Skyggeeffekt */
             width: 300px; /* Bredde af containeren */
-            color: #5aa54c; /* Mørkegrøn tekst */
+            color: #5aa54c; /* Tekstfarve */
         }
         h1 {
-            text-align: center; /* Centrerer overskriften */
+            text-align: center; /* Centrer overskriften */
             margin-bottom: 20px; /* Afstand nedenfor overskriften */
         }
         label {
-            display: block; /* Viser etiketten som en blok */
+            display: block; /* Vis etiketten som en blok */
             margin-bottom: 10px; /* Afstand nedenfor hver etiket */
         }
         input[type="text"], input[type="password"], input[type="number"], select {
-            width: 100%; /* Fylder hele bredden af deres container */
-            padding: 12px; /* Polstring indeni inputfelter */
+            width: 100%; /* Fyld hele bredden af inputfelterne */
+            padding: 12px; /* Polstring indeni inputfelterne */
             margin-bottom: 20px; /* Afstand nedenfor hvert inputfelt */
             border: 1px solid #ccc; /* Kantfarve */
-            border-radius: 5px; /* Afrunder kanterne på inputfelter */
-            box-sizing: border-box; /* Inkluderer padding og kant i den samlede bredde */
+            border-radius: 5px; /* Afrund kanterne på inputfelterne */
+            box-sizing: border-box; /* Inkluder padding og kant i den samlede bredde */
         }
-        button[type="submit"], button[type="button"] {
-            width: 100%; /* Fylder hele bredden af knappen */
+        button[type="submit"] {
+            width: 100%; /* Fyld hele bredden af knappen */
             padding: 12px; /* Polstring indeni knappen */
             border: none; /* Ingen kant */
             background-color: #5aa54c; /* Baggrundsfarve for knappen */
             color: #fff; /* Tekstfarve for knappen */
-            border-radius: 5px; /* Afrunder kanterne på knappen */
+            border-radius: 5px; /* Afrund kanterne på knappen */
             cursor: pointer; /* Ændrer musemarkøren til en hånd, når du flytter over knappen */
         }
-        button[type="submit"]:hover, button[type="button"]:hover {
+        button[type="submit"]:hover {
             background-color: #e17910; /* Ændrer baggrundsfarven ved hover */
         }
     </style>
 </head>
 <body>
-<div class="container"> <!-- Container til indholdet på siden -->
-    <h1>Rediger Bruger</h1> <!-- Overskrift for rediger bruger-formularen -->
-    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post" onsubmit="return validateForm()"> <!-- Form til redigering af bruger -->
+<div class="container">
+    <h1>Rediger Bruger</h1>
+    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post" onsubmit="return validateForm()">
         <input type="hidden" th:field="*{userid}" /> <!-- Skjult felt til brugerens id -->
 
         <!-- Tekstfelter -->
-        <label for="name">Navn:</label> <!-- Etiket for navnet -->
-        <input type="text" id="name" th:field="*{name}" /> <!-- Inputfelt til navnet -->
+        <label for="name">Navn:</label>
+        <input type="text" id="name" th:field="*{name}" />
 
-        <label for="surname">Efternavn:</label> <!-- Etiket for efternavn -->
-        <input type="text" id="surname" th:field="*{surname}" /> <!-- Inputfelt til efternavn -->
+        <label for="surname">Efternavn:</label>
+        <input type="text" id="surname" th:field="*{surname}" />
 
-        <label for="email">Email:</label> <!-- Etiket for email -->
-        <input type="text" id="email" th:field="*{email}" /> <!-- Inputfelt til email -->
+        <label for="email">Email:</label>
+        <input type="text" id="email" th:field="*{email}" />
 
-        <label for="password">Kodeord:</label> <!-- Etiket for kodeord -->
-        <input type="text" id="password" th:field="*{password}" /> <!-- Inputfelt til kodeord -->
+        <label for="password">Kodeord:</label>
+        <input type="text" id="password" th:field="*{password}" />
 
-        <label for="phone">Telefon:</label> <!-- Etiket for telefonnummer -->
-        <input type="text" id="phone" th:field="*{phone}" /> <!-- Inputfelt til telefonnummer -->
+        <label for="phone">Telefon:</label>
+        <input type="text" id="phone" th:field="*{phone}" />
 
-        <label for="weight">Vægt:</label> <!-- Etiket for vægt -->
-        <input type="text" id="weight" th:field="*{weight}" /> <!-- Inputfelt til vægt -->
+        <label for="weight">Vægt:</label>
+        <input type="text" id="weight" th:field="*{weight}" />
 
-        <label for="height">Højde:</label> <!-- Etiket for højde -->
-        <input type="text" id="height" th:field="*{height}" /> <!-- Inputfelt til højde -->
+        <label for="height">Højde:</label>
+        <input type="text" id="height" th:field="*{height}" />
 
-        <label for="age">Alder:</label> <!-- Etiket for alder -->
-        <input type="text" id="age" th:field="*{age}" /> <!-- Inputfelt til alder -->
+        <label for="age">Alder:</label>
+        <input type="text" id="age" th:field="*{age}" />
 
         <!-- Dropdown-menuer -->
-        <label for="gender">Køn:</label> <!-- Etiket for køn -->
-        <select id="gender" name="gender" th:field="*{gender}" required> <!-- Dropdown-menu for køn -->
-            <option value="" disabled selected hidden>Vælg køn</option> <!-- Standardvalg -->
-            <option value="Mand">Mand</option> <!-- Valgmulighed for mand -->
-            <option value="Kvinde">Kvinde</option> <!-- Valgmulighed for kvinde -->
+        <label for="gender">Køn:</label>
+        <select id="gender" name="gender" th:field="*{gender}" required>
+            <option value="" disabled selected hidden>Vælg køn</option>
+            <option value="Mand">Mand</option>
+            <option value="Kvinde">Kvinde</option>
         </select>
 
-        <label for="goals">Mål:</label> <!-- Etiket for mål -->
-        <select id="goals" name="goals" th:field="*{goals}" required> <!-- Dropdown-menu for mål -->
-            <option value="" disabled selected hidden>Vælg mål</option> <!-- Standardvalg -->
-            <option value="Tabe vægt">Tabe vægt</option> <!-- Valgmulighed for vægttab -->
-            <option value="Opbygge muskler">Opbygge muskler</option> <!-- Valgmulighed for muskelopbygning -->
-            <option value="Forbedre fitness">Forbedre fitness</option> <!-- Valgmulighed for fitnessforbedring -->
-            <option value="Opretholde vægt">Opretholde vægt</option> <!-- Valgmulighed for vægtvedligeholdelse -->
+        <label for="goals">Mål:</label>
+        <select id="goals" name="goals" th:field="*{goals}" required>
+            <option value="" disabled selected hidden>Vælg mål</option>
+            <option value="Tabe vægt">Tabe vægt</option>
+            <option value="Opbygge muskler">Opbygge muskler</option>
+            <option value="Forbedre fitness">Forbedre fitness</option>
+            <option value="Opretholde vægt">Opretholde vægt</option>
         </select>
 
-        <label for="activitylevel">Aktivitetsniveau:</label> <!-- Etiket for aktivitetsniveau -->
-        <select id="activitylevel" name="activitylevel" th:field="*{activitylevel}" required> <!-- Dropdown-menu for aktivitetsniveau -->
-            <option value="" disabled selected hidden>Vælg aktivitetsniveau</option> <!-- Standardvalg -->
-            <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option> <!-- Valgmulighed for stillesiddende -->
-            <option value="Let aktiv">Let aktiv (træner 1-3 gange om ugen)</option> <!-- Valgmulighed for let aktiv -->
-            <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option> <!-- Valgmulighed for moderat aktiv -->
-            <option value="Meget aktiv">Meget aktiv (træner 6-7 dage om ugen)</option> <!-- Valgmulighed for meget aktiv -->
+        <label for="activitylevel">Aktivitetsniveau:</label>
+        <select id="activitylevel" name="activitylevel" th:field="*{activitylevel}" required>
+            <option value="" disabled selected hidden>Vælg aktivitetsniveau</option>
+            <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option>
+            <option value="Let aktiv">Let aktiv (træner 1-3 gange om ugen)</option>
+            <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option>
+            <option value="Meget aktiv">Meget aktiv (træner 6-7 dage om ugen)</option>
         </select>
 
-        <button type="submit">Opdater</button> <!-- Knappen til at opdatere brugeren -->
+        <button type="submit">Opdater</button>
     </form>
-    <a href="/menu">Tilbage</a> <!-- Link tilbage til menu -->
+    <a href="/menu">Tilbage</a>
 </div>
 
 <!-- JavaScript til validering af formularen -->
@@ -136,25 +136,31 @@
 
         // Validering af alder
         var ageInput = document.getElementById('age').value;
-        if (isNaN(ageInput)) {
-            alert("Alder skal være et tal.");
+        if (isNaN(ageInput) || ageInput < 15 || ageInput > 100) {
+            alert("Alder skal være et tal mellem 15 og 100.");
             return false;
         }
 
         // Validering af vægt
         var weightInput = document.getElementById('weight').value;
-        if (isNaN(weightInput)) {
-            alert("Vægt skal være et tal.");
+        if (isNaN(weightInput) || weightInput < 30 || weightInput > 200) {
+            alert("Vægt skal være et tal mellem 30 og 200.");
             return false;
         }
 
         // Validering af højde
         var heightInput = document.getElementById('height').value;
-        if (isNaN(heightInput)) {
-            alert("Højde skal være et tal.");
+        if (isNaN(heightInput) || heightInput < 120 || heightInput > 250) {
+            alert("Højde skal være et tal mellem 120 og 250.");
             return false;
         }
 
+        // Validering af email
+        var emailInput = document.getElementById('email').value;
+        if (!emailInput.includes('@')) {
+            alert("Email skal indeholde '@'.");
+            return false;
+        }
 
         return true; // Returnerer true hvis alle felter validerer korrekt
     }

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrering</title>
     <style>
-        /* Styling af body */
         body {
             font-family: Arial, sans-serif;
             background-color: #5aa54c;
@@ -17,7 +16,6 @@
             min-height: 100vh;
             color: #fff;
         }
-        /* Styling af container */
         .container {
             background-color: #fff;
             padding: 20px;
@@ -28,12 +26,10 @@
             display: flex;
             flex-direction: column;
         }
-        /* Styling af overskrift */
         h2 {
             text-align: center;
             margin-bottom: 20px;
         }
-        /* Styling af inputfelter, select og submit-knap */
         input[type="email"], input[type="password"], input[type="text"], select, input[type="submit"] {
             width: 100%;
             padding: 12px;
@@ -42,7 +38,6 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-        /* Styling af select-dropdowns */
         select {
             appearance: none;
             -webkit-appearance: none;
@@ -52,41 +47,34 @@
             background-position: right 8px top 50%;
             background-size: 24px auto;
         }
-        /* Styling af submit-knap */
         input[type="submit"] {
             background-color: #5aa54c;
             color: #fff;
             border: none;
             cursor: pointer;
         }
-        /* Ændrer baggrundsfarven på submit-knap ved hover */
         input[type="submit"]:hover {
             background-color: #e17910;
         }
-        /* Styling af login-link */
         .login-link {
             text-align: center;
             color: #5aa54c;
         }
-        /* Styling af login-link a */
         .login-link a {
             color: #4CAF50;
             text-decoration: none;
         }
-        /* Ændrer tekst-decoration på login-link a ved hover */
         .login-link a:hover {
             text-decoration: underline;
         }
-        /* Styling af kolonner i formular */
         .Kolonne1, .Kolonne2 {
             display: flex;
             flex-direction: column;
         }
-        /* Styling af formularindhold */
         .form1-2 {
             display: flex;
             flex-direction: row;
-            gap: 20px; /* Afstand mellem kolonner */
+            gap: 20px;
         }
     </style>
 </head>
@@ -95,26 +83,19 @@
 </div>
 <div class="container">
     <h2>Registrering</h2>
-    <!-- Formularen -->
     <form action="/createUser" method="post" onsubmit="return validateForm()">
-        <!-- Opdeling af formular i to kolonner -->
         <div class="form1-2">
-            <!-- Første kolonne til inputfelter -->
             <div class="Kolonne1">
-                <!-- Inputfelter til email, kodeord, fornavn, efternavn og telefon -->
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Kodeord" required>
                 <input type="text" name="name" placeholder="Fornavn" required>
                 <input type="text" name="surname" placeholder="Efternavn" required>
                 <input type="text" name="phone" placeholder="Telefon" required>
             </div>
-            <!-- Anden kolonne til inputfelter -->
             <div class="Kolonne2">
-                <!-- Inputfelter til vægt, højde, alder, køn og mål -->
                 <input type="text" name="weight" placeholder="Vægt" required>
                 <input type="text" name="height" placeholder="Højde" required>
                 <input type="text" name="age" placeholder="Alder" required>
-                <!-- Dropdown til køn og mål -->
                 <select name="gender" required>
                     <option value="" disabled selected hidden>Køn</option>
                     <option value="Mand">Mand</option>
@@ -129,7 +110,6 @@
                 </select>
             </div>
         </div>
-        <!-- Dropdown til aktivitetsniveau -->
         <select name="activitylevel" required>
             <option value="" disabled selected hidden>Aktivitetsniveau</option>
             <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option>
@@ -137,47 +117,39 @@
             <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option>
             <option value="Meget aktiv">Meget aktiv (træner 6-7 dage om ugen)</option>
         </select>
-        <!-- Indsend knap til at sende formularen -->
         <input type="submit" value="Registrer">
     </form>
-    <!-- Login link -->
     <div class="login-link">
         <p>Allerede medlem? <a href="/login">Log ind</a></p>
     </div>
 </div>
 
-<!-- JavaScript til validering af formularen -->
 <script>
     function validateForm() {
-        // Validering af vægt
         var weightInput = document.getElementsByName('weight')[0].value;
-        if (isNaN(weightInput)) {
-            alert("Vægt skal være et tal.");
+        if (isNaN(weightInput) || weightInput < 30 || weightInput > 200) {
+            alert("Vægt skal være et tal mellem 30 og 200.");
             return false;
         }
 
-        // Validering af alder
         var ageInput = document.getElementsByName('age')[0].value;
-        if (isNaN(ageInput)) {
-            alert("Alder skal være et tal.");
+        if (isNaN(ageInput) || ageInput < 15 || ageInput > 100) {
+            alert("Alder skal være et tal mellem 15 og 100.");
             return false;
         }
 
-        // Validering af højde
         var heightInput = document.getElementsByName('height')[0].value;
-        if (isNaN(heightInput)) {
-            alert("Højde skal være et tal.");
+        if (isNaN(heightInput) || heightInput < 120 || heightInput > 250) {
+            alert("Højde skal være et tal mellem 120 og 250.");
             return false;
         }
 
-        // Validering af telefonnummer
         var phoneInput = document.getElementsByName('phone')[0].value;
         if (!(/^\d{8}$/.test(phoneInput))) {
             alert("Telefonnummer skal være 8 cifre.");
             return false;
         }
 
-        // Validering af fornavn og efternavn
         var nameRegex = /^[a-zA-ZæøåÆØÅ\s]+$/;
         var nameInput = document.getElementsByName('name')[0].value;
         var surnameInput = document.getElementsByName('surname')[0].value;
@@ -186,7 +158,18 @@
             return false;
         }
 
-        return true;
+        var passwordInput = document.getElementsByName('password')[0].value;
+        if (!/^[a-zA-Z0-9]{3,20}$/.test(passwordInput)) {
+            alert("Kodeord skal være mellem 3 og 20 tegn og kun indeholde bogstaver og tal.");
+            return false;
+        }
+
+        var emailInput = document.getElementsByName('email')[0].value;
+        if (emailInput.indexOf('@') === -1) {
+            alert("Email skal indeholde '@'.");
+            return false;
+        }
+        
     }
 </script>
 

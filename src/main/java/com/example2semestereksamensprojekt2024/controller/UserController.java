@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired; // Importerer Aut
 import org.springframework.stereotype.Controller; // Importerer Controller-annotationen
 import org.springframework.ui.Model; // Importerer Model-klassen
 import org.springframework.web.bind.annotation.*; // Importerer alle annoteringer fra Spring Web
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller // Fortæller Spring, at dette er en controller-klasse
 public class UserController {
@@ -24,7 +25,7 @@ public class UserController {
     @GetMapping("/saveUser")
     public String saveUserForm(Model model) {
         model.addAttribute("user", new User()); // Tilføjer en tom bruger til modellen
-        return "saveUser"; // Returnerer navnet på HTML-siden
+        return "createUser"; // Returnerer navnet på HTML-siden
     }
 
     // Mapping for at vise formularen til redigering af brugeroplysninger
