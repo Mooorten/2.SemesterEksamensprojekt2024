@@ -1,4 +1,4 @@
-package com.example2semestereksamensprojekt2024.repository;
+package com.example2semestereksamensprojekt2024.DBController;
 
 import com.example2semestereksamensprojekt2024.model.Meal;
 import org.springframework.dao.DataAccessException;
@@ -32,12 +32,13 @@ public class MealDbSql {
     // Opdaterer et måltid i databasen
     public void updateMeal(Meal meal) {
         try {
-            String sql = "UPDATE meal SET name = ?, recipe = ?, procedure = ?, duration = ?, difficulty = ?, categories = ?";
-            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getDuration());
+            String sql = "UPDATE meal SET name = ?, ingredients = ?, `procedure` = ?, duration = ?, difficulty = ?, categories = ? WHERE mealid = ?";
+            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getCategories(), meal.getMealid());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under opdatering af måltid", e);
         }
     }
+
 
     // Sletter et måltid fra databasen
     public void deleteMeal(Long id) {

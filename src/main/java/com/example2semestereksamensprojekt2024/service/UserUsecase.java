@@ -1,13 +1,10 @@
 package com.example2semestereksamensprojekt2024.service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
 import com.example2semestereksamensprojekt2024.model.User;
-import com.example2semestereksamensprojekt2024.repository.UserDbSql;
+import com.example2semestereksamensprojekt2024.DBController.UserDbSql;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

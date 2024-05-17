@@ -1,7 +1,7 @@
 package com.example2semestereksamensprojekt2024;
 
 import com.example2semestereksamensprojekt2024.model.User;
-import com.example2semestereksamensprojekt2024.repository.UserDbSql;
+import com.example2semestereksamensprojekt2024.DBController.UserDbSql;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;

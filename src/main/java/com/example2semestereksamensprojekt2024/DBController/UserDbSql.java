@@ -1,15 +1,12 @@
-package com.example2semestereksamensprojekt2024.repository;
+package com.example2semestereksamensprojekt2024.DBController;
 
 import com.example2semestereksamensprojekt2024.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -139,5 +136,4 @@ public class UserDbSql {
             throw new IllegalArgumentException("Brugeren med det angivne ID blev ikke fundet");
         }
     }
-
 }

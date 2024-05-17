@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Meal</title>
+    <!-- Page title displayed in the browser tab -->
+</head>
+<body>
+
+<h1>Edit Meal</h1>
+<!-- Heading for the page -->
+
+<!-- Form for editing meal data. Thymeleaf is used to bind the form field to the existing meal object. -->
+<form action="#" th:action="@{/meal/save}" th:object="${meal}" method="post">
+    <!-- Hidden field for meal ID, which does not need to be changed by the user -->
+    <input type="hidden" th:field="*{mealid}" />
+
+    <!-- Input field for the meal's name -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" />
+
+    <!-- Input field for the meal's ingredients -->
+    <label for="ingredients">Ingredients:</label>
+    <input type="text" id="ingredients" th:field="*{ingredients}" />
+
+    <!-- Input field for the meal's procedure -->
+    <label for="procedure">Procedure:</label>
+    <input type="text" id="procedure" th:field="*{procedure}" />
+
+    <!-- Input field for the meal's duration -->
+    <label for="duration">Duration:</label>
+    <input type="text" id="duration" th:field="*{duration}" />
+
+    <!-- Dropdown menu for the meal's difficulty -->
+    <label for="difficulty">Sværhedsgrad:</label> <!-- Etiket for sværhedsgrad -->
+    <select id="difficulty" name="difficulty" required> <!-- Dropdown-menu til sværhedsgrad -->
+        <option value="easy">Let</option> <!-- Valgmulighed for let -->
+        <option value="medium">Medium</option> <!-- Valgmulighed for medium -->
+        <option value="hard">Svær</option> <!-- Valgmulighed for svær -->
+    </select><br>
+
+    <!-- Input field for the meal's categories -->
+    <label for="categories">Categories:</label>
+    <input type="text" id="categories" th:field="*{categories}" />
+
+    <!-- Submit button to save the edited information -->
+    <button type="submit">Update</button>
+</form>
+
+<!-- Link to return to the list of meals -->
+<a href="/viewmeals">Back to List</a>
+
+</body>
+</html>

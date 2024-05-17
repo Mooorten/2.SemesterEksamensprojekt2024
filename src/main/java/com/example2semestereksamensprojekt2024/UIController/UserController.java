@@ -1,4 +1,4 @@
-package com.example2semestereksamensprojekt2024.controller;
+package com.example2semestereksamensprojekt2024.UIController;
 
 import com.example2semestereksamensprojekt2024.model.User; // Importerer User-modelklassen
 import com.example2semestereksamensprojekt2024.service.UserUsecase;

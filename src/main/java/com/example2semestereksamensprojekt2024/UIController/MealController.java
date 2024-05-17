@@ -1,4 +1,4 @@
-package com.example2semestereksamensprojekt2024.controller;
+package com.example2semestereksamensprojekt2024.UIController;
 
 import com.example2semestereksamensprojekt2024.model.Meal; // Importerer Meal-modelklassen
 import com.example2semestereksamensprojekt2024.service.MealUsecase; // Importerer MealUsecase-serviceklassen
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller; // Importerer Controller-annot
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping; // Importerer GetMapping-annotationen
 import org.springframework.web.bind.annotation.ModelAttribute; // Importerer ModelAttribute-annotationen
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping; // Importerer PostMapping-annotationen
 
 import java.util.List;
@@ -33,6 +34,24 @@ public class MealController {
         List<Meal> meals = mealUsecase.findAllMeals();
         model.addAttribute("meals", meals);
         return "viewmeals";
+    }
+
+    @GetMapping("/meal/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        mealUsecase.findMealByID(id).ifPresent(meal -> model.addAttribute("meal", meal));
+        return "editmeal";
+    }
+
+    @PostMapping("/meal/save")
+    public String saveMeal(@ModelAttribute Meal meal) {
+        mealUsecase.updateMeal(meal);
+        return "redirect:/viewmeals";
+    }
+
+    @GetMapping("/meal/delete/{id}")
+    public String deleteMeal(@PathVariable Long id) {
+        mealUsecase.deleteMeal(id);
+        return "redirect:/viewmeals";
     }
 
     // Mappings for at vise måltider for hver dag i ugen
