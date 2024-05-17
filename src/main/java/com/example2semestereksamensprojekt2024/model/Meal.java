@@ -11,13 +11,15 @@ public class Meal {
     private String duration; // Varighed for tilberedning af måltidet
     private String difficulty; // Sværhedsgrad for tilberedning af måltidet
     private String categories; // Kategorier, som måltidet tilhører
+    private String nutritionalcontent;
 
     // Standardkonstruktør
     public Meal() {
     }
 
     // Konstruktør med parametre
-    public Meal(Long mealid, String name, String ingredients, String procedure, String duration, String difficulty, String categories) {
+
+    public Meal(Long mealid, String name, String ingredients, String procedure, String duration, String difficulty, String categories, String nutritionalcontent) {
         this.mealid = mealid;
         this.name = name;
         this.ingredients = ingredients;
@@ -25,7 +27,9 @@ public class Meal {
         this.duration = duration;
         this.difficulty = difficulty;
         this.categories = categories;
+        this.nutritionalcontent = nutritionalcontent;
     }
+
 
     // Getter og setter metoder for attributterne
 
@@ -85,6 +89,14 @@ public class Meal {
         this.categories = categories;
     }
 
+    public String getNutritionalcontent() {
+        return nutritionalcontent;
+    }
+
+    public void setNutritionalcontent(String nutritionalcontent) {
+        this.nutritionalcontent = nutritionalcontent;
+    }
+
     // toString metode for at konvertere objektet til en strengrepræsentation
 
     @Override
@@ -92,11 +104,12 @@ public class Meal {
         return "Meal{" +
                 "mealid=" + mealid +
                 ", name='" + name + '\'' +
-                ", recipe='" + ingredients + '\'' +
+                ", ingredients='" + ingredients + '\'' +
                 ", procedure='" + procedure + '\'' +
                 ", duration='" + duration + '\'' +
                 ", difficulty='" + difficulty + '\'' +
                 ", categories='" + categories + '\'' +
+                ", nutritionalcontent='" + nutritionalcontent + '\'' +
                 '}';
     }
 }

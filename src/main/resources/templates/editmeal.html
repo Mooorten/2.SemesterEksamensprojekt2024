@@ -32,16 +32,21 @@
     <input type="text" id="duration" th:field="*{duration}" />
 
     <!-- Dropdown menu for the meal's difficulty -->
-    <label for="difficulty">Sværhedsgrad:</label> <!-- Etiket for sværhedsgrad -->
-    <select id="difficulty" name="difficulty" required> <!-- Dropdown-menu til sværhedsgrad -->
-        <option value="easy">Let</option> <!-- Valgmulighed for let -->
-        <option value="medium">Medium</option> <!-- Valgmulighed for medium -->
-        <option value="hard">Svær</option> <!-- Valgmulighed for svær -->
-    </select><br>
+    <label for="difficulty">Sværhedsgrad:</label>
+    <select id="difficulty" name="difficulty" th:field="*{difficulty}" required>
+        <option value="" disabled hidden>Vælg sværhedsgrad</option>
+        <option value="Let" th:selected="*{difficulty == 'Let'}">Let</option>
+        <option value="Medium" th:selected="*{difficulty == 'Medium'}">Medium</option>
+        <option value="Svær" th:selected="*{difficulty == 'Svær'}">Svær</option>
+    </select>
 
     <!-- Input field for the meal's categories -->
     <label for="categories">Categories:</label>
     <input type="text" id="categories" th:field="*{categories}" />
+
+    <!-- Input field for the meal's Nutritionalcontent -->
+    <label for="Nutritionalcontent">Nutritionalcontent:</label>
+    <input type="text" id="Nutritionalcontent" th:field="*{nutritionalcontent}" />
 
     <!-- Submit button to save the edited information -->
     <button type="submit">Update</button>
