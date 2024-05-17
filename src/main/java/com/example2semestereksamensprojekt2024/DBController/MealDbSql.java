@@ -21,8 +21,8 @@ public class MealDbSql {
 
     public void createMeal(Meal meal) {
         try {
-            String sql = "INSERT INTO meal (name, ingredients, `procedure`, duration, difficulty, categories, nutritionalcontent) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getCategories(), meal.getNutritionalcontent());
+            String sql = "INSERT INTO meal (name, ingredients, `procedure`, duration, difficulty, categories) VALUES (?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getCategories());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under oprettelse af måltid", e);
         }
@@ -32,8 +32,8 @@ public class MealDbSql {
     // Opdaterer et måltid i databasen
     public void updateMeal(Meal meal) {
         try {
-            String sql = "UPDATE meal SET name = ?, ingredients = ?, `procedure` = ?, duration = ?, difficulty = ?, categories = ?, nutritionalcontent = ? WHERE mealid = ?";
-            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getCategories(), meal.getNutritionalcontent(), meal.getMealid());
+            String sql = "UPDATE meal SET name = ?, ingredients = ?, `procedure` = ?, duration = ?, difficulty = ?, categories = ?, WHERE mealid = ?";
+            jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getCategories(), meal.getMealid());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under opdatering af måltid", e);
         }
@@ -84,7 +84,6 @@ public class MealDbSql {
             meal.setDuration(rs.getString("duration"));
             meal.setDifficulty(rs.getString("difficulty"));
             meal.setCategories(rs.getString("categories"));
-            meal.setNutritionalcontent(rs.getString("nutritionalcontent"));
             return meal;
         };
     }

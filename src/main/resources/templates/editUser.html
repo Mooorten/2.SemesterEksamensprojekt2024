@@ -95,19 +95,20 @@
         <label for="goals">Mål:</label>
         <select id="goals" name="goals" th:field="*{goals}" required>
             <option value="" disabled selected hidden>Vælg mål</option>
-            <option value="Tabe vægt">Tabe vægt</option>
-            <option value="Opbygge muskler">Opbygge muskler</option>
-            <option value="Forbedre fitness">Forbedre fitness</option>
-            <option value="Opretholde vægt">Opretholde vægt</option>
+            <option value="Tab dig">Tab dig</option>
+            <option value=">Tag på"> Tag på</option>
+            <option value="Hold vægten">Hold vægten</option>
+            <option value="Opbyg muskel">Opbyg muskel</option>
         </select>
 
         <label for="activitylevel">Aktivitetsniveau:</label>
-        <select id="activitylevel" name="activitylevel" th:field="*{activitylevel}" required>
+        <select id="activitylevel" name="activitylevel" required>
             <option value="" disabled selected hidden>Vælg aktivitetsniveau</option>
-            <option value="Stillesiddende">Stillesiddende (næsten ingen træning)</option>
-            <option value="Let aktiv">Let aktiv (træner 1-3 gange om ugen)</option>
-            <option value="Moderat aktiv">Moderat aktiv (træner 3-5 dage om ugen)</option>
-            <option value="Meget aktiv">Meget aktiv (træner 6-7 dage om ugen)</option>
+            <option value="Stillesiddende">Stillesiddende (Ingen eller meget lidt aktiv)</option>
+            <option value="Let aktiv">Let aktiv (1-2 gange aktivitet om ugen)</option>
+            <option value="Moderat aktiv">Moderat aktiv (3-5 gange aktivitet om ugen)</option>
+            <option value="Meget aktiv">Meget aktiv (6-7 gange aktivitet om ugen)</option>
+            <option value="Atlet">Atlet (1-2 gange aktivitet om dagen)</option>
         </select>
 
         <button type="submit">Opdater</button>

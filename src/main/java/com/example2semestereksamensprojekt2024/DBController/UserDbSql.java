@@ -125,12 +125,56 @@ public class UserDbSql {
             // Beregning af BMR baseret på Harris-Benedict formel
             double bmr;
             if ("Mand".equalsIgnoreCase(user.getGender())) {
-                bmr = 65.5 + (13.75 * Double.parseDouble(user.getWeight())) + (5.003 * Double.parseDouble(user.getHeight())) - (6.75 * user.getAge());
+                bmr = (10 * Double.parseDouble(user.getWeight())) + (6.25 * Double.parseDouble(user.getHeight())) - (5 * user.getAge()) + 5;
             } else if ("Kvinde".equalsIgnoreCase(user.getGender())) {
-                bmr = 655.1 + (9.563 * Double.parseDouble(user.getWeight())) + (1.850 * Double.parseDouble(user.getHeight())) - (4.676 * user.getAge());
+                bmr = (10 * Double.parseDouble(user.getWeight())) + (6.25 * Double.parseDouble(user.getHeight())) - (5 * user.getAge()) - 161;
             } else {
                 throw new IllegalArgumentException("Ugyldig køn");
             }
+
+            // Justering baseret på aktivitetsniveau
+            double activityLevelMultiplier;
+            switch (user.getActivitylevel()) {
+                case "Stillesiddende":
+                    activityLevelMultiplier = 1.2;
+                    break;
+                case "Let aktiv":
+                    activityLevelMultiplier = 1.5;
+                    break;
+                case "Moderat aktiv":
+                    activityLevelMultiplier = 1.7;
+                    break;
+                case "Meget aktiv":
+                    activityLevelMultiplier = 1.9;
+                    break;
+                case "Atlet":
+                    activityLevelMultiplier = 2.4;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Ugyldigt aktivitetsniveau");
+            }
+
+            // Justering baseret på brugerens mål
+            double goalAdjustment;
+            switch (user.getGoals()) {
+                case "Tab dig":
+                    goalAdjustment = -500;
+                    break;
+                case "Tag på":
+                    goalAdjustment = 500;
+                    break;
+                case "Hold vægten":
+                    goalAdjustment = 0;
+                    break;
+                case "Opbyg muskel":
+                    goalAdjustment = 300;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Ugyldigt mål");
+            }
+
+            // Beregning af endelig BMR inklusive måljustering
+            bmr = (bmr * activityLevelMultiplier) + goalAdjustment;
             return bmr;
         } else {
             throw new IllegalArgumentException("Brugeren med det angivne ID blev ikke fundet");

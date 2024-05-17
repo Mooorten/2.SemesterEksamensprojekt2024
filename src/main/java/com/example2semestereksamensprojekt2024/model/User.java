@@ -2,8 +2,18 @@ package com.example2semestereksamensprojekt2024.model;
 
 public class User {
     private Long userid;
-    private String email, password, name, surname, phone, weight, height, gender, goals, activitylevel, role;
+    private String name;
+    private String surname;
+    private String email;
+    private String password;
+    private String phone;
+    private String weight;
+    private String height;
     private int age;
+    private String gender;
+    private String goals;
+    private String activitylevel;
+    private String role;
     private double bmr;
 
     public User() {
