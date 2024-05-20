@@ -102,7 +102,7 @@
         </select>
 
         <label for="activitylevel">Aktivitetsniveau:</label>
-        <select id="activitylevel" name="activitylevel" required>
+        <select id="activitylevel" name="activitylevel" th:field="*{activitylevel}" required>
             <option value="" disabled selected hidden>Vælg aktivitetsniveau</option>
             <option value="Stillesiddende">Stillesiddende (Ingen eller meget lidt aktiv)</option>
             <option value="Let aktiv">Let aktiv (1-2 gange aktivitet om ugen)</option>
