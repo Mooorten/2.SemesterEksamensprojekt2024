@@ -71,16 +71,6 @@ public class UserDbSql {
         }
     }
 
-    // Finder alle brugere i databasen
-    public List<User> findAllUsers() {
-        try {
-            String sql = "SELECT * FROM user";
-            return jdbcTemplate.query(sql, userRowMapper());
-        } catch (DataAccessException e) {
-            throw new RuntimeException("Fejl under indlæsning af alle brugere", e);
-        }
-    }
-
     // Finder en bruger i databasen baseret på email og adgangskode til login
     public User findLogin(String email, String password) {
         try {
