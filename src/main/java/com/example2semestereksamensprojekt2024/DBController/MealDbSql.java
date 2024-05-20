@@ -6,7 +6,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +25,6 @@ public class MealDbSql {
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under oprettelse af måltid", e);
         }
-
     }
 
     // Opdaterer et måltid i databasen
@@ -38,7 +36,6 @@ public class MealDbSql {
             throw new RuntimeException("Fejl under opdatering af måltid", e);
         }
     }
-
 
     // Sletter et måltid fra databasen
     public void deleteMeal(Long id) {

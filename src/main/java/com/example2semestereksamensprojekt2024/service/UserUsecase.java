@@ -1,8 +1,6 @@
 package com.example2semestereksamensprojekt2024.service;
 
-import java.util.List;
 import java.util.Optional;
-
 import com.example2semestereksamensprojekt2024.model.User;
 import com.example2semestereksamensprojekt2024.DBController.UserDbSql;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserUsecase {
+
     @Autowired
     private UserDbSql userDbSql;
 
@@ -40,10 +39,6 @@ public class UserUsecase {
 
     public User findLogin(String email, String password) {
         return userDbSql.findLogin(email, password);
-    }
-
-    public List<User> findAllUsers() {
-        return userDbSql.findAllUsers();
     }
 
     public Optional<User> findUserByID(Long id) {

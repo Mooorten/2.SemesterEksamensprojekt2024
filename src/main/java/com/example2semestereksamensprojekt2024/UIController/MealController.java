@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping; // Importerer GetMapp
 import org.springframework.web.bind.annotation.ModelAttribute; // Importerer ModelAttribute-annotationen
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping; // Importerer PostMapping-annotationen
-
 import java.util.List;
 
 @Controller // Fortæller Spring, at dette er en controller-klasse

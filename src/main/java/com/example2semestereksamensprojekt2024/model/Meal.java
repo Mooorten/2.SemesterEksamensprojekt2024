@@ -12,12 +12,11 @@ public class Meal {
     private String difficulty; // Sværhedsgrad for tilberedning af måltidet
     private String categories; // Kategorier, som måltidet tilhører
 
-    // Standardkonstruktør
+    // Default konstruktør
     public Meal() {
     }
 
     // Konstruktør med parametre
-
     public Meal(Long mealid, String name, String ingredients, String procedure, String duration, String difficulty, String categories) {
         this.mealid = mealid;
         this.name = name;
@@ -28,9 +27,7 @@ public class Meal {
         this.categories = categories;
     }
 
-
     // Getter og setter metoder for attributterne
-
     public Long getMealid() {
         return mealid;
     }
@@ -88,7 +85,6 @@ public class Meal {
     }
 
     // toString metode for at konvertere objektet til en strengrepræsentation
-
     @Override
     public String toString() {
         return "Meal{" +

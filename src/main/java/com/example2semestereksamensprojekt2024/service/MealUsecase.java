@@ -1,7 +1,7 @@
 package com.example2semestereksamensprojekt2024.service;
+
 import java.util.List;
 import java.util.Optional;
-
 import com.example2semestereksamensprojekt2024.model.Meal;
 import com.example2semestereksamensprojekt2024.DBController.MealDbSql;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MealUsecase {
+
     @Autowired
     private MealDbSql mealDbSql;
 
