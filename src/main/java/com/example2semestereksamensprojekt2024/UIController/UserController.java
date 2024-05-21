@@ -16,7 +16,7 @@ public class UserController {
     private UserUsecase userUsecase;
 
     @GetMapping("/")
-    public String loginForm() {
+    public String homePage() {
         return "homepage";
     }
 
