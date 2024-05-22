@@ -24,9 +24,29 @@ class ApplicationTests {
         u.setWeight("70");
         u.setHeight("170");
         u.setAge(22);
-        u.setGender("Male");
-        u.setGoals("Gain weight");
-        u.setActivitylevel("3 times a day");
+        u.setGender("Mand");
+        u.setGoals("Opbyg muskel");
+        u.setActivitylevel("Atlet");
+        u.setRole("user");
         userDbSql.createUser(u);
+    }
+
+    @Test
+    void readUser() {
+        Long userid = 1L;
+        userDbSql.findUserByID(userid);
+    }
+
+    @Test
+    void updateUser() {
+        User userToUpdate = new User();
+        User currentUser = new User();
+        userDbSql.updateUser(userToUpdate,currentUser);
+    }
+
+    @Test
+    void deleteUser(){
+        Long userid = 1L;
+        userDbSql.deleteUser(userid);
     }
 }
