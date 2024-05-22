@@ -30,7 +30,7 @@ public class MealDbSql {
     // Opdaterer et måltid i databasen
     public void updateMeal(Meal meal) {
         try {
-            String sql = "UPDATE meal SET name = ?, ingredients = ?, `procedure` = ?, duration = ?, difficulty = ?, categories = ?, WHERE mealid = ?";
+            String sql = "UPDATE meal SET name = ?, ingredients = ?, `procedure` = ?, duration = ?, difficulty = ?, categories = ? WHERE mealid = ?";
             jdbcTemplate.update(sql, meal.getName(), meal.getIngredients(), meal.getProcedure(), meal.getDuration(), meal.getDifficulty(), meal.getCategories(), meal.getMealid());
         } catch (RuntimeException e) {
             throw new RuntimeException("Fejl under opdatering af måltid", e);
