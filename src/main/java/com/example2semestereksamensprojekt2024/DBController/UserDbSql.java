@@ -60,6 +60,7 @@ public class UserDbSql {
 
     // Finder en bruger i databasen ud fra brugerens ID
     public Optional<User> findUserByID(Long userId) {
+        // Vi bruger optional fordi vi kan returnere 0 uden at programmet går ned
         try {
             String sql = "SELECT * FROM user WHERE userid = ?";
             User user = jdbcTemplate.queryForObject(sql, new Object[]{userId}, userRowMapper());
@@ -88,6 +89,7 @@ public class UserDbSql {
 
     // Mapper rækker fra databasen til User-objekter
     public RowMapper<User> userRowMapper() {
+        // En anononym funktion som tager 2 parametre ResultSet og int
         return (rs, rowNum) -> {
             User user = new User();
             user.setUserid(rs.getLong("userid"));

@@ -14,7 +14,7 @@ import java.util.List;
 @Controller // Fortæller Spring, at dette er en controller-klasse
 public class MealController {
 
-    @Autowired // Indsprøjter en instans af MealUsecase
+    @Autowired // Dependency injections, en instans af MealUsecase
     private MealUsecase mealUsecase;
 
     @GetMapping("/createmealAdmin") // Mapping for at hente siden til oprettelse af måltider for admin
