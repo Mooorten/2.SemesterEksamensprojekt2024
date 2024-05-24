@@ -112,15 +112,12 @@ public class UserDbSql {
 
     public double calculateBMR(Long userId) {
         Optional<User> optionalUser = findUserByID(userId);
-        System.out.println("Hej");
         if (optionalUser.isPresent()) {
-            System.out.println("Hej");
             User user = optionalUser.get();
             // Beregning af BMR baseret på Harris-Benedict formel
             double bmr;
             if ("Mand".equalsIgnoreCase(user.getGender())) {
                 bmr = (10 * Double.parseDouble(user.getWeight())) + (6.25 * Double.parseDouble(user.getHeight())) - (5 * user.getAge()) + 5;
-                System.out.println(bmr);
             } else if ("Kvinde".equalsIgnoreCase(user.getGender())) {
                 bmr = (10 * Double.parseDouble(user.getWeight())) + (6.25 * Double.parseDouble(user.getHeight())) - (5 * user.getAge()) - 161;
             } else {

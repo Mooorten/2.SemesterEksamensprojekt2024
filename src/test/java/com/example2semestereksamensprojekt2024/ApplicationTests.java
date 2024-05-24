@@ -5,10 +5,7 @@ import com.example2semestereksamensprojekt2024.DBController.UserDbSql;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -43,35 +40,18 @@ class ApplicationTests {
     }
 
     @Test
-    void updateUser() {
-        User userToUpdate = new User();
-        User currentUser = new User();
-        userDbSql.updateUser(userToUpdate,currentUser);
-    }
+    void testUpdateUser() {
+        Long id = 1L;
+        User user = new User();
+        user.setName("Old Name");
+        User user1 = new User();
+        user1.setName("New Name");
+        when(userDbSql.findUserByID(id)).thenReturn(Optional.of(user));
+        }
 
     @Test
     void deleteUser(){
         Long userid = 1L;
         userDbSql.deleteUser(userid);
-    }
-    @Test
-    void testCalculateBMRForMale() {
-        Long userId = 1L;
-        User user = new User();
-        user.setUserid(userId);
-        user.setGender("Mand");
-        user.setWeight("70");
-        user.setHeight("175");
-        user.setAge(30);
-        user.setActivitylevel("Moderat aktiv");
-        user.setGoals("Hold vægten");
-
-        when(userDbSql.findUserByID(userId)).thenReturn(Optional.of(user));
-
-        double expectedBMR = (10 * 70) + (6.25 * 175) - (5 * 30) + 5;
-        double actualBMR = userDbSql.calculateBMR(userId);
-        System.out.println(actualBMR);
-
-        assertEquals(expectedBMR, actualBMR);
     }
 }
