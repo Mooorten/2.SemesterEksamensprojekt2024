@@ -2,6 +2,7 @@ MinKostplan.com er et eksamensprojekt til 2. Semester udarbejdet af Morten, Diac
 Programmet er udviklet til virksomheden MinKostplan. De søgte en hjemmeside, hvor brugere kan oprette sig, og ud fra deres personlige oplysninger, få beregnet deres BMR, som bliver brugt til at give dem skræddersyede opskrifter til deres individuelle behov og mål.
 Programmet er uviklet i Java Springboot og bruger HTML som front-end. 
 For at oprette sig som bruger skal programmet have følgende oplysninger:
+
     private Long userid;
     private String name;
     private String surname;
