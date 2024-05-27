@@ -3,7 +3,7 @@ Programmet er udviklet til virksomheden MinKostplan. De søgte en hjemmeside, hv
 Programmet er uviklet i Java Springboot og bruger HTML som front-end. 
 For at oprette sig som bruger skal programmet have følgende oplysninger:
 
-    private Long userid;
+    private Long userid; - Primærnøglen til databasen. 
     private String name;
     private String surname;
     private String email;
@@ -85,4 +85,15 @@ For at oprette sig som bruger skal programmet have følgende oplysninger:
             throw new IllegalArgumentException("Brugeren med det angivne ID blev ikke fundet");
         }
     }
-}
+Når en bruger er blevet tildelt admin kan de oprette opskrifter til kostplanerne, som sendes ud til kunderne hver uge.
+
+Programmet indeholder to model klasser. User og Meal. Meal klassen indeholder variablerne:
+
+    private Long mealid; - Primærnøglen til databasen
+    private String name; 
+    private String ingredients; 
+    private String procedure; 
+    private String duration; 
+    private String difficulty;
+    private String categories;
+ Meal klassen bruges til at oprette en opskrift i databasen, så programmet kan gemme dataen, så opskrifterne kan blive lavet til kostplaner der bliver sendt ud til kunderne på hjemmesiden. Hvis vi havde mere tid, var planen at implemetere en metode, der ville ændre i opskriften, så den bliver skræddersyet til den individuelle kundes behov, mål og BMR. 
