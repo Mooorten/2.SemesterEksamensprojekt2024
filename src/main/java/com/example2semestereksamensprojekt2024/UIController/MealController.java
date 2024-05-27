@@ -35,6 +35,13 @@ public class MealController {
         return "viewmeals";
     }
 
+    @GetMapping("/viewmealsuser")
+    public String showMealsUser(Model model) {
+        List<Meal> meals = mealUsecase.findAllMeals();
+        model.addAttribute("meals", meals);
+        return "viewmealsuser";
+    }
+
     @GetMapping("/meal/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         mealUsecase.findMealByID(id).ifPresent(meal -> model.addAttribute("meal", meal));

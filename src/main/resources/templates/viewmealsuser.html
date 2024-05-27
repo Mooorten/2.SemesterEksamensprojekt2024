@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Meals</title>
+    <style>
+        body {
+            background-color: #f8eeaa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 90%;
+            max-width: 1000px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4b41a;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #f4b41a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #e09e10;
+        }
+    </style>
+</head>
+<body>
+<h1>Meals</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Ingredients</th>
+        <th>Procedure</th>
+        <th>Duration</th>
+        <th>Difficulty</th>
+        <th>Categories</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate through the list of meals and display each meal -->
+    <!--/*@thymesVar id="meal" type="com.example2semestereksamensprojekt2024.model.Meal"*/-->
+    <tr th:each="meal : ${meals}">
+        <td th:text="${meal.name}">Name</td>
+        <td th:text="${meal.ingredients}">Ingredients</td>
+        <td th:text="${meal.procedure}">Procedure</td>
+        <td th:text="${meal.duration}">Duration</td>
+        <td th:text="${meal.difficulty}">Difficulty</td>
+        <td th:text="${meal.categories}">Categories</td>
+    </tr>
+    </tbody>
+</table>
+<a href="/menu">Tilbage</a>
+</body>
+</html>
