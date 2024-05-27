@@ -116,9 +116,9 @@ public class UserDbSql {
             User user = optionalUser.get();
             // Beregning af BMR baseret på Harris-Benedict formel
             double bmr;
-            if ("Mand".equalsIgnoreCase(user.getGender())) {
+            if ("Mand".equals(user.getGender())) {
                 bmr = (10 * Double.parseDouble(user.getWeight())) + (6.25 * Double.parseDouble(user.getHeight())) - (5 * user.getAge()) + 5;
-            } else if ("Kvinde".equalsIgnoreCase(user.getGender())) {
+            } else if ("Kvinde".equals(user.getGender())) {
                 bmr = (10 * Double.parseDouble(user.getWeight())) + (6.25 * Double.parseDouble(user.getHeight())) - (5 * user.getAge()) - 161;
             } else {
                 throw new IllegalArgumentException("Ugyldig køn");
