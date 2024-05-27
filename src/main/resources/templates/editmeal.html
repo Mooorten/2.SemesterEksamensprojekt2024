@@ -40,9 +40,13 @@
         <option value="Svær" th:selected="*{difficulty == 'Svær'}">Svær</option>
     </select>
 
-    <!-- Input field for the meal's categories -->
+    <!-- Dropdown menu for måltidets kategori -->
     <label for="categories">Categories:</label>
-    <input type="text" id="categories" th:field="*{categories}" />
+    <select id="categories" name="categories" required>
+        <option value="Morgenmad">Morgenmad</option>
+        <option value="Frokost">Frokost</option>
+        <option value="Aftensmad">Aftensmad</option>
+    </select>
 
 
     <!-- Submit button to save the edited information -->

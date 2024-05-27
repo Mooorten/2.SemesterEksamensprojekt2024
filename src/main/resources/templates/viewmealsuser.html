@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Liste af retter</title>
+    <title>Denne uges måltider</title>
     <style>
         body {
             background-color: #f8eeaa;
@@ -64,7 +64,10 @@
     </style>
 </head>
 <body>
-<h1>Måltider</h1>
+<h1>Denne uges kostplan</h1>
+
+<!-- Morgenmad -->
+<h2>Morgenmad</h2>
 <table>
     <thead>
     <tr>
@@ -77,9 +80,8 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Iterate through the list of meals and display each meal -->
-    <!--/*@thymesVar id="meal" type="com.example2semestereksamensprojekt2024.model.Meal"*/-->
-    <tr th:each="meal : ${meals}">
+    <!-- Iterate through breakfast meals and display the first 7 -->
+    <tr th:each="meal : ${meals}" th:if="${meal.categories == 'Morgenmad'}">
         <td th:text="${meal.name}">Name</td>
         <td th:text="${meal.ingredients}">Ingredients</td>
         <td th:text="${meal.procedure}">Procedure</td>
@@ -89,6 +91,59 @@
     </tr>
     </tbody>
 </table>
+
+<!-- Frokost -->
+<h2>Frokost</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Ingrediens</th>
+        <th>Fremgangsmåde</th>
+        <th>Varighed</th>
+        <th>Sværhedsgrad</th>
+        <th>Kategori</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate through lunch meals and display the first 7 -->
+    <tr th:each="meal : ${meals}" th:if="${meal.categories == 'Frokost'}">
+        <td th:text="${meal.name}">Name</td>
+        <td th:text="${meal.ingredients}">Ingredients</td>
+        <td th:text="${meal.procedure}">Procedure</td>
+        <td th:text="${meal.duration}">Duration</td>
+        <td th:text="${meal.difficulty}">Difficulty</td>
+        <td th:text="${meal.categories}">Categories</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Aftensmad -->
+<h2>Aftensmad</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Ingrediens</th>
+        <th>Fremgangsmåde</th>
+        <th>Varighed</th>
+        <th>Sværhedsgrad</th>
+        <th>Kategori</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate through dinner meals and display the first 7 -->
+    <tr th:each="meal : ${meals}" th:if="${meal.categories == 'Aftensmad'}">
+        <td th:text="${meal.name}">Name</td>
+        <td th:text="${meal.ingredients}">Ingredients</td>
+        <td th:text="${meal.procedure}">Procedure</td>
+        <td th:text="${meal.duration}">Duration</td>
+        <td th:text="${meal.difficulty}">Difficulty</td>
+        <td th:text="${meal.categories}">Categories</td>
+    </tr>
+    </tbody>
+</table>
+
 <a href="/menu">Tilbage</a>
 </body>
 </html>
