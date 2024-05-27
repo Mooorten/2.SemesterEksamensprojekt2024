@@ -37,12 +37,12 @@ public class UserUsecase {
         userDbSql.deleteUser(id);
     }
 
-    public User findLogin(String email, String password) {
-        return userDbSql.findLogin(email, password);
-    }
-
     public Optional<User> findUserByID(Long id) {
         return userDbSql.findUserByID(id);
+    }
+
+    public User findLogin(String email, String password) {
+        return userDbSql.findLogin(email, password);
     }
 
     public double calculateBMR(Long userId) {

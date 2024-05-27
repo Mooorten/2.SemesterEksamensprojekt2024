@@ -25,11 +25,11 @@ public class MealUsecase {
         mealDbSql.deleteMeal(id);
     }
 
-    public List<Meal> findAllMeals() {
-        return mealDbSql.findAllMeals();
-    }
-
     public Optional<Meal> findMealByID(Long id){
         return mealDbSql.findMealByID(id);
+    }
+
+    public List<Meal> findAllMeals() {
+        return mealDbSql.findAllMeals();
     }
 }
