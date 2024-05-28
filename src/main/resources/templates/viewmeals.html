@@ -7,48 +7,48 @@
         }
     </style>
     <meta charset="UTF-8">
-    <title>List of Meals</title>
-    <!-- Basic setup with meta tag and title -->
+    <title>Liste over Måltider</title>
+    <!-- Grundlæggende opsætning med meta tag og titel -->
 </head>
 <body>
 
-<h1>Meals</h1>
+<h1>Måltider</h1>
 
-<!-- Link to add a new meal -->
+<!-- Link til at tilføje et nyt måltid -->
 
-<!-- Start of the table to display meals -->
+<!-- Starten på tabellen til at vise måltider -->
 <table>
     <thead>
     <tr>
-        <!-- Column headers for the table -->
+        <!-- Kolonneoverskrifter til tabellen -->
         <th>ID</th>
-        <th>Name</th>
-        <th>Ingredients</th>
+        <th>Navn</th>
+        <th>Ingredienser</th>
         <th>Procedure</th>
-        <th>Duration</th>
-        <th>Difficulty</th>
-        <th>Categories</th>
+        <th>Varighed</th>
+        <th>Sværhedsgrad</th>
+        <th>Kategorier</th>
     </tr>
     </thead>
     <tbody>
-    <!-- Iterate through the list of meals and display each meal -->
+    <!-- Iterér gennem listen af måltider og vis hvert måltid -->
 
     <!--/*@thymesVar id="meal" type="com.example2semestereksamensprojekt2024.model.Meal"*/-->
     <tr th:each="meal : ${meals}">
-        <!-- Display values for each meal from the list -->
+        <!-- Vis værdierne for hvert måltid fra listen -->
         <td th:text="${meal.mealid}">ID</td>
-        <td th:text="${meal.name}">Name</td>
-        <td th:text="${meal.ingredients}">Ingredients</td>
+        <td th:text="${meal.name}">Navn</td>
+        <td th:text="${meal.ingredients}">Ingredienser</td>
         <td th:text="${meal.procedure}">Procedure</td>
-        <td th:text="${meal.duration}">Duration</td>
-        <td th:text="${meal.difficulty}">Difficulty</td>
-        <td th:text="${meal.categories}">Categories</td>
+        <td th:text="${meal.duration}">Varighed</td>
+        <td th:text="${meal.difficulty}">Sværhedsgrad</td>
+        <td th:text="${meal.categories}">Kategorier</td>
         <td>
-            <!-- Link to edit a meal -->
+            <!-- Link til at redigere et måltid -->
             <!--/*@thymesVar id="mealid" type="com.example2semestereksamensprojekt2024.model.Meal"*/-->
-            <a th:href="@{/meal/edit/{id}(id=${meal.mealid})}">Edit</a>
-            <!-- Link to delete a meal -->
-            <a th:href="@{/meal/delete/{id}(id=${meal.mealid})}" onclick="return confirm('Are you sure you want to delete this meal?');">Delete</a>
+            <a th:href="@{/meal/edit/{id}(id=${meal.mealid})}">Rediger</a>
+            <!-- Link til at slette et måltid -->
+            <a th:href="@{/meal/delete/{id}(id=${meal.mealid})}" onclick="return confirm('Er du sikker på, at du vil slette dette måltid?');">Slet</a>
         </td>
     </tr>
     </tbody>

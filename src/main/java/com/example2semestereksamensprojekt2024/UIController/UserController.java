@@ -1,13 +1,12 @@
 package com.example2semestereksamensprojekt2024.UIController;
 
-import com.example2semestereksamensprojekt2024.model.User; // Importerer User-modelklassen
+import com.example2semestereksamensprojekt2024.model.User;
 import com.example2semestereksamensprojekt2024.service.UserUsecase;
-import jakarta.servlet.http.HttpSession; // Importerer HttpSession fra Jakarta EE
-import org.springframework.beans.factory.annotation.Autowired; // Importerer Autowired-annotationen
-import org.springframework.stereotype.Controller; // Importerer Controller-annotationen
-import org.springframework.ui.Model; // Importerer Model-klassen
-import org.springframework.web.bind.annotation.*; // Importerer alle annoteringer fra Spring Web
-import org.springframework.web.bind.annotation.PostMapping;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -82,7 +81,14 @@ public class UserController {
     }
 
     @PostMapping("/createUser")
-    public String createUser(@ModelAttribute User user) {
+    public String createUser(@ModelAttribute User user, Model model) {
+        String errorMessage = validateUser(user);
+        if (errorMessage != null) {
+            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("user", user);
+            return "createUser";
+        }
+
         double bmr = 0.0;
         if ("user".equals(user.getRole())) {
             bmr = userUsecase.calculateBMR(user.getUserid());
@@ -93,11 +99,19 @@ public class UserController {
     }
 
     @PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute User user, HttpSession session) {
+    public String updateUser(@ModelAttribute User user, HttpSession session, Model model) {
         User currentUser = (User) session.getAttribute("currentUser");
         if (currentUser == null) {
             return "redirect:/login";
         }
+
+        String errorMessage = validateUser(user);
+        if (errorMessage != null) {
+            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("user", user);
+            return "editUser";
+        }
+
         if ("user".equals(currentUser.getRole())) {
             userUsecase.updateUser(user, currentUser);
         } else {
@@ -128,10 +142,7 @@ public class UserController {
     public String findLogin(@ModelAttribute User user, Model model, HttpSession session) {
         User authenticatedUser = userUsecase.findLogin(user.getEmail(), user.getPassword());
         if (authenticatedUser != null) {
-            // Opdater brugeroplysninger ved login
             userUsecase.updateUser(authenticatedUser, authenticatedUser);
-
-            // Tilføj den autentificerede bruger til sessionen
             session.setAttribute("currentUser", authenticatedUser);
             if (authenticatedUser.getRole().equals("admin")) {
                 return "redirect:/adminmenu";
@@ -178,5 +189,56 @@ public class UserController {
     public String logout(HttpSession session) {
         session.invalidate();
         return "login";
+    }
+
+    private String validateUser(User user) {
+        if (user.getName() == null || !user.getName().matches("^[a-zA-ZæøåÆØÅ\\s]+$")) {
+            return "Navn må kun indeholde bogstaver og mellemrum.";
+        }
+        if (user.getSurname() == null || !user.getSurname().matches("^[a-zA-ZæøåÆØÅ\\s]+$")) {
+            return "Efternavn må kun indeholde bogstaver og mellemrum.";
+        }
+        if (user.getEmail() == null || !user.getEmail().contains("@")) {
+            return "Email skal indeholde '@'.";
+        }
+        if (user.getPassword() == null || user.getPassword().isEmpty()) {
+            return "Kodeord kan ikke være tom.";
+        }
+        if (user.getPhone() == null || !user.getPhone().matches("^\\d{8}$")) {
+            return "Telefonnummer skal være 8 cifre.";
+        }
+        try {
+            int weight = Integer.parseInt(user.getWeight());
+            if (weight < 30 || weight > 200) {
+                return "Vægt skal være et tal mellem 30 og 200.";
+            }
+        } catch (NumberFormatException e) {
+            return "Vægt skal være et tal mellem 30 og 200.";
+        }
+        try {
+            int height = Integer.parseInt(user.getHeight());
+            if (height < 120 || height > 250) {
+                return "Højde skal være et tal mellem 120 og 250.";
+            }
+        } catch (NumberFormatException e) {
+            return "Højde skal være et tal mellem 120 og 250.";
+        }
+        try {
+            if (user.getAge() < 15 || user.getAge() > 100) {
+                return "Alder skal være et tal mellem 15 og 100.";
+            }
+        } catch (NumberFormatException e) {
+            return "Alder skal være et tal mellem 15 og 100.";
+        }
+        if (user.getGender() == null || user.getGender().isEmpty()) {
+            return "Køn kan ikke være tom.";
+        }
+        if (user.getGoals() == null || user.getGoals().isEmpty()) {
+            return "Mål kan ikke være tom.";
+        }
+        if (user.getActivitylevel() == null || user.getActivitylevel().isEmpty()) {
+            return "Aktivitetsniveau kan ikke være tom.";
+        }
+        return null; // No validation errors
     }
 }

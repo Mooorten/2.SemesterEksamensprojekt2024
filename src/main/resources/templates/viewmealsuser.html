@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Denne uges måltider</title>
     <style>
         body {
             background-color: #f8eeaa;
@@ -62,6 +60,9 @@
             background-color: #e09e10;
         }
     </style>
+    <meta charset="UTF-8">
+    <title>Denne uges måltider</title>
+    <!-- Basisopsætning med meta tag og titel -->
 </head>
 <body>
 <h1>Denne uges kostplan</h1>
@@ -71,6 +72,7 @@
 <table>
     <thead>
     <tr>
+        <!-- Kolonneoverskrifter til tabellen -->
         <th>Navn</th>
         <th>Ingrediens</th>
         <th>Fremgangsmåde</th>
@@ -80,14 +82,15 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Iterate through breakfast meals and display the first 7 -->
+    <!-- Iterér gennem morgenmadsmåltider og vis de første 7 -->
     <tr th:each="meal : ${meals}" th:if="${meal.categories == 'Morgenmad'}">
-        <td th:text="${meal.name}">Name</td>
-        <td th:text="${meal.ingredients}">Ingredients</td>
-        <td th:text="${meal.procedure}">Procedure</td>
-        <td th:text="${meal.duration}">Duration</td>
-        <td th:text="${meal.difficulty}">Difficulty</td>
-        <td th:text="${meal.categories}">Categories</td>
+        <!-- Vis værdierne for hvert måltid fra listen -->
+        <td th:text="${meal.name}">Navn</td>
+        <td th:text="${meal.ingredients}">Ingredienser</td>
+        <td th:text="${meal.procedure}">Fremgangsmåde</td>
+        <td th:text="${meal.duration}">Varighed</td>
+        <td th:text="${meal.difficulty}">Sværhedsgrad</td>
+        <td th:text="${meal.categories}">Kategori</td>
     </tr>
     </tbody>
 </table>
@@ -97,6 +100,7 @@
 <table>
     <thead>
     <tr>
+        <!-- Kolonneoverskrifter til tabellen -->
         <th>Navn</th>
         <th>Ingrediens</th>
         <th>Fremgangsmåde</th>
@@ -106,14 +110,15 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Iterate through lunch meals and display the first 7 -->
+    <!-- Iterér gennem frokostsmåltider og vis de første 7 -->
     <tr th:each="meal : ${meals}" th:if="${meal.categories == 'Frokost'}">
-        <td th:text="${meal.name}">Name</td>
-        <td th:text="${meal.ingredients}">Ingredients</td>
-        <td th:text="${meal.procedure}">Procedure</td>
-        <td th:text="${meal.duration}">Duration</td>
-        <td th:text="${meal.difficulty}">Difficulty</td>
-        <td th:text="${meal.categories}">Categories</td>
+        <!-- Vis værdierne for hvert måltid fra listen -->
+        <td th:text="${meal.name}">Navn</td>
+        <td th:text="${meal.ingredients}">Ingredienser</td>
+        <td th:text="${meal.procedure}">Fremgangsmåde</td>
+        <td th:text="${meal.duration}">Varighed</td>
+        <td th:text="${meal.difficulty}">Sværhedsgrad</td>
+        <td th:text="${meal.categories}">Kategori</td>
     </tr>
     </tbody>
 </table>
@@ -123,6 +128,7 @@
 <table>
     <thead>
     <tr>
+        <!-- Kolonneoverskrifter til tabellen -->
         <th>Navn</th>
         <th>Ingrediens</th>
         <th>Fremgangsmåde</th>
@@ -132,14 +138,15 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Iterate through dinner meals and display the first 7 -->
+    <!-- Iterér gennem aftensmadsmåltider og vis de første 7 -->
     <tr th:each="meal : ${meals}" th:if="${meal.categories == 'Aftensmad'}">
-        <td th:text="${meal.name}">Name</td>
-        <td th:text="${meal.ingredients}">Ingredients</td>
-        <td th:text="${meal.procedure}">Procedure</td>
-        <td th:text="${meal.duration}">Duration</td>
-        <td th:text="${meal.difficulty}">Difficulty</td>
-        <td th:text="${meal.categories}">Categories</td>
+        <!-- Vis værdierne for hvert måltid fra listen -->
+        <td th:text="${meal.name}">Navn</td>
+        <td th:text="${meal.ingredients}">Ingredienser</td>
+        <td th:text="${meal.procedure}">Fremgangsmåde</td>
+        <td th:text="${meal.duration}">Varighed</td>
+        <td th:text="${meal.difficulty}">Sværhedsgrad</td>
+        <td th:text="${meal.categories}">Kategori</td>
     </tr>
     </tbody>
 </table>

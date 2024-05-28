@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Meal</title>
-    <!-- Page title displayed in the browser tab -->
+    <!-- Sidetitel vist i browserfanen -->
 </head>
 <body>
 
 <h1>Edit Meal</h1>
-<!-- Heading for the page -->
+<!-- Overskrift for siden -->
 
-<!-- Form for editing meal data. Thymeleaf is used to bind the form field to the existing meal object. -->
+<!-- Formular til at redigere måltidsdata. Thymeleaf bruges til at binde formularfeltet til det eksisterende måltidsobjekt. -->
 <form action="#" th:action="@{/meal/save}" th:object="${meal}" method="post">
-    <!-- Hidden field for meal ID, which does not need to be changed by the user -->
+    <!-- Skjult felt for måltids-ID, som ikke behøver at blive ændret af brugeren -->
     <input type="hidden" th:field="*{mealid}" />
 
-    <!-- Input field for the meal's name -->
-    <label for="name">Name:</label>
+    <!-- Input felt for måltidets navn -->
+    <label for="name">Navn:</label>
     <input type="text" id="name" th:field="*{name}" />
 
-    <!-- Input field for the meal's ingredients -->
-    <label for="ingredients">Ingredients:</label>
+    <!-- Input felt for måltidets ingredienser -->
+    <label for="ingredients">Ingredienser:</label>
     <input type="text" id="ingredients" th:field="*{ingredients}" />
 
-    <!-- Input field for the meal's procedure -->
-    <label for="procedure">Procedure:</label>
+    <!-- Input felt for måltidets procedure -->
+    <label for="procedure">Fremgangsmåde:</label>
     <input type="text" id="procedure" th:field="*{procedure}" />
 
-    <!-- Input field for the meal's duration -->
-    <label for="duration">Duration:</label>
+    <!-- Input felt for måltidets varighed -->
+    <label for="duration">Varighed:</label>
     <input type="text" id="duration" th:field="*{duration}" />
 
-    <!-- Dropdown menu for the meal's difficulty -->
+    <!-- Dropdown menu for måltidets sværhedsgrad -->
     <label for="difficulty">Sværhedsgrad:</label>
     <select id="difficulty" name="difficulty" th:field="*{difficulty}" required>
         <option value="" disabled hidden>Vælg sværhedsgrad</option>
@@ -41,19 +41,19 @@
     </select>
 
     <!-- Dropdown menu for måltidets kategori -->
-    <label for="categories">Categories:</label>
+    <label for="categories">Kategorier:</label>
     <select id="categories" name="categories" required>
         <option value="Morgenmad">Morgenmad</option>
         <option value="Frokost">Frokost</option>
         <option value="Aftensmad">Aftensmad</option>
     </select>
 
-
-    <!-- Submit button to save the edited information -->
-    <button type="submit">Update</button>
+    <!-- Knap til at gemme de redigerede oplysninger -->
+    <button type="submit">Opdater</button>
 </form>
 
-<!-- Link to return to the list of meals -->
-<a href="/viewmeals">Back to List</a>
+<!-- Link til at vende tilbage til listen over måltider -->
+<a href="/viewmeals">Tilbage til listen</a>
 </body>
 </html>
+```

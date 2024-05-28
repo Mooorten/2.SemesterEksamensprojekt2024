@@ -115,56 +115,6 @@
     </form>
     <a href="/menu">Tilbage</a>
 </div>
-
-<!-- JavaScript til validering af formularen -->
-<script>
-    function validateForm() {
-        // Validering af navn og efternavn
-        var nameInput = document.getElementById('name').value;
-        var surnameInput = document.getElementById('surname').value;
-        var nameRegex = /^[a-zA-ZæøåÆØÅ\s]+$/;
-        if (!nameRegex.test(nameInput) || !nameRegex.test(surnameInput)) {
-            alert("Navn og efternavn må kun indeholde bogstaver og mellemrum.");
-            return false;
-        }
-
-        // Validering af telefonnummer
-        var phoneInput = document.getElementById('phone').value;
-        if (!(/^\d{8}$/.test(phoneInput))) {
-            alert("Telefonnummer skal være 8 cifre.");
-            return false;
-        }
-
-        // Validering af alder
-        var ageInput = document.getElementById('age').value;
-        if (isNaN(ageInput) || ageInput < 15 || ageInput > 100) {
-            alert("Alder skal være et tal mellem 15 og 100.");
-            return false;
-        }
-
-        // Validering af vægt
-        var weightInput = document.getElementById('weight').value;
-        if (isNaN(weightInput) || weightInput < 30 || weightInput > 200) {
-            alert("Vægt skal være et tal mellem 30 og 200.");
-            return false;
-        }
-
-        // Validering af højde
-        var heightInput = document.getElementById('height').value;
-        if (isNaN(heightInput) || heightInput < 120 || heightInput > 250) {
-            alert("Højde skal være et tal mellem 120 og 250.");
-            return false;
-        }
-
-        // Validering af email
-        var emailInput = document.getElementById('email').value;
-        if (!emailInput.includes('@')) {
-            alert("Email skal indeholde '@'.");
-            return false;
-        }
-
-        return true; // Returnerer true hvis alle felter validerer korrekt
-    }
 </script>
 </body>
 </html>
