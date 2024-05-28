@@ -82,7 +82,7 @@ public class UserController {
     }
 
     @PostMapping("/createUser")
-    public String createUser(@ModelAttribute User user, HttpSession session) {
+    public String createUser(@ModelAttribute User user) {
         double bmr = 0.0;
         if ("user".equals(user.getRole())) {
             bmr = userUsecase.calculateBMR(user.getUserid());
@@ -125,7 +125,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute User user, Model model, HttpSession session) {
+    public String findLogin(@ModelAttribute User user, Model model, HttpSession session) {
         User authenticatedUser = userUsecase.findLogin(user.getEmail(), user.getPassword());
         if (authenticatedUser != null) {
             // Opdater brugeroplysninger ved login

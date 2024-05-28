@@ -16,17 +16,6 @@ public class Meal {
     public Meal() {
     }
 
-    // Konstruktør med parametre
-    public Meal(Long mealid, String name, String ingredients, String procedure, String duration, String difficulty, String categories) {
-        this.mealid = mealid;
-        this.name = name;
-        this.ingredients = ingredients;
-        this.procedure = procedure;
-        this.duration = duration;
-        this.difficulty = difficulty;
-        this.categories = categories;
-    }
-
     // Getter og setter metoder for attributterne
     public Long getMealid() {
         return mealid;

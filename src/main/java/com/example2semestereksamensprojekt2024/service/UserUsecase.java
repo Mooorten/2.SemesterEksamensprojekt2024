@@ -45,7 +45,7 @@ public class UserUsecase {
         return userDbSql.findLogin(email, password);
     }
 
-    public double calculateBMR(Long userId) {
-        return userDbSql.calculateBMR(userId);
+    public double calculateBMR(Long id) {
+        return userDbSql.calculateBMR(id);
     }
 }

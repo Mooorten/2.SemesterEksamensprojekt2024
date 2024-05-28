@@ -19,23 +19,6 @@ public class User {
     public User() {
     }
 
-    public User(Long userid, String email, String password, String name, String surname, String phone, String weight, String height, String gender, String goals, String activitylevel, String role, int age, double bmr) {
-        this.userid = userid;
-        this.email = email;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.phone = phone;
-        this.weight = weight;
-        this.height = height;
-        this.gender = gender;
-        this.goals = goals;
-        this.activitylevel = activitylevel;
-        this.role = role;
-        this.age = age;
-        this.bmr = bmr;
-    }
-
     public Long getUserid() {
         return userid;
     }
