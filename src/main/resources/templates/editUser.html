@@ -163,6 +163,12 @@
             return false;
         }
 
+        var passwordInput = document.getElementsByName('password')[0].value;
+        if (!/^[a-zA-Z0-9]{3,20}$/.test(passwordInput)) {
+            alert("Kodeord skal være mellem 3 og 20 tegn og kun indeholde bogstaver og tal.");
+            return false;
+        }
+
         return true; // Returnerer true hvis alle felter validerer korrekt
     }
 </script>
