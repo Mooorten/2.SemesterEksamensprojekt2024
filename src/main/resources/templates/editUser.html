@@ -176,6 +176,7 @@
             return false;
         }
 
+        // Validering af password
         var passwordInput = document.getElementsByName('password')[0].value;
         if (!/^[a-zA-Z0-9!@#$%^&*]{6,}$/.test(passwordInput)) {
             alert("Kodeord skal være mindst 6 tegn langt og indeholde kun bogstaver, tal og specialtegn (!@#$%^&*).");
