@@ -17,6 +17,20 @@ public class UserUsecase {
     }
 
     public void updateUser(User userToUpdate, User currentUser) {
+        if ("admin".equals(currentUser.getRole())) {
+            if (currentUser.getUserid().equals(userToUpdate.getUserid())) {
+                userDbSql.updateUser(userToUpdate, currentUser);
+            } else {
+                throw new RuntimeException("Administratorer kan kun opdatere deres egne oplysninger.");
+            }
+        } else if ("user".equals(currentUser.getRole())) {
+            double bmr = calculateBMR(userToUpdate.getUserid()); // Beregn BMR kun hvis rollen er "user"
+            userToUpdate.setBmr(bmr); // Opdater brugerens BMR i User-objektet
+            userDbSql.updateUser(userToUpdate, currentUser);
+        } else {
+            // Hvis rollen ikke er "admin" eller "user", opdateres ikke BMR
+            userDbSql.updateUser(userToUpdate, currentUser);
+        }
         userDbSql.updateUser(userToUpdate, currentUser);
     }
 
