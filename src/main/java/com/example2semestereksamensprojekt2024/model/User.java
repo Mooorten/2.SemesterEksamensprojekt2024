@@ -130,24 +130,4 @@ public class User {
     public void setBmr(double bmr) {
         this.bmr = bmr;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userid=" + userid +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phone='" + phone + '\'' +
-                ", weight='" + weight + '\'' +
-                ", height='" + height + '\'' +
-                ", gender='" + gender + '\'' +
-                ", goals='" + goals + '\'' +
-                ", activitylevel='" + activitylevel + '\'' +
-                ", role='" + role + '\'' +
-                ", age=" + age +
-                ", bmr=" + bmr +
-                '}';
-    }
 }

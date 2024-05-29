@@ -72,18 +72,4 @@ public class Meal {
     public void setCategories(String categories) {
         this.categories = categories;
     }
-
-    // toString metode for at konvertere objektet til en strengrepræsentation
-    @Override
-    public String toString() {
-        return "Meal{" +
-                "mealid=" + mealid +
-                ", name='" + name + '\'' +
-                ", ingredients='" + ingredients + '\'' +
-                ", procedure='" + procedure + '\'' +
-                ", duration='" + duration + '\'' +
-                ", difficulty='" + difficulty + '\'' +
-                ", categories='" + categories + '\'' +
-                '}';
-    }
 }
