@@ -41,7 +41,7 @@ public class UserDbSql {
                 String sql = "UPDATE user SET name = ?, surname = ?, email = ?, password = ? WHERE userid = ?";
                 jdbcTemplate.update(sql, userToUpdate.getName(), userToUpdate.getSurname(), userToUpdate.getEmail(), userToUpdate.getPassword(), userToUpdate.getUserid());
             } catch (RuntimeException e) {
-                throw new RuntimeException("Fejl under opdatering af bruger", e);
+                throw new RuntimeException("Fejl under opdatering af admin", e);
             }
         } else {
             throw new IllegalArgumentException("Ugyldig brugerrolle");

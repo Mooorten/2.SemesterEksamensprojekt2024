@@ -44,8 +44,7 @@ class ApplicationTests {
         Long id = 1L;
         User user = new User();
         user.setName("Old Name");
-        User user1 = new User();
-        user1.setName("New Name");
+        user.setName("New Name");
         when(userDbSql.findUserByID(id)).thenReturn(Optional.of(user));
         }
 
