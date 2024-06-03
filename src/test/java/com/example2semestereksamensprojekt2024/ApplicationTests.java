@@ -46,6 +46,7 @@ class ApplicationTests {
         user.setName("Old Name");
         user.setName("New Name");
         when(userDbSql.findUserByID(id)).thenReturn(Optional.of(user));
+        userDbSql.updateUser(user, user);
         }
 
     @Test

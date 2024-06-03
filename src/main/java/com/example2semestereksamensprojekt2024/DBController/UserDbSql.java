@@ -27,6 +27,7 @@ public class UserDbSql {
         }
     }
 
+    // Opdaterer en bruger i databasen
     public void updateUser(User userToUpdate, User currentUser) {
         if ("user".equals(currentUser.getRole())) {
             try {
@@ -110,6 +111,7 @@ public class UserDbSql {
         };
     }
 
+    // Beregner kundes BMR
     public double calculateBMR(Long userId) {
         Optional<User> optionalUser = findUserByID(userId);
         if (optionalUser.isPresent()) {

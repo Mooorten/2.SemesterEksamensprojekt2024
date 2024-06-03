@@ -25,7 +25,7 @@ public class MealController {
     @PostMapping("/createMeal") // Mapping for at oprette et måltid
     public String createMeal(@ModelAttribute Meal meal) {
         mealUsecase.createMeal(meal); // Kalder metoden createMeal i MealUsecase og sender måltidet som parameter
-        return "redirect:/adminmenu"; // Brug redirect her // Returnerer navnet på HTML-siden for adminmenuen
+        return "redirect:/adminmenu"; // Returnerer navnet på HTML-siden for adminmenuen
     }
 
     @GetMapping("/viewmeals")

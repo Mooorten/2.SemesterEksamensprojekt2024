@@ -3,7 +3,7 @@ package com.example2semestereksamensprojekt2024.model;
 // Definition af Meal-klassen
 public class Meal {
 
-    // Attributter for måltidet
+    // Variable for meal klassen
     private Long mealid; // Unik identifikator for måltidet
     private String name; // Navn på måltidet
     private String ingredients; // Ingredienser til måltidet
@@ -16,7 +16,7 @@ public class Meal {
     public Meal() {
     }
 
-    // Getter og setter metoder for attributterne
+    // Getter og setter metoder for variablene
     public Long getMealid() {
         return mealid;
     }

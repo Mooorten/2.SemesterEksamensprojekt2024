@@ -18,6 +18,7 @@ public class MealDbSql {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // Opretter et måltid i databasen
     public void createMeal(Meal meal) {
         try {
             String sql = "INSERT INTO meal (name, ingredients, `procedure`, duration, difficulty, categories) VALUES (?, ?, ?, ?, ?, ?)";
